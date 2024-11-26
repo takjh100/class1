@@ -46,7 +46,37 @@ public class typeCastingExam {
 	    int i_result = (int)d_result;
 	    System.out.println("(int) i_result : "+(int) i_result);
 	    
+//	    깜짝문제
+	    //그럼 주최자는 얼마를 내야하는가?
 	    
+	    double m_result = total-((int)i_result*count-1);
+	    System.out.println("(double) m_result : "+(double) m_result);
+	    
+	    
+	    
+	    /*진짜문제
+	     * 
+	     * String a1 = "수박";
+	       String b1 = "볼링공";
+	     * 
+	     *a = "볼링공" 금지
+	    		 
+	     * System.out.println( a ); //"볼링공"
+	     * System.out.println( b ); //"수박"
+	     */
+	    String a1 = "수박";
+	    String b1 = "볼링공";
+	    System.out.println("a1 : "+a1+",b1 :"+b1);
+	    
+	    String temp = a1;
+	    
+	    a1 = b1;
+	    b1 = temp;
+	    System.out.println("a1 : "+a1+",b1 :"+b1);
+	    
+	
+	
 	}
-
+	
 }
+
