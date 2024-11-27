@@ -146,8 +146,9 @@ public class OpExam {
 	    System.out.println("n2 : "+ (n2++));
 	    System.out.println("n2 : "+ n2);
 	    
-	    int scoer = 95;
+	    int score = 95;
 	    cher grade = (score > 90) ? 'A' : 'B';
+	    
 	    		
 		
 		
