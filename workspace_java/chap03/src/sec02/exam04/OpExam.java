@@ -147,9 +147,30 @@ public class OpExam {
 	    System.out.println("n2 : "+ n2);
 	    
 	    int score = 95;
-	    cher grade = (score > 90) ? 'A' : 'B';
+	    char grade = (score > 90) ? 'A' : 'B';
 	    
-	    		
+//	    p150 Q5		
+		int var1 = 5;
+		int var2 = 2;
+		double var3 =((double)var1 / var2);
+		int var4 = (int)(var3 * var2);
+		System.out.println(var4);
+		
+//		p151 Q6
+		int value = 356;
+		System.out.println((int)((double)value*0.01)*100);
+		System.out.println((value / 100) * 100);
+		System.out.println(value-(value % 100));
+		
+//		깜짝퀴즈
+//		v1 / v2의 값을 소수점 3자리까지만 출력
+		double v1 = 3200;
+		double v2 = 457;
+	    double v3 = (v1 / v2)*1000;
+	    double v4 = (int)v3;
+		System.out.println(v4/1000);
+		
+		
 		
 		
 	}
