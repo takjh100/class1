@@ -202,7 +202,8 @@ public class IfExam {
 	     int num = 33;  //같음
 	     num =65;      //다름
 	     int num1 = (num/10);
-	     int num2 = num -(num1 *10);
+	     int num2 = num % 10; 
+//	     int num2 = num -(num1 *10);
 	     if (num1 ==num2) {
 	    	 System.out.println("같다");
 	     }else {
@@ -266,96 +267,110 @@ public class IfExam {
 	     
 	     //가위 바위 보 게임
 	     
-	     Scanner scan = new Scanner (System.in);
-			int sc = scan.nextInt();
-         System.out.println(sc);	
-	     
-	     
-	     double ran = Math.random();
-	     double ran2 = Math.random()*(3);
-	     int ran3 = (int)ran2;
-	     int ran4 = ran3 + 1;
-	     
-	     if (sc == 1 && ran4 == 1) {
-	         System.out.println("가위로 비겼습니다");	
-	     }else if (sc == 1 && ran4 == 2) {
-		     System.out.println("가위로 졌습니다");	
-         }else if (sc == 1 &&ran4 == 3) {
-		     System.out.println("가위로 이겼습니다");	
-         }else {
-        	 System.out.println("없음");  
-         }
-	     
-	     if (sc == 2 && ran4 == 1) {
-	         System.out.println("바위로 이겼습니다");	
-	     }else if (sc == 2 && ran4 == 2) {
-		     System.out.println("바위로 비습니다");	
-         }else if (sc == 2 &&ran4 == 3) {
-		     System.out.println("바위로 졌습니다");	
-         }else {
-        	 System.out.println("없음");  
-         }
-	     
-	     if (sc == 3 && ran4 == 1) {
-	         System.out.println("보로 졌습니다");	
-	     }else if (sc == 3 && ran4 == 2) {
-		     System.out.println("보로 이겼습니다");	
-         }else if (sc == 3 &&ran4 == 3) {
-		     System.out.println("보로 비겼습니다");	
-         }else {
-        	 System.out.println("없음");  
-         }
-	     
-	     
-         
+//	     Scanner scan = new Scanner (System.in);
+//	     int sc = scan.nextInt();
+//         System.out.println(sc);	
+//	     
+//	     /*int npc=(int)(Math.random()*3) + 1;*/
+//	     double ran = Math.random();
+//	     double ran2 = Math.random()*(3);
+//	     int ran3 = (int)ran2;
+//	     int ran4 = ran3 + 1;
+//	     
 //	     if (sc == 1 && ran4 == 1) {
 //	         System.out.println("가위로 비겼습니다");	
 //	     }else if (sc == 1 && ran4 == 2) {
 //		     System.out.println("가위로 졌습니다");	
 //         }else if (sc == 1 &&ran4 == 3) {
 //		     System.out.println("가위로 이겼습니다");	
-//         }else {
-//        	 System.out.println("없음");  
 //         }
 //	     
-//	     if (sc == 2 && ran4 == 1) {
+//         else if (sc == 2 && ran4 == 1) {
 //	         System.out.println("바위로 이겼습니다");	
 //	     }else if (sc == 2 && ran4 == 2) {
-//		     System.out.println("바위로 비습니다");	
+//		     System.out.println("바위로 비겼습니다");	
 //         }else if (sc == 2 &&ran4 == 3) {
 //		     System.out.println("바위로 졌습니다");	
-//         }else {
-//        	 System.out.println("없음");  
 //         }
 //	     
-//	     if (sc == 3 && ran4 == 1) {
+//         else if (sc == 3 && ran4 == 1) {
 //	         System.out.println("보로 졌습니다");	
 //	     }else if (sc == 3 && ran4 == 2) {
 //		     System.out.println("보로 이겼습니다");	
 //         }else if (sc == 3 &&ran4 == 3) {
 //		     System.out.println("보로 비겼습니다");	
-//         }else {
-//        	 System.out.println("없음");  
 //         }
-	     
-	     
-	     
-	     
-	     
-        	 if (ran4 == 1) {
-	         System.out.println("가위");	
-	     }else if (ran4 == 2) {
-		     System.out.println("바위");	
-         }else if (ran4 == 3) {
-		     System.out.println("보");	
-         }else {
-        	 System.out.println("없음");
-          
+//	     
+//	     
+//        	 if (ran4 == 1) {
+//	         System.out.println("가위");	
+//	     }else if (ran4 == 2) {
+//		     System.out.println("바위");	
+//         }else if (ran4 == 3) {
+//		     System.out.println("보");	
+//         }
+//	     
+         	  
+        	 
+        	 
+         int nu = 2;
+         switch (nu) {
+			case 1:
+				System.out.println("1입니다");
+				break;
+			case 2:
+				System.out.println("2입니다");
+				break;
+			case 3:
+				System.out.println("3입니다");
+			default:
+				System.out.println("4입니다");
          }
-	
-	}	 
-	
-           
-}	
+        int month = 11;
+        switch (month) {
+        case 12 :
+        case 1 :
+        case 2 :
+        	System.out.println("겨울");
+            break;
+        case 9 :
+        case 10 :
+        case 11 :
+        	System.out.println("가을");
+            break;
 
+        }
+//      실행문이 동일할 경우 실행문과 break를 생략가능
+//      생략시 if문 보다 보기편하고 깔끔함  
+        
+        //변수의 통장 잔액 10000원 있을때
+        //출금액을 입력받아서 
+        //"잔액이 부족합니다"
+        //"얼마 출금했고 얼마 남았습니다"
+        //음수의 경우"정확히 입력해주세요"
+        
+//        Scanner scan = new Scanner (System.in);
+//        int sc = scan.nextInt();
+//        System.out.println(sc);
+//        
+        int sc = 1000;
+        int mm = 10000;
+        int mm1 =mm-sc;
+        
+        if (sc > mm) {
+        	System.out.println("잔액이 부족합니다");
+        	System.out.println("잔액 :"+ mm +"원");
+        }
+        else if (sc >= 0 && sc <= mm) {
+        	mm -= sc;
+        	System.out.println( sc + "원 출금했고"+(mm)+ "원 남았습니다");
+        }
+        else if (sc <= 0) {
+        	System.out.println("정확히 입력해 주세요");
+        }	
+        	
+         
+        	 
+	}
 
+}
