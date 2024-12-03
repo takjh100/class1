@@ -169,27 +169,269 @@ public class ForExam {
 	    	 System.out.print(q1);
 	    	 System.out.println();
 	     }
-	     System.out.print(q1);
+	     System.out.println(q2);
 	    	 
 	     // 구구단 2 단 출력
 	     // 2 x 1 = 2
 	     
+ 
+	     for(int w2=2;w2<=9;w2++) {
+	    	 for (int w=1;w <= 9;w++) {
+	    	 System.out.println(w2+"x"+w+"="+w2*w);
+	    	 }
+	     }
+	     
+	     
+	  // 0단계
+	     /*
+	      
+	      +
+	      +
+	      +
+	      +
+	      +
+	      
+	      */
+
+	     for (int e=1;e<=5;e++) {
+	    	 System.out.println("+");
+	     }
+	     
+	     // 1단계
+	     /*
+	      
+	      +++++
+	      
+	      */
+	     for (int e=1;e<=5;e++) {
+	    	 System.out.print("+");
+	     }
+	     System.out.println();
+	     // 2단계
+	     /*
+	      
+	      +++++
+	      +++++
+	      +++++
+	      
+	      */
+	     for (int e1=1;e1<=3;e1++){
+	     for (int e=1;e<=5;e++) {
+	    	 System.out.print("+");
+	      }System.out.println();
+	     }
+
+	     // 3단계
+	     /*
+	      
+	      + + + + +
+	      
+	      */
+	     
+	     for (int e=1;e<=5;e++) {
+	    	 System.out.print("+");
+	    	 System.out.print(".");
+	    	 
+	     }
+	     // 3.5단계
+	     /*
+	      
+	      1
+	      22
+	      333
+	      4444
+	      55555
+	      
+	      */
+	     System.out.println(" ");
+	     
+	     for(int j=1; j <=5; j++) {
+	         
+	    	 for (int e=1;e<=j;e++) {
+	    	    System.out.print(j);
+	        }
+	        System.out.println();
+	     }
+	     // 4단계
+	     /*
+	      
+	      +
+	      ++
+	      +++
+	      ++++
+	      +++++
+	      
+	      */
+		 for (int j = 1; j <= 5; j++) {
+
+			for (int e = 1; e <= j; e++) {
+				System.out.print("+");
+			}
+			System.out.println();
+		 }
+
+		 //4.5단계
+		 /*
+		  * 11111
+		  * 2222
+		  * 333
+		  * 44
+		  * 5
+		  * 
+		  */
+		 for (int j = 1; j <= 5; j++) {
+
+				for (int e = 1; e <=(6-j); e++) {
+					System.out.print(j);
+				}
+				System.out.println();
+			 }
+		 
+	     // 5단계
+	     /*
+	      
+	      +____
+	      ++___
+	      +++__
+	      ++++_
+	      +++++
+	      
+	      */
+		 System.out.println("----------");
+		 
+		 
+		 for (int j = 1; j <= 5; j++) {
+
+				for (int e = 1; e <= j; e++) {
+					System.out.print("+");
+				}
+				for (int e1 = 4; e1 >= j; e1--) {
+					System.out.print("_");
+			 }System.out.println();
+		 }		
+
+	     // 6단계
+	     /*
+	      
+	      ____+
+	      ___++
+	      __+++
+	      _++++
+	      +++++
+	      
+	      */
+		 for (int j = 1; j <= 5; j++) {
+
+			for (int e1 = 1; e1 <= (5-j); e1++) {
+			System.out.print("_");
+			}
+			   for (int e = 1; e <= j; e++) {
+			   System.out.print("+");
+	       }
+				System.out.println();
+		 }		
+
+	     // 7단계
+	     /*
+	      
+	      ____+
+	      ___+++
+	      __+++++
+	      _+++++++
+	      +++++++++
+	      
+	      */
+		 System.out.println("-----------");
+		 
+         		 
+		 for (int j = 1; j <= 5; j++) {
+
+			for (int e1 = 1; e1 <= (5-j); e1++) {
+			 System.out.print("_");
+			}
+			  for (int e = 1; e <=(j*2)-1;e++) {
+			    System.out.print("+");
+		   } 
+			  		System.out.println();
+		 }		
+
+	     // 8단계
+	     /*
+	      
+	      ____+____
+	      ___+++___
+	      __+++++__
+	      _+++++++_
+	      +++++++++
+	      
+	      */
+		 for (int j = 1; j <= 5; j++) {
+
+				for (int e1 = 1; e1 <= (5-j); e1++) {
+				 System.out.print("_");
+				}
+				  for (int e = 1; e <=(j*2)-1;e++) {
+				    System.out.print("+");
+			   } 
+				  for (int e1 = 1; e1 <= (5-j); e1++) {
+						 System.out.print("_");
+						}
+				  		System.out.println();
+			 }		
+	     // 9단계
+//	     ... (1줄 남음)
+			int k = 15;
+			for (int j = 1; j <= k; j++) {
+
+				for (int e1 = 1; e1 <= (k - j); e1++) {
+					System.out.print("_");
+				}
+				for (int e = 1; e <= (j * 2) - 1; e++) {
+					System.out.print("+");
+				}
+				for (int e1 = 1; e1 <= (k - j); e1++) {
+					System.out.print("_");
+				}
+				System.out.println();
+			 }		
 	     
 	     
 	     
+	    int x1 = -1; 
+		for(x1 = 1; x1 < 5;x1++) {
+			
+		}System.out.println("x : "+ x1);	
 	     
 	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	     
-	  
+		// 주사위 두개로 나올 수 있는 모든 조합 출력
+		/*
+		 * 2: [1,1]
+		 * 3: [1,2][2,1]
+		 * 4: [2,2][1,3][3,1]
+		 * 5: [1,4][2,3][3,2][4,1]
+		 * 6: [1,5][2,4][3,3][4,2][5,1]
+		 * 	
+		 */
+		//중복을 제거한 경우의 수
+		/*
+		 * 2 : 1가지
+		 * 3 : 1가지
+		 * 4 : 2가지	
+		 */
+	    
+		//두개의 조합 출력후 중복을 제거
+		//이미 나왔던 조합은 건더뛰게끔
+		//중복되는 패턴 확인하기
+		//첫번째 주사위 숫자가 두번째 주사위 
+		//숫자를 넘어가는 경우 중복
+	  int n = 0;
+	  for (int a = 1; a <=6;a++) {
+          for (int s = 1; s<=6; s++ ) {
+        	if(a <= s) {  System.out.println(a+":"+s);
+        	n += 1;
+        	}
+        	}
+	  }System.out.println(n);
 	     
 	     
 	}
