@@ -424,7 +424,17 @@ public class ForExam {
 		//중복되는 패턴 확인하기
 		//첫번째 주사위 숫자가 두번째 주사위 
 		//숫자를 넘어가는 경우 중복
-	  int n = 0;
+		
+		  for (int a = 1; a <=6;a++) {
+			  for (int s = 1; s<=6; s++ ) {
+		         System.out.println(a+":"+s);
+		  }
+		
+			  }
+		 
+		  System.out.println("----------------");
+		
+		int n = 0;
 	  for (int a = 1; a <=6;a++) {
           for (int s = 1; s<=6; s++ ) {
         	if(a <= s) {  System.out.println(a+":"+s);
