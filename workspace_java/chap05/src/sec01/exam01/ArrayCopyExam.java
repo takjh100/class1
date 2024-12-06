@@ -98,16 +98,22 @@ public class ArrayCopyExam {
 	    int sum =0;  //합
 	    double avg = 0.0; //평균
 	    int cnt = 0; 
+	    int max = -1;
 
 	    for(int i=0; i<array.length; i++) {
 	    	for(int u=0; u<array[i].length; u++) {
 	    		sum += array[i][u];
 	    		cnt++;
+	    	if(max <array[i][u]) {
+	    		max = array[i][u];
+	    	}
+	    	
 	    	} 
 	    }
 	    avg = (double)sum/cnt;
 	    System.out.println("합 : "+sum);
 	    System.out.println("평균 : "+avg);
+	    System.out.println("최대값 : "+max);
 	    
 	    
 	}

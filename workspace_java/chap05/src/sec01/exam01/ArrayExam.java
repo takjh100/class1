@@ -347,7 +347,7 @@ public class ArrayExam {
 			
 		}
 		
-		System.out.println("------6번--------");
+		System.out.println("------6-1번--------");
 //		암호 8자리 만들기
 //		반복문으로 8개의 랜덤돌리기
 		
@@ -360,6 +360,56 @@ public class ArrayExam {
 			System.out.println(ran[x]);
 		}
 		
+		System.out.println("------6-2번--------");
+		//암호 8자리 소문자로 
+		char[] str = new char [8];
+		for(int i=0;i<str.length;i++) {
+		 double	ddRandom = Math.random()*26 +97;
+		   str[i] = (char)(ddRandom);
+		   System.out.println(str[i]);
+		}
+		
+		System.out.println("------6-3번--------");
+		//숫자 2개이상,대/소문자 조합
+		
+		char [] sn = new char [3];
+		char [] sn1 = new char [3];
+		int[] nb = new int [2];
+		int i1 = nb[0];
+		int h1 = sn1[0];
+		int j1 = sn[0];
+		
+			
+		for(int i=0; i<nb.length; i++) {
+			double ddRandom =Math.random()*10;
+			nb[i] = (int)ddRandom;
+			i1 = nb[i];
+			System.out.println(nb[i]);
+	      
+		  for(int j=0; j<sn.length; j++) {
+			double dddRandom =Math.random()*26 +97;
+			  sn[j] = (char)(dddRandom);
+			  j1 = sn[j];
+			  System.out.println(sn[j]);
+			  
+			  for(int h=0; h<sn1.length; h++) {
+					double ddddRandom =Math.random()*26 +65;
+					  sn1[h] = (char)(ddddRandom);
+					  h1 = sn1[h];
+					  System.out.println(sn1[h]);
+					  }
+				  if(i1> -1) {
+					  continue;
+				  }
+				  if(h1> -1) {
+					  continue;
+				  }
+				  if(j1> -1) {
+					  continue;
+				  }
+		 }
+		
+	   }	
 		
 		
 	}	
