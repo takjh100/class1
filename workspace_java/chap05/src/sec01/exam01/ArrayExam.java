@@ -325,8 +325,39 @@ public class ArrayExam {
 		System.out.println(ma2);
 		
 		
-		System.out.println("------5번--------");
 		
+		//강사님 풀이 5번
+		System.out.println("강사님 5번--------");
+		int[] arr1 = {1,2,3,4,5};
+		for(int i = arr1.length -1; i>= 0; i--) {
+		  if(i == 0) {
+			  arr1[i] = 0;
+		  }else {
+		  arr1[i] = arr1[i-1];
+		  }
+		}
+		for(int j =0; j<arr1.length;j++) {
+			System.out.print(arr1[j]);
+		}
+		System.out.println();
+		
+		//강사님 5-1
+		System.out.println("강사님 5-1------");
+		for(int m =0;m < arr1.length;m++) {
+			for(int i = arr1.length -1; i>= 0; i--) {
+				  if(i == 0) {
+					  arr1[i] = 0;
+				  }else {
+				  arr1[i] = arr1[i-1];
+				  }
+				}
+		}
+		for(int j =0; j<arr1.length;j++) {
+			System.out.print(arr1[j]);
+		}
+		System.out.println();
+			
+		System.out.println("------5번--------");
 //		
 		
 //		z1[1]=z1[0];
@@ -357,8 +388,9 @@ public class ArrayExam {
 		for(int x=0;x <ran.length;x++) {
          double ddRandom = Math.random();
 			ran[x] = (int)(ddRandom*10); 
-			System.out.println(ran[x]);
+			System.out.print(ran[x]);
 		}
+		System.out.println();
 		
 		System.out.println("------6-2번--------");
 		//암호 8자리 소문자로 
@@ -366,8 +398,9 @@ public class ArrayExam {
 		for(int i=0;i<str.length;i++) {
 		 double	ddRandom = Math.random()*26 +97;
 		   str[i] = (char)(ddRandom);
-		   System.out.println(str[i]);
+		   System.out.print(str[i]);
 		}
+		System.out.println();
 		
 		System.out.println("------6-3번--------");
 		//숫자 2개이상,대/소문자 조합
@@ -411,7 +444,88 @@ public class ArrayExam {
 		
 	   }	
 		
+		//문제 8
+		//로또 6개 배열에 저장
+		//단, 중복없이
 		
-	}	
- 
+//		문제8. 로또 6개 배열에 저장
+
+		// 강사님풀이
+		// 단, 중복 없이
+//int[] lotto = new int[6];
+
+//lotto[0] = (int)(Math.random()*(45)) + 1;
+//lotto[1] = (int)(Math.random()*(45)) + 1;
+//if(lotto[0] == lotto[1]) {
+//	lotto[1] = (int)(Math.random()*(45)) + 1;
+//	
+//	if(lotto[0] == lotto[1]) {
+//		lotto[1] = (int)(Math.random()*(45)) + 1;
+//	}
+//}
+//do {
+//	lotto[1] = (int)(Math.random()*(45)) + 1;
+//} while(lotto[0] != lotto[1]);
+//
+//do {
+//	lotto[2] = (int)(Math.random()*(45)) + 1;
+//} while(lotto[0] != lotto[2] && lotto[1] != lotto[2]);
+//
+//// 2번 index 진행중
+//int index = 2;
+////boolean flag = false;
+////for(int i=0; i<index; i++) {
+////	if(lotto[i] == lotto[index]) {
+////		flag = true;
+////		break;
+////	}
+////}
+////if(flag) {
+////	// 다시 뽑기
+////}
+//
+//
+//boolean flag = false;
+//do {
+//	int j = 2;
+//	
+//	lotto[j] = (int)(Math.random()*(45)) + 1;
+//	
+//	flag = false;
+//	for(int i=0; i<j; i++) {
+//		if(lotto[i] == lotto[j]) {
+//			flag = true;
+//			break;
+//		}
+//	}
+//} while(flag);
+
+		int[] lotto = new int[6];
+		boolean flag = false;
+		for (int j = 0; j < lotto.length; j++) {
+			do {
+				lotto[j] = (int) (Math.random() * (45)) + 1;
+				flag = false;
+				for (int i = 0; i < j; i++) {
+					if (lotto[i] == lotto[j]) {
+						flag = true;
+						System.out.println("중복발생");
+						break;
+					}
+				}
+			} while (flag);
+		}
+		System.out.println("--로또 번호--탁정현--------------");
+		for (int i = 0; i < lotto.length; i++) {
+			if (i != 0) {
+				System.out.print("," + lotto[i]);
+			} else {
+				System.out.print(lotto[i]);
+			}
+		}
+		
+		
+		
+	}
+
 }
