@@ -39,6 +39,12 @@ public class Calc {
 		return result;
 
 	}
+	double times (double x, double y) {
+		double result = x*y;
+		System.out.println(result);
+		return result;
+		
+	}
 	
 	double division (double x, double y) {
 		double result = x/y;
@@ -68,6 +74,10 @@ public class Calc {
 			this.result = minus(x, y);
 		}else if (z == "*") {
 			this.result = times(x, y);
+		}else if (z == "/") {
+			this.result = division(x, y);
+		}else if (z == "%") {
+			this.result = Percent(x, y);
 		}
     }
 }
