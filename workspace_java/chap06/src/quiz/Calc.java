@@ -69,15 +69,22 @@ public class Calc {
 	void compute(int x, String z, double y) {
 		if(z == "+") {
 		this.result = plus(x, y);
-//		System.out.println(result);
+		System.out.println(x+" + "+y+" : "+result);
 		}else if (z == "-") {
 			this.result = minus(x, y);
+			System.out.println(x+" - "+y+" : "+result);
 		}else if (z == "*") {
 			this.result = times(x, y);
+			System.out.println(x+" * "+y+" : "+result);
 		}else if (z == "/") {
 			this.result = division(x, y);
+			System.out.println(x+" / "+y+" : "+result);
 		}else if (z == "%") {
 			this.result = Percent(x, y);
+			System.out.println(x+" % "+y+" : "+result);
+		}else {
+			System.out.println("제대로 입력해 주세요");
 		}
+		
     }
 }
