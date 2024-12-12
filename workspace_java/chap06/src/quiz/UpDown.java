@@ -28,7 +28,7 @@ public class UpDown {
 	Random random = new Random();
 	void gameStart () {
 		System.out.println("up,down 게임을 시작합니다");
-		ran = random.nextInt(10)+1;
+		ran = random.nextInt(11)+1;
 		game();
 	}
 	
@@ -51,30 +51,36 @@ public class UpDown {
 //		}		
 	
 	void game() {
-		Scanner scanner = new Scanner(System.in);
 		int sean = 0;
+		Scanner scanner = new Scanner(System.in);
+		
 		for (int i = 0; i < 5; i++) {
 			sean = scanner.nextInt();
 			if (sean == ran) {
 				System.out.println(sean + "정답");
+				break;
 			} else if (sean < ran) {
 				System.out.println("up");
 
 			} else if (sean > ran) {
 				System.out.println("down");
 
-			} else {
+			}else if (sean == 11) {
+				System.out.println("힌트:정답은"+ran+"입니다");
+			}
+			else {
 				System.out.println("제대로 입력해 주세요");
 			}
-
+		  
 		}
 		System.out.println("게임종료");
+		
 
 	}
 
-	void hint() {
-		System.out.println(ran);
-	}
+//	void hint() {
+//		System.out.println(ran);
+//	}
 
 //switch (sean) {
 //case 1:

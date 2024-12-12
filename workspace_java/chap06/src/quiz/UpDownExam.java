@@ -7,6 +7,7 @@ public class UpDownExam {
 		
 		UpDown udgame = new UpDown();
 		udgame.gameStart();
+		
 	}
 
 }
