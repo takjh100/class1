@@ -1,0 +1,58 @@
+.block {
+    border: 1px solid red;
+    height: 50px;
+    width: 100px;
+    margin: 0 auto; /*좌우만 가능*/
+}
+.inline {
+    border: 1px solid red;
+
+    margin: 0 50px; /*좌우만 가능*/
+    padding: 30px;  /*좌우만 가능 단 border는 이뤄짐*/
+}
+
+.bg_blue {
+    background-color: blue;
+    color: #ffffff;
+}
+
+.parent {
+    border: 1px dotted rgb(255, 0, 255);
+    width: 400px;
+    /* width: 100%; */
+}
+
+.parent > div {
+    border: 1px dashed blue;
+    
+    height: 50px;
+    width: 150px;
+    box-sizing: border-box;
+
+    display: inline-block;
+
+    /*inline, inline-block에만 적용 됨*/
+    vertical-align: top;
+}
+
+.hide {
+    display: none;
+}
+
+.table {
+    display: table;
+}
+.td {
+    display: table-cell;
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+    
+    vertical-align: middle;
+    text-align: center;
+}
+.fake_div {
+    display: inline;
+    border: 1px solid red;
+    
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function 키워드로 선언
+        // function 함수명(전달인자 변수명들)
+        // 전달인자에 타입 적지 않는다.
+
+
+        //함수를 쓰는 이유
+        //정해진 순으로 동작하는 코드의 묶음
+        // 재사용도 편하다
+
+        function plus (x,y){
+            console.log("x : ", x);
+            console.log("y : ", y);
+            let z = x +y;
+            return z;
+        }
+
+        let a = plus(2, 3);
+        console.log("a : ", a);
+
+
+        function times2(x){
+            let z =plus(x, x)
+            return z;
+        }
+
+        //아래 두줄은 완전히 동일한 결과가 나온다.
+        plus(8, 5)
+        plus(times2(4), 5)
+
+        console.log("----------------")
+        plus(1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,104 @@
+    /* 아래 font-family 적힌 값을 사용 가능*/
+    @font-face {
+        font-family: 'DungGeunMo';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+    #p1 {
+        color: blue;
+        /* text-decoration: underline; */
+        text-decoration: line-through;
+        font-family: 'DungGeunMo';
+
+    }
+
+    input[type=checkbox]:checked+span {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    .size {
+        /* font-size: small; */
+        /* font-size: 32px; */
+        /* font-size: 200%; */
+        font-size: 2em;
+    }
+
+    .style {
+        font-style: italic;
+    }
+
+    em {
+        font-style: normal
+    }
+
+    .fw-100 {
+        font-weight: 100;
+    }
+
+    .fw-500 {
+        font-weight: 500;
+    }
+
+    .fw-bold {
+        font-weight: bold
+    }
+
+    .fw-900 {
+        font-weight: 900;
+    }
+
+    /*100~900의 범위를 넘어서면 기본두께*/
+    .fw-2000 {
+        font-weight: 2000;
+    }
+
+    .align-right {
+        text-align: right;
+    }
+
+    .align-center {
+        text-align: center;
+    }
+
+    .align-justify {
+        text-align: justify;
+    }
+
+    .spacing {
+        letter-spacing: -0.1em;
+    }
+
+    .lh {
+        line-height: 200%;
+    }
+
+    .middle {
+        border: 1px solid red;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+    }
+
+    .nowrap {
+        border: 1px solid red;
+        width: 50vw;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .text {
+        border: 1px solid red;
+        width: 50vw;
+    }
+    .word-wrap {
+ word-wrap: break-word;
+    }
+
+    .word-break {
+        word-break: break-all
+    }
