@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,6 +26,7 @@
         <div class="child">안쪽 div</div>
     </div>
 
+    <img data-a ="a" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS63Esnn3GKPxfiLQwChKJ2YamNELohDcy5ag&s" style="width: 100px;">
 
     <script>
         // document는 html문서 전체를 뜻함
@@ -54,7 +60,7 @@
         let div2 = document.getElementsByClassName("div2")
         console.log(div2);
         console.log(div2[0]);
-        
+
         // document : 문서 전체
         let parent = document.getElementById("parent")
         console.log(parent);
@@ -62,9 +68,110 @@
         let child_div2 = parent.getElementsByClassName("div2");
         // let child_div2 = document.getElementById("parent").getElementsByClassName("div2");
         console.log(child_div2[0]);
-        
+
+
+        //querySelector : css 선택자를 그대로 사용할 수 있게 해줌
+        //getElementById 처럼 맨 처음 나오는 하나의 DOM만 돌려줌
         let qs1 = document.querySelector("#parent .div2");
         console.log(qs1);
+
+        console.log("--------------------");
+        let qs2 = document.querySelector(".div2");
+        console.log(qs2);
+
+        //요소가 없는 경우 null
+        let qs3 = document.querySelector("#human");
+        console.log(qs3);
+
+        let qsa1 = document.querySelectorAll(".div2");
+        console.log(qsa1);
+
+        let qsa2 = document.querySelectorAll(".div2asdfg");
+        console.log(qsa2);
+
+        let qsa3 = document.querySelectorAll("#view");
+        console.log(qsa3);
+
+        let child1 = document.querySelector("#parent .div2");
+        console.log(child1);
+        // parentNode : 부모 DOM으로 이동
+        let parent1 = child1.parentNode;
+        console.log(parent1);
+        
+        // classList : class를 배열 형식으로 돌려줌
+        console.log(child1.classList);
+        // classList.add() : class 추가
+        child1.classList.add("red");
+        //클래스는 중복해서 추가되지 않는다
+        child1.classList.add("red");
+        //classList.remove() : 해당 class 삭제
+        child1.classList.remove("red");
+        
+        //child1.classList.toggle() : 있으면 remove, 없으면 add 
+        child1.classList.toggle("red");
+        child1.classList.toggle("red");
+        
+        // contains() : 대상이 있는지 없는지 표현
+        let isRed = child1.classList.contains("red");
+        console.log(isRed);
+        
+        // TODO : toggle 구현 (단, toggle 쓰지 말고)
+        if(isRed) {
+            child1.classList.remove("red");
+        } else {
+            child1.classList.add("red");
+        }
+        
+        // className : 모든 class를 문자로 돌려줌
+        console.log(child1.className);
+        //값을 지정하는 class의 값을 덮어쓰기
+        child1.className = "blue";
+
+        //css 선택자 중에 속성으로 선택하는걸로 querySelector 사용해보기
+        let view2 = document.querySelector('div[id="view"]');
+        console.log(view2);
+        // contains 구현해보기
+        function contains(element, name){
+            for (let i=0; i < element.classList.length; i++){
+                if(element.classList[i] == name){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        let img = document.getElementsByTagName("img");
+        console.log(img);
+        console.log(img[0]);
+        console.log(img[0].classList);
+        
+        // hasAttribute :속성명이 있는지 여부
+        let isSrc = img[0].hasAttribute("src");
+        console.log(isSrc);
+        isSrc = img[0].hasAttribute("readonly");
+        console.log(isSrc);
+        
+        // getAttribute : 속성값 가져오기
+        let src = img[0].getAttribute("src");
+        console.log(src);
+        //속성이 없으면 null
+        src = img[0].getAttribute("readonly");
+        console.log(src);
+
+        //setAttribute (속성명 , 속성값) : 
+        //              속성이 없으면 속성을 만들고
+        //              속성이 있으면 값 덮어쓰기
+        img[0].setAttribute("data-human","1강의실");
+        img[0].setAttribute("data-human","10강의실");
+        // img[0].setAttribute("src","다른 사진 링크넣을시 사진변경가능 ");
+        
+        //removeAttribute : 속성제거
+        img[0].removeAttribute("data-human");
+
+        
+
+
+
 
     </script>
 </body>
