@@ -26,6 +26,23 @@
     </div>
 
     <h1 id="h1">style 테스트 </h1>
+
+    text : <input type="txet" id="id" value="미리적은글"><br>
+    date : <input type="date" id="date"><br>
+    redio :
+    <input type="radio" name="ai" value="1" checked="checked">GPT
+    <input type="radio" name="ai" value="2">Gamini
+    <input type="radio" name="ai" value="3">Bing
+    <br>
+    <select id="select">
+        <option value="1">첫번째</option>
+        <option value="2">두번째</option>
+    </select>
+    <br>
+    <textarea id="textarea" cols="50" rows="10"></textarea>
+
+    <div style="height: 1000px;"></div>
+
     <script>
         let msg = document.querySelector("#msg");
         // textContent : 컨텐츠 영역의 소스 중 text만 그대로 가져온다 
@@ -101,7 +118,7 @@
 
         let h1 = document.querySelector("#h1");
         console.log('h1.style.color', h1.style.color);
-        
+
         h1.style.color = "blue";
         console.log('h1.style.color', h1.style.color);
 
@@ -112,12 +129,45 @@
         // javascript 로 지정한 style의 모든 내용 덮어 쓰기
         h1.style.cssText = 'font-size: 20px; border: 1px solid red;'
 
-//getComputedStyle : 기존 css 요소의 프로퍼티값을 반환
+        //getComputedStyle : 기존 css 요소의 프로퍼티값을 반환
         // getPropertyValue : 속성값 얻기
         let h = window.getComputedStyle(h1, null).getPropertyValue("height");
         console.log(h)
         console.log(h1.style.height)
         h1.style.height = "200px";
+
+        setTimeout(function () {
+            const txet = document.querySelector("#id");
+            console.log(txet.value);
+
+            const date = document.querySelector("#date");
+            console.log(date.value);
+
+            const ai = document.querySelector("[name=ai]:checked")
+            console.log(ai.value);
+
+            const ais = document.querySelectorAll("[name=ai]:checked")
+            for (let i = 0; i < ais.length; i++) {
+                console.log(ais[i].checked);
+                if (ais[i].checked) {
+                    console.log(ais[i].valus);
+                }
+            }
+
+            const select = document.querySelector("#select")
+            console.log(select.value);
+            
+            const textarea = document.querySelector("#textarea")
+            console.log(textarea.value);
+            
+            let test = testarea.value.replace(/\n/g, "<br>")
+            console.log(test);
+
+        }, 4 * 1000
+        );
+
+
+
 
 
     </script>
