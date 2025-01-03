@@ -5,11 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #view2 {
-            color : red;
-        }
-    </style>
+    <script src="js/10_1_event실습.js"></script>
+
     <script>
 
         //         window.addEventListener("load", function () {
@@ -50,24 +47,11 @@
         //비번 아래와 로그인버튼 사이에
         //빨간색으로 "아이디는 필수입니다", "아이디는 필수입니다" 출력
 
-        setTimeout(function () {
-                
-            window.addEventListener("load", function () {
-                const login = document.querySelector("#login");
-                login.addEventListener("click", function () {
-                    const id = document.querySelector("#id").value;
-                    const pw = document.querySelector("#pw").value;
-                    if (id == "" && pw == "") {
-                        document.querySelector("#view2").innerHTML = "아이디와 비밀번호는 필수입니다."
-                    } else if (id == "") {
-                        document.querySelector("#view2").innerHTML = "아이디는 필수입니다."
-                    } else if (pw == "") {
-                        document.querySelector("#view2").innerHTML = "비밀번호는 필수입니다."
-                    }
-                })
-            })
-            
-            }, 0);
+
+
+
+
+
 
 
 
@@ -91,13 +75,45 @@
     <!-- 조건문2
      로그인 ui
      -->
-     <div id="view2" ></div>
     <div>
         아이디 : <input type="text" id="id"><br>
-        비밀번호 : <input type="text" id="pw"><br>
+        비밀번호 : <input type="text" id="pw">
         <br>
-        <button type="button" id="login" value="로그인">로그인</button>
+        <div id="view2"></div>
+        <br>
+        <input type="button" id="login" value="로그인">
     </div>
+
+    <div id="time"></div>
+    
+    
+    
+    <div id="bell"></div>
+
+    시간설정 : <input id="alarm" type="time" value="03:01" >
+<input type="button" id="alarmbtn" value="알람설정">
+
+    <!--문제
+    중복 없이 로또 번호를 뽑고 
+    오름차순으로 정렬해서 출력한다-->
+    <br>
+    <div id="ltnumber"></div>
+    <input type="button" id="ltbtn" value="로또번호추첨">
+<br>
+
+    <!-- 
+    12345@abcde.com
+    12***@abcde.com
+    위 규칙으로 
+    hope@human.or.kr
+    변경 후 출력 -->
+이메일 : <input type="text" id="email" value="12345@abcde.com">
+
+
+    <!-- cafe.naver.com
+    naver 만 추출 (split, indexOf와 글씨 자르기) -->
+
+
 </body>
 
 </html>

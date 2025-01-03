@@ -38,7 +38,7 @@
         console.log("----------------")
         plus(1)
 
-
+        // setInterval 은 지정한 시간 간격으로 함수를 실행 ,반복 한다 
         let idx2 = setInterval(function () {
             console.log("setinterval 실행")
         }, 1 * 1000)
@@ -112,8 +112,8 @@
         // 실행문 안의 내용이 return문만 있는 경우
         // return 키워드와 {}를 생략할 수 있다
         let test5_1 = (a, b) => a + b;
-        
-        let test6 = a => a*3;
+
+        let test6 = a => a * 3;
         test6(3); // 9
         // customTimeot( a => a*3,1000);
 

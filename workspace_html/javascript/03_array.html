@@ -93,7 +93,15 @@
         console.log(arr);
         
         //배열이 오름차순으로 정렬된다
-        arr.sort();
+        //문자로 변경해서 정렬함으로 
+        // 숫자 정렬할 경우 등 콜백함수를 넣어서 사용
+
+        arr.sort(function(x,y){
+//return 하는 값이
+// ((x ,y) => x-y) : 오름차순 
+// ((x ,y) => y-x) : 내림차순
+ // 0 : 순서 변동 없음
+        });
         console.log(arr);
         
         // [1, 2, 2, 3, 4, 5]
@@ -135,12 +143,12 @@
         
         arr = [1,2,3,4,5]
         // slice(시작 index, 종료 indxe 바로 앞)
-        //복사만 하기때문에 원본이 회손되지 않는다
+        //복사만 하기때문에 원본이 회손되지 않는다 , ctrl+c 느낌
         let slice = arr.slice(1,3)
         console.log(arr);
         console.log(slice);
         
-        //값을 더해준다
+        //값을 더해준다 (배열을 합쳐줌)
         let concat = arr.concat(slice)
         console.log(arr);
         console.log(slice);
