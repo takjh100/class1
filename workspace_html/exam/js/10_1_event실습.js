@@ -50,8 +50,15 @@ window.addEventListener('load',function(){
     let alarmbtn = document.querySelector('#alarmbtn');
     alarmbtn.addEventListener("click", function () {
         let alarm = document.querySelector('#alarm').value;
-        // document.querySelector('#bell').innerHTML = alarm.value;
-        console.log(alarm);
+        // if(h,m == alarm){
+            if(alarm <'12:00'){
+                document.querySelector('#bell').innerHTML = '알람 시간 AM '+alarm+'입니다';
+                
+            }else if(alarm >'12:00' && alarm <'24:00'){
+                document.querySelector('#bell').innerHTML = '알람 시간 PM '+alarm+'입니다';
+            }
+            console.log(alarm);
+        // }
 
 })
 })
