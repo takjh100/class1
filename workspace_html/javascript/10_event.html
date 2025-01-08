@@ -394,34 +394,168 @@
 
         })
     </script>
+    <style>
+        .title {
+            color: red;
+        }
 
-    <input class="bnt" type="button" value="Accordion Item #1">
-        <br>
-        <div class="boxtxet"><strong>This is the first item's accordion body.</strong> It is hidden by default, until the
-            collapse
-            plugin adds the
-            appropriate classes that we use to style each element. These classes control the overall appearance, as well
-            as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our
-            default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though
-            the transition does limit overflow.</div>
-        <div>
-    </button>
-        <div></div>
+        .hide {
+            display: none;
+        }
+    </style>
+
+    <div>
+        <div id="a1" class="title">Accordion Item #1</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae ad, omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem? Ad, vel
+            aliquam!
+        </div>
     </div>
     <div>
-        <div></div>
+        <div id="a2" class="title">Accordion Item #2</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae ad, omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem? Ad, vel
+            aliquam!
+        </div>
+    </div>
+
+
+    <div>
+        <div id="a3" class="title">Accordion Item #3</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae ad,
+            omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem? Ad,
+            vel
+            aliquam!
+        </div>
     </div>
     <div>
-        <div></div>
+        <div id="a4" class="title">Accordion Item #4</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae
+            ad, omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem?
+            Ad, vel
+            aliquam!
+        </div>
     </div>
+
+
+
 
     <script>
-        let bnt = document.querySelector('.bnt')
-        bnt.addEventListener('click',function(event){
-            let boxtext = document.querySelector('.boxtext')
-            
-        })
+        // #a1을 클릭하면 
+        // 부모로 올라가서
+        // 자식중에 .datail 확보하고 조작
+        // document.querySelector('#a1')
+        //     .addEventListener('click', function (event) {
+        //         const p = event.target.parentNode
+        //         const d = p.querySelector(".detail")
+        //         // d.style.display = 'block';
+        //         d.classList.remove('hide');
+        //     })
+        // document.querySelector('#a2')
+        //     .addEventListener('click', function (event) {
+
+        //         //먼저 모든 .detail에 hide 추가
+        //         let details = document.querySelectorAll('.detail')
+        //         for (let i = 0; i < details.length; i++) {
+        //             details[i].classList.add('hide');
+        //         }
+        //         //내껏만 hide를 제거
+
+        //         const p = event.target.parentNode
+        //         const d = p.querySelector(".detail")
+        //         // d.style.display = 'block';
+        //         d.classList.remove('hide');
+        //     })
+
+        const titles = document.querySelectorAll('.title')
+        for (let i = 0; i < titles.length; i++) {
+            titles[i].addEventListener('click', function (event) {
+
+
+                const p = event.target.parentNode
+                const isHide = p.querySelector(".detail.hide")
+
+                // 먼저 모든 .detail에 hide 추가
+                let details = document.querySelectorAll('.detail')
+                for (let j = 0; j < details.length; j++) {
+                    details[j].classList.add('hide');
+                }
+
+                if (isHide != null) {
+                    const d = p.querySelector('.detail')
+                    d.classList.remove('hide')
+                }
+            })
+
+        }
     </script>
+    <style>
+        #menu {
+            display: flex;
+            border: 1px solid blue;
+        }
+
+        #menu div {
+            flex-grow: 1;
+            border: 1px solid red;
+
+
+        }
+
+        #content {
+            border: 1px solid red;
+        }
+
+        #content div {
+            border: 1px solid red;
+            height: 100px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+    <dlv>
+        <div id="content">
+            <div id="content1">1내용</div>
+            <div id="content2" class="hide">2내용</div>
+            <div id="content3" class="hide">3내용</div>
+            <div id="content4" class="hide">4내용</div>
+        </div>
+
+        <div id="menu">
+            <div date-topping="생크림" data-view="content1">1</div>
+            <div data-view="content2">2</div>
+            <div data-view="content3">3</div>
+            <div data-view="content4">4</div>
+        </div>
+    </dlv>
+    <script>
+        document.querySelector('#menu')
+            .addEventListener('click', function (evt) {
+                console.log(evt.target.textContent)
+                console.log(evt.target.getAttribute('data-topping'))
+                console.log(evt.target.getAttribute('data-view'))
+
+                let id = evt.target.getAttribute('data-view')
+                // document.querySelector('#' + id)
+
+                const contents = document.querySelectorAll("[id^=contnet]:not(#content)")
+
+                for (let i = 0; i < contents.length; i++) {
+                    contents[i].classList.add('hide');
+                }
+
+                document.querySelector('#'+id).classList.remove('hide')
+
+            })
+    </script>
+
 </body>
 
 </html>
