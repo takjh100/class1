@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("load", function () {
+            let login = document.querySelector("#login")
+            login.addEventListener("click", function () {
+                let pw1 = document.querySelector("#pw1").value
+                let pw2 = document.querySelector("#pw2").value
+                if (pw1 != pw2) {
+                    document.querySelector("#view").style.color = 'red';
+                    document.querySelector("#view").innerHTML = "비밀번호 확인하세요";
+                } else if (pw1 == pw2) {
+                    document.querySelector("#view").innerHTML = "";
+                }
+            })
+
+        })
+
+
+        window.addEventListener("load", function () {
+            let same = document.querySelector("#same")
+            same.addEventListener("click", function () {
+                let name1 = document.querySelector("#name1").value
+                let pn1 = document.querySelector("#pn1").value
+                let dwelling1 = document.querySelector("#dwelling1").value
+                if (same.checked == true) {
+                    let name2 = document.querySelector("#name2").value = name1;
+                    let pn2 = document.querySelector("#pn2").value = pn1;
+                    let dwelling2 = document.querySelector("#dwelling2").value = dwelling1;
+                } else if (same.checked == false) {
+                    let name2 = document.querySelector("#name2").value = "";
+                    let pn2 = document.querySelector("#pn2").value = "";
+                    let dwelling2 = document.querySelector("#dwelling2").value = "";
+                }
+
+            })
+        })
+
+        //강사님 풀이
+        window.addEventListener("load", function () {
+
+            const order2 = document.querySelector("#order2");
+            order2.addEventListener('click', function () {
+                const kind = document.querySelector("#kind");
+                const size = document.querySelector('[name="size"]:checked');
+                const toppings = document.querySelectorAll('[type=checkbox]:checked');
+                const request = document.querySelector('#request');
+                const view2 = document.querySelector('#view2');
+    
+                view2.innerHTML = "주문하신 내역은<br>"
+                // select
+                console.log(kind.value)
+                // value 이용하기
+                // if(kind.value == 1){
+                //     view.innerHTML += "불고기피자"
+                // } else if(kind.value == 2){
+                //     view.innerHTML += "야채피자"
+                // }
+    
+                // option에 적은 글 이용하기
+                // view.innerHTML += kind.querySelector("option:checked").textContent + "피자"
+    
+                // option의 속성 이용하기
+                view2.innerHTML += kind.querySelector("option:checked").getAttribute("data-name") + "피자"
+                view2.innerHTML += "<br>"
+    
+                view2.innerHTML += "사이즈 : "
+                console.log('size ', size.value)
+                if (size.value == 1) {
+                    view2.innerHTML += "미디움"
+                } else if (size.value == 2) {
+                    view2.innerHTML += "라지"
+                } else if (size.value == 3) {
+                    view2.innerHTML += "패밀리"
+                }
+                view2.innerHTML += "<br>"
+    
+    
+                // toppings : 배열
+                // 반복문 : for, forEach, while, for-in, for-of, map
+                toppings.forEach(function (element, index, array) {
+                    view2.innerHTML += element.getAttribute("data-name")
+                    if (index != array.length - 1) {
+                        view2.innerHTML += ","
+                    }
+                })
+    
+                view2.innerHTML += '<br>요청사항 : '
+                view2.innerHTML += request.value
+                
+                view2.innerHTML += '<br>총 금액 : '
+                view2.innerHTML += kind.querySelector("option:checked").getAttribute("data-value")
+                // view2.innerHTML += size.querySelector("input['data-value']:checked")
+    
+            })
+        })
+
+
+
+        // window.addEventListener("load", function () {
+        //     let order1 = document.querySelector("#order1")
+        //     order1.addEventListener("click", function () {
+        //         let pizza = document.querySelector("#pizza").value
+        //         console.log(pizza.value)
+        //         let size = document.querySelector('input[name="size"] :checked')
+        //         let topping = documentq.querySelector('input[name="topping"] : checked')
+        //         let request = document.querySelector("#request")
+        //         let totol = parseInt(pizza.value) + parseInt(size.value) + parseInt(topping.value)
+        //         document.querySelector("#view2").innerHTML = "주문내역 : <br>" + pizza.value + "원<br>" + size + "원<br>" + topping + "원<br>" + "요청사항 :" + request.value + "<br>총 금액 :" + totol + "원"
+
+
+
+        //     })
+        // })
+    </script>
+</head>
+
+<body>
+    <!--
+        문제1 
+    비밀번호 
+    비밀번호 확인
+    
+    로그인 버튼 클릭 시 두개의 값이 다르면 빨간글씨로 "비밀번호 확인하세요 글씨
+    출력 두개의 값이 같으면 : 확인문자 지우기"-->
+    <div>
+        비밀번호 : <input type="text" id="pw1"><br>
+        비밀번호 확인 : <input type="text" id="pw2"><br>
+        <div id="view"></div>
+        <input type="button" id="login" value="로그인">
+    </div>
+
+
+    <!--
+    문제2
+    배송정보의 checkbox 클릭시
+    주문정보의 내용을 배송정보에 복사
+    -->
+    <div id="order" style="border: 1px solid black; padding: 20px; margin: 10px;">
+        주문정보
+        <br>
+        <br>
+        이름 : <input type="text" id="name1"><br>
+        연락처 : <input type="text" id="pn1"><br>
+        주소 : <input type="text" id="dwelling1"><br>
+    </div>
+
+    <div id="delivery" style="border: 1px solid black; padding: 20px; margin: 10px;">
+        배송정보
+        <br>
+        <br>
+        <label for="same">
+            <input type="checkbox" id="same">주문정보와 동일합니다.
+        </label>
+        <br>
+        이름 : <input type="text" id="name2" value=""><br>
+        연락처 : <input type="text" id="pn2" value=""><br>
+        주소 : <input type="text" id="dwelling2" value=""><br>
+    </div>
+
+    <!-- 
+    문제3
+    피자주문 시스템
+    피자종류 select
+    사이즈 radio
+    토핑 checkbox
+    요청사항 input text
+
+    주문하기 버튼 클릭시
+    주문 내역 표시
+    (총 금액 표시)
+      -->
+    <!-- 강사님 풀이 -->
+    <h1>문제3 - 피자 주문 내역 출력</h1>
+    <div>
+        피자 종류
+        <select id="kind">
+            <option value="1" data-name="불고기" data-value="5000">불고기</option>
+            <option value="2" data-name="야채" data-value="5000">야채</option>
+            <option value="3" data-name="고구마" data-value="5000">고구마</option>
+            <option value="4" data-name="치즈" data-value="5000">치즈</option>
+            <option value="5" data-name="페페로니" data-value="5000">페페로니</option>
+        </select>
+        <br>
+        사이즈
+        <input type="radio" name="size" value="1" data-value="5000">미디움
+        <input type="radio" name="size" value="2" checked="checked" data-value="5000">라지
+        <input type="radio" name="size" value="3" data-value="15000">패밀리
+        <br>
+        토핑
+        <input type="checkbox" name="topping" value="1" data-name="올리브" data-value="500">올리브
+        <input type="checkbox" name="topping" value="2" data-name="파인애플" data-value="5000">파인애플
+        <input type="checkbox" name="topping" value="3" data-name="치즈" data-value="1500">치즈
+        <input type="checkbox" name="topping" value="4" data-name="페페로니" data-value="5000">페페로니
+        <br>
+        요청사항 <input type="text" id="request">
+        <br>
+        <button type="button" id="order2">주문하기</button>
+        <div id="view2"></div>
+    </div>
+
+
+    <!-- <div>
+        피자선택 : <select name="pizza" id="pizza">
+            <option value="10000">불고기:10000원</option>
+            <option value="8000">치즈:8000원</option>
+            <option value="9000">페페로니:9000원</option>
+            <option value="10000">콤비:10000원</option>
+        </select>
+        <br>
+        <div id="size">
+            사이즈 :<br>
+            <input type="radio" name="size" id="small" value="0">small 추가금액: 0원 <br>
+            <input type="radio" name="size" id="medium" checked='checked' value="2000">medium 추가금액: 2000원<br>
+            <input type="radio" name="size" id="large" value="3000">large 추가금액: 3000원<br>
+        </div>
+        <div id="topping">
+            토핑 : <br>
+            <input type="checkbox" name="topping" id="cheese" value="1000">치즈 1000원<br>
+            <input type="checkbox" name="topping" id="shrimp" value="1500">새우 1500원<br>
+            <input type="checkbox" name="topping" id="olive" value="500">올리브 500원<br>
+        </div>
+        요청사항 : <br>
+        <input type="text" id="request" style="border: 1px solid black; height: 100px;" value="">
+        <br>
+        <input type="button" id="order1" value="주문하기">
+        <div id="view2"></div>
+
+    </div> -->
+</body>
+
+</html>

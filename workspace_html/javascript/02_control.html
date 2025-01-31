@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+<<<<<<< HEAD
 
         /*
         js에서의 
@@ -14,14 +19,22 @@
         */
 
         
+=======
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         let arr = [10, 20, 30];
         arr["name"] = "이름";
         arr[10] = 100;
         console.log(arr)
         // in 앞에 변수에 현재의 index를 저장
+<<<<<<< HEAD
         for(let i in arr){
             console.log ('i : ',i);
             console.log ('arr[i] : ',arr[i]);
+=======
+        for (let i in arr) {
+            console.log('i : ', i);
+            console.log('arr[i] : ', arr[i]);
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         }
 
         //of 앞에 변수에 현재의 값을 저장
@@ -30,6 +43,7 @@
         //현재 몇번째 반복 중인지 알 수 없다
         //of는 전통적인 for문으로 0부터 length 이전까지 반복
         let cnt = 0;
+<<<<<<< HEAD
         for(let obj of arr){
             console.log ('obj : ',obj, cnt);
             cnt++;
@@ -40,4 +54,64 @@
 <body>
     
 </body>
+=======
+        for (let obj of arr) {
+            console.log('obj : ', obj, cnt);
+            cnt++;
+        }
+
+        let arr3 = [10, 20, 30, 40, 50];
+        // arr3.forEach( function(a,b,c,d){
+        //     console.log("a : ",a);
+        //     console.log("b : ",b);
+        //     console.log("c : ",c);
+        //     console.log("d : ",d);
+
+        // })
+        arr3.forEach(function (element, index, arr) {
+            console.log("element : ", element);  //이번 값
+            console.log("index : ", index);      // 이번 index  
+            console.log("arr : ", arr);          //원본 배열
+        });
+        console.log("--------------");
+        arr3.map(function (element, index, arr) {
+            console.log("element : ", element);  //이번 값
+            console.log("index : ", index);      // 이번 index  
+            console.log("arr : ", arr);          //원본 배열
+        });
+        console.log("--------------");
+        let arr30 = arr3.filter(function (element, index, arr) {
+            let result = false;
+            if (element >= 30) {
+                result = true;
+            } else {
+                result = false;
+            }
+            return result;
+        });
+        console.log(arr30)
+
+        let arr30_1 = arr3.filter(function (element) {
+            return element >= 30;
+        });
+
+        let arr30_2 = arr3.filter(el => el >= 30);
+
+        let movies = [
+            '하얼빈',
+            '보고타: 마지막 기회',
+            '시빌 워: 분열의 시대',
+            '무파사: 라이온 킹'
+        ]
+        let len = movies.map(el => el.length)
+        console.log(len)
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
 </html>

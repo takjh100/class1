@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #console {
+            position: sticky;
+            top: 0;
+        }
+
+        #cursor {
+            width: 50px;
+            height: 50px;
+
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .bold {
+            font-weight: 900;
+        }
+    </style>
+    <script>
+
+        //
+        window.addEventListener("load", init);
+
+        // window.onload = function(){
+        //     init();
+        // }
+
+        function init() {
+            const btn2 = document.querySelector("#btn2");
+            console.log("btn2 : ", btn2);
+            btn2.onclick = function () {
+                document.querySelector("#console").innerHTML += "<br>버튼 2 클릭";
+            }
+            // onclick : 변수이므로 마지막 값만 저장된다    
+            btn2.onclick = function () {
+                document.querySelector("#console").innerHTML += "<br>버튼 2-1 클릭";
+            }
+
+            const btn3 = document.querySelector("#btn3");
+            btn3.addEventListener("click", function () {
+                document.querySelector("#console").innerHTML += "<br>버튼 3 클릭"
+                document.documentElement.scrollTop = 1000;
+            })
+            // addEventListener : 함수를 추가하는 것으므로 두개 이상 실행가능하다
+            btn3.addEventListener("click", function () {
+                document.querySelector("#console").innerHTML += "<br>버튼 3-1 클릭"
+            })
+            const btn4 = document.querySelector("#btn4");
+            btn4.addEventListener("click", btn1click);
+            // removeEventListener : 해당 이벤트 콜백 제거
+            // 단, 익명함수는 불가능
+            // 마치 함수마다 고유한 id같은게 있는데
+            //익명함수는 선언될때마다 VM이라는 공간에
+            //신규 id를 발급받기 때문에 지울떄 사용하지 못함
+            btn4.removeEventListener("click", btn4click);
+
+
+            window.addEventListener("scroll", function () {
+                const scrollTop = document.documentElement.scrollTop;
+                document.querySelector("#console").innerHTML = scrollTop;
+            })
+        }
+
+        window.addEventListener("load", function () {
+            const id = document.querySelector("#id");
+            // id.addEventListener('keydown',function(){
+            //     console.log('keydown');
+            // })
+            id.addEventListener('keyup', function (event) {
+                console.log(event.keyCode);
+                if (event.keyCode == 13) {
+                    document.querySelector("#pw").focus();
+                }
+            })
+            document.querySelector("#pw")
+                .addEventListener('keyup', function (event) {
+                    if (event.keyCode == 13) {
+                        document.querySelector("#login").click();
+                    }
+
+                })
+        });
+
+
+        function btn1click() {
+            console.log("버튼 1 클릭");
+
+            document.querySelector("#console").innerHTML += "<br>버튼 1 클릭";
+        }
+        function btn4click() {
+            document.querySelector("#console").innerHTML += "<br>버튼 4 클릭";
+        }
+
+        //로그인 버튼 클릭시 아이디 비밀번호 콘솔에 출력
+        window.addEventListener("load", function () {
+            let login = document.querySelector("#login");
+            login.addEventListener("click", function () {
+                const id = document.querySelector("#id").value;
+                const pw = document.querySelector("#pw").value;
+
+                //    if(id == ''){
+                //    if(id.trim(). == ''){
+                if (id.trim().length == 0) {
+                    document.querySelector("#console").innreHTML = "아이디를 입력하세요";
+                } else {
+                    document.querySelector("#console").innreHTML = id + "," + pw;
+                }
+            })
+
+        });
+
+        window.addEventListener("load", function () {
+            document.querySelector('#area')
+                .addEventListener("mouseover", function () {
+                    console.log("마우스 들어옴")
+                })
+            document.querySelector('#area')
+                .addEventListener("mouseout", function () {
+                    console.log("마우스 나옴")
+                })
+            //앞에 아무것도 안쓰면 브라우저 전체에 적용되는 이벤트
+            addEventListener('mousemove', function (event) {
+                // console.log('마우스움직임')
+                // console.log('event.pageX:', event.pageX, 'event.pageY', event.pageY)
+                const cursor = document.querySelector("#cursor");
+                cursor.style.top = event.pageY + 20 + "px";
+                cursor.style.left = event.pageX + 20 + "px";
+
+                // pageX/Y : 스크롤에 관계 없이 문서 좌상단 기준
+                //clientX/Y : 지금 보이는 화면 좌상단 기준
+                //offsetX/Y : 대상 기준으로 좌상단 기준
+            })
+        })
+        window.addEventListener("load", function () {
+            id.addEventListener("focus", function () {
+                id.style.background = 'yellow';
+            })
+
+            id.addEventListener("blur", function () {
+                id.style.background = '';
+            })
+
+
+            document.querySelector("#form")
+                .addEventListener('submit', function (event) {
+                    //원래 html의 기본(고유) 기능을 막아줌
+                    event.preventDefault();
+                    console.log('서밋 이벤트')
+
+                    //검색어가 한글자 이하면 alert 출력
+                    //2글자 이상이면 console로 "검색"출력
+                    let search = document.querySelector("#search");
+                    // console.log(search.value);
+                    if (search.value.length < 2) {
+                        alert("두글자 이상 입력해주세요");
+                    } else {
+                        console.log("검색");
+                        document.querySelector("#form").submit()
+                    }
+
+
+
+
+                })
+            // addEventListener('selectstart',function(event){
+            //     event.preventDefault();
+            // })
+
+            //class chk 인 모든 요소를 가져와서 
+            //모든 value,체크 여부를 console로 출력하시오
+            //체크된 것은 value에 !!!붙여서 출력
+
+            let chks = document.querySelectorAll(".chks")
+            for (i = 0; i < chks.length; i++) {
+                console.log(chks[i].value)
+                console.log(chks[i].checked)
+
+                if (chks[i].checked) {
+                    console.log(chks[i].value + "!!!")
+                }
+
+            }
+            let all = document.querySelector('#all')
+            all.addEventListener("click", function () {
+                console.log(all.checked)
+
+                if (all.checked) {
+                    for (i = 0; i < chks.length; i++) {
+                        chks[i].checked = true;
+                    }
+                } else {
+                    for (i = 0; i < chks.length; i++) {
+                        chks[i].checked = false;
+                    }
+
+                }
+
+            })
+            for (let a of chks) {
+                a.addEventListener("click", function () {
+                    let flog = true;
+                    // 하나라도 해제된게 있으면
+                    // for( let i in chks ){    // entries라는게 i로 들어가는 경우가 있어서 실패
+                    for (let i of chks) {
+                        if (!i.checked) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    console.log(flag)
+
+                    if (!flag) {
+                        document.querySelector("#all").checked = false
+                    } else {
+                        document.querySelector("#all").checked = true
+                    }
+                })
+            }
+            // this : window 객체를 가지고있다
+            console.log(this);
+
+            //콜백을 arrow함수로 하면 this는 window로 유지됨
+            let parent = document.querySelector("#parent")
+            parent.addEventListener("click", function (event) {
+
+                //event.target : 이벤트가 발생한 DOM
+                console.log('event.target', event.target);
+
+                //event.currentTarget : 이벤트가 적용된 DOM
+                console.log('event.currentTarget', event.currentTarget);
+
+                //this는 더이상 window가 아님
+                //이렇게 내용이 바뀔 수 있기 때문에
+                //자바에서는 this는 알고있는것만 사용한다
+                console.log('this : ', this);
+                console.log(this === event.currentTarget);
+            }, true)
+
+            document.querySelector('#child1')
+                .addEventListener('click', function (event) {
+
+                    // 전파 방지
+                    // 부모로 전달되는 이벤트를 중지
+                    event.stopPropagation();
+
+
+                    console.log('자식 1 클릭');
+                    document.querySelector("#parent").innerHTML += ""
+                })
+
+
+            //     let active = document.querySelector(".active")
+            //     active.addEventListener('click', function (event) {
+            //         event.target.style.fontWeight = 100;
+
+            //     })
+            // document.querySelector('active')
+            // addEventListener('click', function (event) {
+            //     console.log('event.target', event.target);
+            //     event.target.style.fontWeight = 900;
+            // })
+
+            let li_1 = document.querySelector("#li_1")
+            console.log('li_1', li_1);
+
+            li_1.addEventListener("click", function (event) {
+                console.log(1);
+                console.log(li_1);
+                console.log(event.target);
+                console.log(li_1 === event.target);
+                console.log(event.currentTarget);
+                console.log(li_1 === event.currentTarget);
+
+            })
+            let li_2 = document.querySelector("#li_2")
+            li_2.addEventListener("click", function () {
+                console.log(2);
+            })
+
+
+        })
+
+
+
+
+
+    </script>
+
+</head>
+
+<!-- <body onload="javascript:init()"> -->
+
+<body>
+    <div id="console"></div>
+    <button type="button" id="btn1" onclick="btn1click();alert(1)">버튼1</button><br>
+    <button type="button" id="btn2">버튼2</button><br>
+    <button type="button" id="btn3">버튼3</button><br>
+    <button type="button" id="btn4">버튼4</button><br>
+
+    <div>
+
+        아이디 : <input type="text" id="id"><br>
+        비밀번호 : <input type="text" id="pw"><br>
+        <div id="view"></div>
+        <input type="button" id="login" value="로그인">
+    </div>
+
+    <div id="area" style="width: 100px; height: 100px; background-color: red;"></div>
+
+    <img id="cursor"
+        src="https://png.pngtree.com/png-vector/20230522/ourmid/pngtree-kawaii-brown-white-cat-jumping-happily-vector-png-image_7105169.png"
+        style="width: 50px; height: 50px;">
+
+
+    <form id="form" method="get" action="https://search.naver.com/search.naver?">
+        네이버 검색 : <input type="text" name="query" id="search">
+        <input type="submit" value="검색">
+    </form>
+
+    떡볶이 토핑 : <input type="checkbox" id="all">전체선택<br>
+
+    <input type="checkbox" class="chks" value="분모자">분모자
+    <input type="checkbox" class="chks" value="비엔나">비엔나
+    <input type="checkbox" class="chks" value="우삼겹">우삼겹
+    <input type="checkbox" class="chks" value="치즈" checked="checked">치즈
+    <input type="checkbox" class="chks" value="라면">라면
+
+    <div id="parent">
+        부모
+        <div id="child1">자식1</div>
+        <div id="child1">자식2</div>
+    </div>
+    <hr>
+    <div class="active">
+        <input type="button" value="인기상품순">
+        <input type="button" value="높은가격순">
+        <input type="button" value="낮은가격순">
+        <input type="button" value="신상품순">
+        <input type="button" value="상품평 많은순">
+    </div>
+    <hr>
+
+    <script>
+        let active = document.querySelector('.active')
+        active.addEventListener('click', function (event) {
+            //    event.target.style.fontWeight = 800;
+
+            let actives = document.querySelectorAll('.active input')
+            for (i = 0; i < actives.length; i++) {
+                actives[i].style.fontWeight = 500;
+            }
+            event.target.style.fontWeight = 900;
+
+
+        })
+    </script>
+
+
+    <div id="li_1">첫번째</div>
+    <div id="li_2">두번째</div>
+
+
+    <ol id="ol">
+        <li id="ol_li_1" class="bold">li 첫번째</li>
+        <li id="ol_li_2" class="bold">li 두번째</li>
+    </ol>
+
+    <script>
+        let ol = document.querySelector("#ol")
+        ol.addEventListener("click", function (event) {
+            console.log(event.target, event.currentTarget)
+
+            // document.querySelector("#ol_li_1").classList.remove('bold')
+            // document.querySelector("#ol_li_2").classList.remove('bold')
+
+            const lis = document.querySelectorAll("#ol li")
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].classList.remove('bold')
+            }
+            // event.target.style.color = "red";
+            event.target.classList.add('bold')
+
+        })
+    </script>
+    <style>
+        .title {
+            color: red;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+    <div>
+        <div id="a1" class="title">Accordion Item #1</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae ad, omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem? Ad, vel
+            aliquam!
+        </div>
+    </div>
+    <div>
+        <div id="a2" class="title">Accordion Item #2</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae ad, omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem? Ad, vel
+            aliquam!
+        </div>
+    </div>
+
+
+    <div>
+        <div id="a3" class="title">Accordion Item #3</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae ad,
+            omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem? Ad,
+            vel
+            aliquam!
+        </div>
+    </div>
+    <div>
+        <div id="a4" class="title">Accordion Item #4</div>
+        <div class="detail hide">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nemo adipisci architecto quae
+            ad, omnis
+            itaque quo expedita voluptas minima pariatur doloribus dignissimos atque, eligendi quaerat quidem?
+            Ad, vel
+            aliquam!
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // #a1을 클릭하면 
+        // 부모로 올라가서
+        // 자식중에 .datail 확보하고 조작
+        // document.querySelector('#a1')
+        //     .addEventListener('click', function (event) {
+        //         const p = event.target.parentNode
+        //         const d = p.querySelector(".detail")
+        //         // d.style.display = 'block';
+        //         d.classList.remove('hide');
+        //     })
+        // document.querySelector('#a2')
+        //     .addEventListener('click', function (event) {
+
+        //         //먼저 모든 .detail에 hide 추가
+        //         let details = document.querySelectorAll('.detail')
+        //         for (let i = 0; i < details.length; i++) {
+        //             details[i].classList.add('hide');
+        //         }
+        //         //내껏만 hide를 제거
+
+        //         const p = event.target.parentNode
+        //         const d = p.querySelector(".detail")
+        //         // d.style.display = 'block';
+        //         d.classList.remove('hide');
+        //     })
+
+        const titles = document.querySelectorAll('.title')
+        for (let i = 0; i < titles.length; i++) {
+            titles[i].addEventListener('click', function (event) {
+
+
+                const p = event.target.parentNode
+                const isHide = p.querySelector(".detail.hide")
+
+                // 먼저 모든 .detail에 hide 추가
+                let details = document.querySelectorAll('.detail')
+                for (let j = 0; j < details.length; j++) {
+                    details[j].classList.add('hide');
+                }
+
+                if (isHide != null) {
+                    const d = p.querySelector('.detail')
+                    d.classList.remove('hide')
+                }
+            })
+
+        }
+    </script>
+    <style>
+        #menu {
+            display: flex;
+            border: 1px solid blue;
+        }
+
+        #menu div {
+            flex-grow: 1;
+            border: 1px solid red;
+
+
+        }
+
+        #content {
+            border: 1px solid red;
+        }
+
+        #content div {
+            border: 1px solid red;
+            height: 100px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+    <dlv>
+        <div id="content">
+            <div id="content1">1내용</div>
+            <div id="content2" class="hide">2내용</div>
+            <div id="content3" class="hide">3내용</div>
+            <div id="content4" class="hide">4내용</div>
+        </div>
+
+        <div id="menu">
+            <div date-topping="생크림" data-view="content1">1</div>
+            <div data-view="content2">2</div>
+            <div data-view="content3">3</div>
+            <div data-view="content4">4</div>
+        </div>
+    </dlv>
+    <script>
+        document.querySelector('#menu')
+            .addEventListener('click', function (evt) {
+                console.log(evt.target.textContent)
+                console.log(evt.target.getAttribute('data-topping'))
+                console.log(evt.target.getAttribute('data-view'))
+
+                let id = evt.target.getAttribute('data-view')
+                // document.querySelector('#' + id)
+
+                const contents = document.querySelectorAll("[id^=contnet]:not(#content)")
+
+                for (let i = 0; i < contents.length; i++) {
+                    contents[i].classList.add('hide');
+                }
+
+                document.querySelector('#'+id).classList.remove('hide')
+
+            })
+    </script>
+
+</body>
+
+</html>
