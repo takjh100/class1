@@ -56,7 +56,11 @@
         
         let 스팀 = [액션, 롤플레잉, 전략];
         for (let i=0; i < 스팀.length; i++){
+<<<<<<< HEAD
+            console.log(스팀[i]);
+=======
             // console.log(스팀[i]);
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
             for (let j=0; j < 스팀[i].length; j++){
                 console.log(스팀[i][j]);
             }
@@ -78,12 +82,20 @@
         arr.unshift(11);
         console.log(arr);
         
+<<<<<<< HEAD
+        //맨 마지막에 하나 제거 변수에 담아서 쓸수도있다
+=======
         //맨 마지막에 하나 돌려주고 지워준다. 변수에 담아서 쓸수도있다
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         let pop = arr.pop();
         console.log(arr);
         console.log("pop : ", pop);
         
+<<<<<<< HEAD
+        //맨 처음에 하나 제거 변수에 담아서 쓸수도있다
+=======
         //맨 처음에 하나 돌려주고 지워준다. 변수에 담아서 쓸수도있다
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         let shift = arr.shift();
         console.log(arr);
         console.log("shift : ", shift);
@@ -93,6 +105,9 @@
         console.log(arr);
         
         //배열이 오름차순으로 정렬된다
+<<<<<<< HEAD
+        arr.sort();
+=======
         //문자로 변경해서 정렬함으로 
         // 숫자 정렬할 경우 등 콜백함수를 넣어서 사용
 
@@ -102,13 +117,17 @@
 // ((x ,y) => y-x) : 내림차순
  // 0 : 순서 변동 없음
         });
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         console.log(arr);
         
         // [1, 2, 2, 3, 4, 5]
         // splice(시작 index, count)
         // splice(시작 index) //마지막까지
+<<<<<<< HEAD
+=======
         // 원본에서 잘라서 돌려준다
         // 시작 index만 사용하면 끝까지
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         let splice = arr.splice(2, 3);
         console.log("arr : ", arr);
         console.log("splice :", splice);
@@ -143,12 +162,20 @@
         
         arr = [1,2,3,4,5]
         // slice(시작 index, 종료 indxe 바로 앞)
+<<<<<<< HEAD
+        //복사만 하기때문에 원본이 회손되지 않는다
+=======
         //복사만 하기때문에 원본이 회손되지 않는다 , ctrl+c 느낌
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         let slice = arr.slice(1,3)
         console.log(arr);
         console.log(slice);
         
+<<<<<<< HEAD
+        //값을 더해준다
+=======
         //값을 더해준다 (배열을 합쳐줌)
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
         let concat = arr.concat(slice)
         console.log(arr);
         console.log(slice);
@@ -157,6 +184,11 @@
         //문자로 만들어준다
         console.log(arr.toString());
         console.log(""+ arr);
+<<<<<<< HEAD
+
+
+        
+=======
         
         let idx = arr.indexOf(4)
         console.log(idx);     //4의 index인 3출력
@@ -195,6 +227,7 @@
         console.log("str2 : ",str2)
         console.log("str3 : ",str3)
 
+>>>>>>> 1b7f723834d47b04e72fc2a51265405f9a77d992
     </script>
 </head>
 
