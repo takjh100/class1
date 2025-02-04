@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project1_css/pm.css">
+    <link rel="stylesheet" href="project1_css/pr.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="project1_js/pm.js"></script>
+    <style>
+        .menu-con {
+            display: flex;
+            width: 100%;
+            border: 5px solid #2f373a;
+
+
+        }
+
+        .menu {
+            border: 1px solid rgba(255, 255, 255, 0.267);
+            background-color: #2f373a;
+            width: 30%;
+            height: 80px;
+            text-align: center;
+            cursor: pointer;
+            line-height: 80px;
+            color: white;
+        }
+
+        .clickMenu {
+            border: 1px solid rgba(255, 255, 255, 0.267);
+            background-color: #242a2d;
+            width: 30%;
+            height: 80px;
+            text-align: center;
+            cursor: pointer;
+            line-height: 80px;
+            color: white;
+        }
+
+        .menu:hover {
+            background-color: #242a2d;
+        }
+
+        .board {
+            border: 5px solid #2f373a;
+            width: 100%;
+            height: 700px;
+            padding-top: 3%;
+            position: relative;
+        }
+
+        /* td {
+            border-bottom: 1px solid darkblue;
+            
+            text-align: center;
+            width: 500px;
+            height: 50px;
+        } */
+
+        .dayWork {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* .title {
+            
+            font-size: 30px;
+            border: 1px solid red;
+        } */
+
+        /* table {
+            margin: 0;
+            display: flex;
+        } */
+
+        .table-con {
+            /* border: 1px solid darkblue; */
+            margin-top: 1%;
+            width: 100%;
+            height: 400px;
+        }
+
+        .chart-con {
+            /* border: 1px solid darkblue; */
+            margin-top: 1%;
+            width: 400px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin-bottom: 3%;
+
+        }
+
+        .point {
+            background-color: darkred;
+            color: white;
+        }
+
+        .bdChart {
+            border: 1px solid red;
+        }
+
+        .side-con {
+            border: 5px solid red;
+            width: 300px;
+            height: 100%;
+        }
+
+        .chart-con-con {
+            display: flex;
+            flex-direction: row;
+            border: 5px solid pink;
+            width: 130px;
+            height: 300px;
+
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .mainManu {
+            border: 1px solid black;
+            width: 17%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            background-color: #4e5c61;
+            color: white;
+
+        }
+
+        .manuBut {
+            border-bottom: 2px solid black;
+
+            padding: 10px;
+        }
+
+        .manuBut:hover {
+            background-color: #9395969f;
+            cursor: pointer;
+        }
+
+        .manuPage {
+            width: 487%;
+            height: 100%;
+            border: 1px solid red;
+            position: absolute;
+            top: -2px;
+            left: 211px;
+            color: black;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="menu-con work">
+        <div class="work1 menu" style="display: flex; justify-content: center">Menu</div>
+        <div class="work2 menu">작업관리</div>
+        <div class="work3 menu">생산관리</div>
+        <div class="work4 menu">생산리포팅</div>
+        <div class="work5 menu">자재관리</div>
+        <div class="work6 menu">품질관리</div>
+    </div>
+    <div class="board">
+
+        <div class="mainManu" id="work1">
+            <div class=manuBut>대시보드</div>
+            <div class=manuBut>게시판</div>
+            <div class=manuBut>공지사항</div>
+            <div class="manuPage" id="manuPage1">대시보드내용 추후에 추가예정</div>
+            <div class="manuPage hide" id="manuPage2">게시판내용 추후에 추가예정</div>
+            <div class="manuPage hide" id="manuPage3">공지사항내용 추후에 추가예정</div>
+        </div>
+
+        <div class="dayWork hide" id="work2">
+            <div class="title"> 금일 작업 지시사항</div>
+            <div class="table-con">
+                <table>
+                    <tr>
+                        <td>1</td>
+                        <td>1호기</td>
+                        <td>생산</td>
+                        <td>정비완료<i id="arrow-up" class="arrow fa-solid fa-arrow-up"></i></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1호기</td>
+                        <td>생산</td>
+                        <td>정비완료<i id="arrow-up" class="arrow fa-solid fa-arrow-up"></i></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>A제품</td>
+                        <td>생산</td>
+                        <td>100ea 필요<i id="arrow-up" class="arrow fa-solid fa-arrow-up"></i></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>B제품</td>
+                        <td>생산</td>
+                        <td>50ea 필요<i id="arrow-up" class="arrow fa-solid fa-arrow-up"></i></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>C제품</td>
+                        <td>생산</td>
+                        <td>8,000ea 필요<i id="arrow-up" class="arrow fa-solid fa-arrow-up"></i></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="dayWork-T hide" id="work3">
+            <div style="font-size: 25px;">라인 별 생산 현황</div>
+            <div class="table-con">
+                <table>
+                    <tr class="ssLine">
+                        <td class="ssLine0 point">전체라인</td>
+                        <td class="ssLine1">A라인</td>
+                        <td class="ssLine2">B라인</td>
+                        <td class="ssLine3">C라인</td>
+                    </tr>
+                </table>
+                <div class="ssTable" id="ssLine0" style="height: 220px; overflow-y: auto">
+                    <table>
+                        <tr>
+                            <th style="width: 30px;">설비</th>
+                            <th style="width: 50px;">제품코드</th>
+                            <th style="width: 50px;">품번코드</th>
+                            <th style="width: 50px;">품명</th>
+                            <th style="width: 70px;">생산시작시간</th>
+                            <th style="width: 70px;">생산완료시간</th>
+                            <th style="width: 35px;">생산자</th>
+                            <th style="width: 30px;">설비상태</th>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ssTable hide" id="ssLine1" style="height: 220px; overflow-y: auto">
+                    <table>
+                        <tr>
+                            <th style="width: 30px;">설비</th>
+                            <th style="width: 50px;">제품코드</th>
+                            <th style="width: 50px;">품번코드</th>
+                            <th style="width: 50px;">품명</th>
+                            <th style="width: 70px;">생산시작시간</th>
+                            <th style="width: 70px;">생산완료시간</th>
+                            <th style="width: 35px;">생산자</th>
+                            <th style="width: 30px;">설비상태</th>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 35px;"></td>
+                            <td style="width: 30px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 35px;"></td>
+                            <td style="width: 30px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 35px;"></td>
+                            <td style="width: 30px;"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ssTable hide" id="ssLine2" style="height: 220px; overflow-y: auto">
+                    <table>
+                        <tr>
+                            <th style="width: 30px;">설비</th>
+                            <th style="width: 50px;">제품코드</th>
+                            <th style="width: 50px;">품번코드</th>
+                            <th style="width: 50px;">품명</th>
+                            <th style="width: 70px;">생산시작시간</th>
+                            <th style="width: 70px;">생산완료시간</th>
+                            <th style="width: 35px;">생산자</th>
+                            <th style="width: 30px;">설비상태</th>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">2</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 70px;">2</td>
+                            <td style="width: 70px;">2</td>
+                            <td style="width: 35px;">2</td>
+                            <td style="width: 30px;">2</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 35px;"></td>
+                            <td style="width: 30px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 35px;"></td>
+                            <td style="width: 30px;"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ssTable hide" id="ssLine3" style="height: 220px; overflow-y: auto">
+                    <table>
+                        <tr>
+                            <th style="width: 30px;">설비</th>
+                            <th style="width: 50px;">제품코드</th>
+                            <th style="width: 50px;">품번코드</th>
+                            <th style="width: 50px;">품명</th>
+                            <th style="width: 70px;">생산시작시간</th>
+                            <th style="width: 70px;">생산완료시간</th>
+                            <th style="width: 35px;">생산자</th>
+                            <th style="width: 30px;">설비상태</th>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">1</td>
+                            <td style="width: 50px;">2</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">4</td>
+                            <td style="width: 70px;">5</td>
+                            <td style="width: 70px;">6</td>
+                            <td style="width: 35px;">7</td>
+                            <td style="width: 30px;">8</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">3</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 70px;">3</td>
+                            <td style="width: 70px;">3</td>
+                            <td style="width: 35px;">3</td>
+                            <td style="width: 30px;">3</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;">3</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 50px;">3</td>
+                            <td style="width: 70px;">3</td>
+                            <td style="width: 70px;">3</td>
+                            <td style="width: 35px;">3</td>
+                            <td style="width: 30px;">3</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 30px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 50px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 70px;"></td>
+                            <td style="width: 35px;"></td>
+                            <td style="width: 30px;"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ss">
+                    <div class="schedule">
+                        <div style="font-size: 25px; margin: 10px 0 0;">생산 일정</div>
+                        <div style="height: 300px; border: 1px solid black; overflow-y: auto">
+                            <table>
+                                <tr>
+                                    <th style="width: 50px;">품번코드</th>
+                                    <th style="width: 50px;">품명</th>
+                                    <th style="width: 70px;">생산기한</th>
+                                    <th style="width: 30px;">목표생산수량</th>
+                                    <th style="width: 30px;">현 생산수량</th>
+                                </tr>
+                                <tr>
+                                    <td style="width: 30px;">1</td>
+                                    <td style="width: 50px;">2</td>
+                                    <td style="width: 50px;">3</td>
+                                    <td style="width: 40px;">4</td>
+                                    <td style="width: 30px;">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 30px;">1</td>
+                                    <td style="width: 50px;">2</td>
+                                    <td style="width: 50px;">3</td>
+                                    <td style="width: 40px;">4</td>
+                                    <td style="width: 30px;">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 30px;">1</td>
+                                    <td style="width: 50px;">2</td>
+                                    <td style="width: 50px;">3</td>
+                                    <td style="width: 40px;">4</td>
+                                    <td style="width: 30px;">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 30px;">1</td>
+                                    <td style="width: 50px;">2</td>
+                                    <td style="width: 50px;">3</td>
+                                    <td style="width: 40px;">4</td>
+                                    <td style="width: 30px;">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 30px;">1</td>
+                                    <td style="width: 50px;">2</td>
+                                    <td style="width: 50px;">3</td>
+                                    <td style="width: 40px;">4</td>
+                                    <td style="width: 30px;">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 30px;">1</td>
+                                    <td style="width: 50px;">2</td>
+                                    <td style="width: 50px;">3</td>
+                                    <td style="width: 40px;">4</td>
+                                    <td style="width: 30px;">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 30px;">1</td>
+                                    <td style="width: 50px;">2</td>
+                                    <td style="width: 50px;">3</td>
+                                    <td style="width: 40px;">4</td>
+                                    <td style="width: 30px;">5</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                    <!-- 생산라인수정창 -->
+                    <dlv class="" style="margin: 0 0 0 20px; width: 40%;">
+                        <div style="font-size: 25px; margin: 5px 0;">생산 관리</div>
+                        <div class="ssmanu">
+                            <div style="text-align: center; font-weight:600">생산 설비 관리</div>
+                            <div class="" style="display: flex; margin-top: 15px; justify-content: space-around">
+                                <div style="width:80px;">라인 :</div>
+                                <input type="text" style="height: 30px;">
+                            </div>
+                            <div style="display: flex; margin-top: 15px; justify-content: space-around">
+                                <div style="width:80px;">호기:</div>
+                                <input type="text" style="height: 30px;">
+                            </div>
+                            <div style="display: flex; margin-top: 15px; justify-content: space-around">
+                                <div style="width:80px;">설비정보:</div>
+                                <input type="text" style="height: 30px; width: 230px; margin-right: 30px;">
+                            </div>
+                            <div style="display: flex; margin: auto;">
+                                <div style="border: 1px solid black; width: 50px; text-align: center;">추가</div>
+                                <div style="border: 1px solid black; width: 50px; text-align: center;">수정</div>
+                                <div style="border: 1px solid black; width: 50px; text-align: center;">삭제</div>
+                            </div>
+                        </div>
+                    </dlv>
+                    <!-- 생산일정관리창 -->
+                    <dlv class="hide" style="margin: 0 0 0 20px; width: 40%;">
+                        <div style="font-size: 25px; margin: 5px 0;">생산 관리</div>
+                        <div class="ssmanu">
+                            <div style="text-align: center; font-weight:600">생산 일정 관리</div>
+                            <div class="" style="display: flex; margin-top: 15px;">
+                                <div style="width:80px;">품목코드:</div>
+                                <input type="text" style="height: 30px;">
+                            </div>
+                            <div style="display: flex; margin-top: 15px;">
+                                <div style="width:80px;">수량:</div>
+                                <input type="text" style="height: 30px;">
+                            </div>
+                            <div style="display: flex; margin-top: 15px;">
+                                <div style="width:80px;">기한설정:</div>
+                                <input type="date" style="height: 30px;">&nbsp;&nbsp;부터&nbsp;&nbsp;<br>
+                                <input type="date" style="height: 30px;">&nbsp;&nbsp;까지&nbsp;&nbsp;
+                            </div>
+                            <div style="display: flex; margin: auto;">
+                                <div style="border: 1px solid black; width: 50px; text-align: center;">추가</div>
+                                <div style="border: 1px solid black; width: 50px; text-align: center;">수정</div>
+                                <div style="border: 1px solid black; width: 50px; text-align: center;">삭제</div>
+                            </div>
+                        </div>
+                    </dlv>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="hide" id="work4">
+            <div style="display: flex;">
+                <div class="ssTable" style="width: 58%; margin: 0 6px 0;">
+                    <table style="margin-top: 10px;">
+                        <tr class="" style="background-color: black;">
+                            <td class="point" style="border: 1px solid black;">일별 생산량</td>
+                            <td class="" style="border: 1px solid black;">주간별 생산량</td>
+                            <td class="" style="border: 1px solid black;">월별 생산량</td>
+                            <td class="" style="border: 1px solid black;">월별 주문량</td>
+                        </tr>
+                    </table>
+                    <div style="height: 300px;">
+                        <div class="graph_wrap">
+                            <strong class="tit">제목</strong>
+                            <div class="graph">
+                                <!-- 기준 -->
+                                <ul class="y-axis">
+                                    <li><span>35</span></li>
+                                    <li><span>30</span></li>
+                                    <li><span>25</span></li>
+                                    <li><span>20</span></li>
+                                    <li><span>15</span></li>
+                                    <li><span>10</span></li>
+                                    <li><span>5</span></li>
+                                    <li><span>0</span></li>
+                                </ul>
+                                <!-- 목록 -->
+                                <ul class="x-axis">
+                                    <li><span>목록1</span></li>
+                                    <li><span>목록2</span></li>
+                                    <li><span>목록3</span></li>
+                                </ul>
+                                <!-- 바 그래프 (백분율 만큼 height값) -->
+                                <ul class="bar">
+                                    <li style="height:100%;"><span></span></li>
+                                    <li style="height:70%;"><span></span></li>
+                                    <li style="height:30%;"><span></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="border: 2px solid black; width: 38%; margin: 0 6px 0;">
+                    <div style="margin: 10px 5%;">작업자 생산량 조회</div>
+                    <input type="search" placeholder="작업자명을 입력하시오." style="margin: 0 5% 0 ;">
+                    <input type="button" value="검색">
+                    <div style="width: 90%; height: 75%; border: 1px solid black; margin: 10px 5%; line-height: 48px;">
+                        <div style="margin: 0 10px;">금일 생산량 :
+                        </div>
+                        <div style="margin: 0 10px;">금월 생산량 :</div>
+                        <div style="margin: 0 10px;">금주 생산량 :</div>
+                        <div style="margin: 0 10px;">금월 불량률 :</div>
+                        <div style="margin: 0 10px;">현 가동 설비 :</div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div class="ssTable" style="width: 58%; height: 350px; margin: 0 6px;">
+                    <div style="height: 100%; border: 1px solid black;">
+                        <div style="margin: 10px; font-size: 20px; font-weight: 600;">*일별 생산량*</div>
+                        <div style="display: flex;">
+                            <div style="line-height: 30px; margin-left: 50px; margin-right: 50px;">
+                                <div>A라인 1호기 :</div>
+                                <div>A라인 2호기 :</div>
+                                <div>A라인 3호기 :</div>
+                                <div>A라인 4호기 :</div>
+                            </div>
+                            <div style="line-height: 30px; margin-left: 50px; margin-right: 50px;">
+                                <div>B라인 1호기 :</div>
+                                <div>B라인 2호기 :</div>
+                                <div>B라인 3호기 :</div>
+                                <div>B라인 4호기 :</div>
+                            </div>
+                            <div style="line-height: 30px; margin-left: 50px; margin-right: 50px;">
+                                <div>C라인 1호기 :</div>
+                                <div>C라인 2호기 :</div>
+                                <div>C라인 3호기 :</div>
+                                <div>C라인 4호기 :</div>
+                            </div>
+                        </div>
+                        <div style="margin: 10px; font-size: 20px; font-weight: 600;">*금일 총 생산량*</div>
+                        <div style="text-align: center; font-size: 70px; font-weight: 600;">169ea</div>
+                    </div>
+                </div>
+                <div style="border: 2px solid black; width: 38%; margin: 0 6px;">
+                    <div style="margin: 10px 5%;">가동 설비 현황</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dayWork hide" id="work5">
+            <div class="title">재고 현황</div>
+            <div class="table-con">
+                <table>
+                    <tr>
+                        <td>못</td>
+                        <td>W5</td>
+                        <td>750ea / 1,000ea</td>
+                    </tr>
+                    <tr>
+                        <td>판자</td>
+                        <td>W6</td>
+                        <td>650ea / 1,000ea</td>
+                    </tr>
+                    <tr>
+                        <td>다이아몬드</td>
+                        <td>P65</td>
+                        <td>1ea / 10ea</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="dayWork hide" id="work6">
+            <div class="title">생산/품질 불량 검출유형</div>
+            <div class="chart-con">
+                <div id="bad">
+                    <div id="badChart">
+                        <canvas id="bdChart" style="height:346px width:356px"></canvas>
+                    </div>
+
+                </div>
+            </div>
+            <div class="table-con">
+                <table>
+                    <tr class="bold">
+                        <td>흠집</td>
+                        <td>변색</td>
+                        <td>오조립</td>
+                        <td>파손</td>
+                        <td>양부족</td>
+                    </tr>
+
+                    <tr>
+                        <td>8.77</td>
+                        <td>55.61</td>
+                        <td>21.69</td>
+                        <td>6.62</td>
+                        <td>6.82</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- <script>
+        let num = 1
+
+        document.querySelector('#done').addEventListener('click', function (e) {
+
+            // 요소생성
+            const newDiv = document.createElement('div');
+
+            // html 요소 추가
+            newDiv.innerHTML = `<div class="btns">
+            <input type="checkbox" onclick="is_chx(this)" data-box ="box${num}" class="chx"><span id="box${num}">${add.value}</span><button class = "btn">삭제</button>
+                                </div>`;
+            num = 1
+
+            newDiv.querySelector('.btn').addEventListener('click', function (e) {
+                e.target.parentNode.remove()
+            })
+            document.body.appendChild(newDiv);
+        })
+
+    </script> -->
+
+    <script>
+        //상단 메뉴 클릭마다 표시되는 화면을 위한 script
+        let workmanus = document.querySelector('.work')
+        workmanus.addEventListener('click', function (evt) {
+            console.log("////", evt.target)
+            console.log("////", evt.target.parentNode.children)
+            let clickMenu = evt.target.parentNode.children
+            for (let j = 0; j < clickMenu.length; j++) {
+                clickMenu[j].classList.remove('clickMenu')
+
+            }
+            evt.target.classList.add('clickMenu')
+            console.log(evt.target.getAttribute('class'))
+
+            let firstId = evt.target.getAttribute('class')
+            let id = firstId.split(' ')
+            console.log(id[0])
+            const works = document.querySelectorAll("[id^=work]")
+            console.log(works)
+            for (let i = 0; i < works.length; i++) {
+                works[i].classList.add('hide')
+            }
+            document.querySelector("#" + id[0]).classList.remove('hide')
+        })
+
+        //Manu바 클릭 후 나오는 메뉴에 따라서 화면표시를 위한 script
+        //메뉴 버튼별 창표시 표시내용 추가 필요
+        // function bind() {
+        let manuBut = document.querySelectorAll('.manuBut')
+        // let hides = document.querySelectorAll('.hide')
+        for (let i = 0; i < manuBut.length; i++) {
+            manuBut[i].addEventListener('click', function () {
+                let manuPages = document.querySelectorAll('.manuPage')
+                for (let j = 0; j < manuPages.length; j++) {
+                    manuPages[j].classList.add('hide')
+                }
+                if (manuBut[i].textContent == '대시보드') {
+                    manuPages[i].classList.remove('hide')
+                } else if (manuBut[i].textContent == '게시판') {
+                    manuPages[i].classList.remove('hide')
+                } else if (manuBut[i].textContent == '공지사항') {
+                    manuPages[i].classList.remove('hide')
+                }
+
+            })
+        }
+        // }
+        // bind()
+
+
+    </script>
+    <script>
+        //라인별 메뉴 클릭시 색변경 코드
+        let ssLine = document.querySelector('.ssLine')
+        ssLine.addEventListener('click', function (evt) {
+            console.log("1", evt.target)
+            console.log("2", evt.target.parentNode.children)
+            let ssLines = evt.target.parentNode.children
+            for (let i = 0; i < ssLines.length; i++) {
+                ssLines[i].classList.remove('point')
+            }
+            evt.target.classList.add('point')
+            console.log(evt.target.getAttribute('class'))
+            let evtId = evt.target.getAttribute('class').split(' ')
+            console.log(evtId[0])
+            const ssLineId = document.querySelectorAll("[id^=ssLine]")
+            console.log(ssLineId)
+
+            for (let j = 0; j < ssLineId.length; j++) {
+                ssLineId[j].classList.add('hide')
+            }
+            document.querySelector("#" + evtId[0]).classList.remove('hide')
+        })
+
+
+    </script>
+
+</body>
+
+</html>

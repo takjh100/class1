@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            display: flex;
+        }
+
+        .hide {
+            display: none;
+        }
+
+
+
+        .backimg {
+            width: 1050px;
+            position: relative;
+        }
+
+        .backText {
+            color: white;
+            position: absolute;
+            left: 30px;
+            bottom: 20px
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="movieimg flex">
+        <div class="movieimg1">
+            <img style="width: 200px; height: 300px; margin: 5px;"
+                src="https://an2-img.amz.wtchn.net/image/v2/nHcN0SqeldT8wlNJOzTcjw.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpJMk1USTNPVGczT1RjeU5qWTJOU0o5LnZLMlEwOUgzcGFGa3paVURXNW8weS1leW1lYUY0bW91Q2pYQm5OT25xSzQ">
+            <div><strong>원경</strong></div>
+            <div>
+                평점 :<span></span>
+            </div>
+        </div>
+        <div class="movieimg2">
+            <img style="width: 200px; height: 300px; margin: 5px;"
+                src="https://an2-img.amz.wtchn.net/image/v2/dboxoO_7hbZCIBxp7AJ0VQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1KbklsMHNJbkFpT2lJdmRqSXZjM1J2Y21VdmNISnZiVzkwYVc5dUx6UXhORE14TkRNNE9UUXlOek00TlRZaWZRLkdoOW5SSV9TaGtMTDFRN2ZjUmNxUFB0Y3VFOVpNLWJZV01kYXFrQUVzMFk">
+            <div><strong>페라리</strong></div>
+            <div>평점 :</div>
+        </div>
+        <div class="movieimg3">
+            <img style="width: 200px; height: 300px; margin: 5px;"
+                src="https://an2-img.amz.wtchn.net/image/v2/tOiH6plNQyeac_QJpM2OSw.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpJeE1ESTRPRGs1TURFMk16QXlPVEE0SW4wLjVxTGxvUnBjcHNDby1PbVNTMWMxSVFiVGoxYmh1T2VneElQLVhJS0FIakk">
+            <div><strong>나의 완벽한 비서</strong></div>
+            <div>평점 :</div>
+        </div>
+        <div class="movieimg4">
+            <img style="width: 200px; height: 300px; margin: 5px;"
+                src="https://an2-img.amz.wtchn.net/image/v2/l9rX9BFLLou0vGmQ5cIwRg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpJeU9UazFNek01TVRjMU1ETTVPREkzSW4wLmZXellNLXhCZHNuWXRfT2wzeDJWQkR0dmVPVXB1M09pNnUyY2U3TmE4eGc">
+            <div><strong>별들에게 물어봐</strong></div>
+            <div>평점 :</div>
+        </div>
+        <div class="movieimg5">
+            <img style="width: 200px; height: 300px; margin: 5px;"
+                src="https://an2-img.amz.wtchn.net/image/v2/3K3mj12HnhG40Ji2w2W2JQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNMk5qUTFNRGc0TVRrMU1UZzFOREFpZlEuQl8tbzE4aUhmSmFoZEZPSkFuRFM3dkFPYWpoZXdrWklTZHVsZzY4T0otQQ">
+            <div><strong>오징어게임2</strong></div>
+            <div>평점 :</div>
+        </div>
+    </div>
+
+
+    <div>
+        <dlv class="bigimg hide" id="movieimg1">
+            <img class="backimg"
+                src="https://an2-img.amz.wtchn.net/image/v2/ZIGuAEHGeJP5LAB5rIWy2w.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1Ua3lNSGd4TURnd2NUZ3dJbDBzSW5BaU9pSXZkakl2YzNSdmNtVXZhVzFoWjJVdk5EWTJORFUzTmpFME9UYzVORFV4T0NKOS4zWGdnWC1CUVV0dWZ3ZXV6RGdRSnlFZzF2ZVNXTzNBUHNrelUtV0dySHFN&quo">
+            <span class="backText">
+                <h1>원경</h1>
+                원경<br>
+                2024 · tvN · 시대극/드라마/TV드라마<br>
+                한국 · 청불<br>
+                한국 시리즈 인기 순위 7위
+            </span>
+
+        </dlv>
+        <dlv class="bigimg hide" id="movieimg2">
+            <img class="backimg"
+                src="https://an2-img.amz.wtchn.net/image/v2/CrGJdKTRwVXGPUyr-kSfCA.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1Ua3lNSGd4TURnd2NUZ3dJbDBzSW5BaU9pSXZkakl2YzNSdmNtVXZhVzFoWjJVdk1UWTVOVEk0TWpZeU9UQTRNamN4TVRFNU9DSjkuQ0dqbTkya1lFSUtyRVFqRGRtd3djQy1TVnlwZlVGdmVKeW1FYzFtUDhUbw">
+            <span class="backText">
+                <h1>페라리</h1>
+                Ferrari<br>
+                2023 · 드라마/액션/전기/역사 · 미국<br>
+                2시간 11분 · 15세<br>
+                예매 순위 8위(3.8%) · 개봉 3일째 · 누적 관객 1.6만명
+            </span>
+
+        </dlv>
+        <dlv class="bigimg hide" id="movieimg3">
+            <img class="backimg"
+                src="https://an2-img.amz.wtchn.net/image/v2/USYl5H9Uvxqk6vrF0Z93oQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1KbklsMHNJbkFpT2lJdmRqSXZjM1J2Y21VdmFXMWhaMlV2TXprNU1ETXdOVE0zTVRJM016STVNaUlzSW5FaU9qZ3dMQ0ozSWpveE9USXdmUS5iZUt2dGJybld3a0VRLTJhclJ2MlptWWNuSk5hTF9zZVBtWlI0cjBSeWZN">
+            <span class="backText">
+
+                <h1>나의 완벽한 비서</h1>
+                나의 완벽한 비서<br>
+                2025 · SBS · 로맨스/드라마/TV드라마<br>
+                한국 · 15세<br>
+                한국 시리즈 인기 순위 4위<br>
+            </span>
+
+        </dlv>
+        <dlv class="bigimg hide" id="movieimg4">
+            <img class="backimg"
+                src="https://an2-img.amz.wtchn.net/image/v2/ZFT6uhp4ou-TXouYn1KSKQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1KbklsMHNJbkFpT2lJdmRqSXZjM1J2Y21VdmFXMWhaMlV2TmpNNE9EQTJPVFF4TnpnNE5UazNNeUlzSW5FaU9qZ3dMQ0ozSWpveE9USXdmUS5UMUttMWdrQ3lrVlJjZEpaQzZua29rdHczN1EwWldYbHNPYVQ5WEFVTHZv">
+            <span class="backText">
+
+                <h1>별들에게 물어봐</h1>
+                2025 · tvN · SF/로맨스/코미디/TV드라마<br>
+                한국 · 15세<br>
+                한국 시리즈 인기 순위 2위
+            </span>
+
+        </dlv>
+        <dlv class="bigimg hide" id="movieimg5">
+            <img class="backimg"
+                src="https://an2-img.amz.wtchn.net/image/v2/brXEWQ-iw6ZJLlUXn018mA.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1KbklsMHNJbkFpT2lJdmRqSXZjM1J2Y21VdmFXMWhaMlV2TWpZeU56UTVNekkyTVRnd056STNJaXdpY1NJNk9EQXNJbmNpT2pFNU1qQjkuRUxkX3plcGNaTnE1OUpiMlgyREQ1VXU3MVlyaVpGTDMwbFBjVmR4NmVmTQ">
+            <span class="backText">
+
+                <h1>오징어 게임 시즌 2</h1>
+                오징어 게임<br>
+                2024 · Netflix · 스릴러/드라마/TV드라마<br>
+                한국 · 청불<br>
+                한국 시리즈 인기 순위 1위
+            </span>
+
+        </dlv>
+        <br>
+        댓글작성 : <input class="text" type="text" style="width: 250px; height: 50px;">
+        <select class="rating">
+            <option value="1">1점</option>
+            <option value="2">2점</option>
+            <option value="3">3점</option>
+            <option value="4">4점</option>
+            <option value="5">5점</option>
+        </select>
+        <button id="add">추가</button>
+
+        <ol class="addText">
+
+        </ol>
+    </div>
+
+
+    <script>
+        //영화 설명 창 보이기 
+        let movieimgs = document.querySelector('.movieimg')
+        movieimgs.addEventListener('click', function (evt) {
+            console.log(evt.target)
+            console.log(evt.target.parentNode)
+            console.log(evt.target.parentNode.getAttribute('class'))
+
+            let id = evt.target.parentNode.getAttribute('class')
+            const bigs = document.querySelectorAll("[id^=movieimg]")
+            console.log(bigs)
+            for (let i = 0; i < bigs.length; i++) {
+                bigs[i].classList.add('hide')
+            }
+            document.querySelector("#" + id).classList.remove('hide')
+
+        })
+        let add = document.querySelector('#add')
+        add.addEventListener('click', function (event) {
+            let texts = document.querySelector('.text').value
+            let addTexts = document.querySelector('.addText')
+            addTexts.innerHTML += `
+            <div>
+            <li class='mend'style='text-align:left; margin: 20px; position:relative;'>
+                <span>${texts}</span>
+                </li>
+            <input type='button' id='deletes' value='삭제'>
+            <input type='button' class='reouch' value='수정'>
+            <input type='text' class= 'hide retext'>
+            
+            </div>
+            `
+            // 별점
+            let rating = document.querySelector('.rating')
+            let options = rating.querySelector("option:checked")
+            console.log(options.value)
+            let ratingId = event.target.parentNode.getAttribute('id')
+
+
+            // console.log(document.querySelector("." + ratingId))
+
+
+            //댓글삭제
+            //댓글 수정 
+
+
+            //성공
+            //댓글창에 올라간 text를 <span>으로 감싸 
+            // querySelector('span')으로 추출
+            //a.innerHTML = retexts[j].value 로 수정값으로 변경
+            let reouchs = document.querySelectorAll('.reouch')
+            let mend = document.querySelectorAll('.mend')
+            let retexts = document.querySelectorAll('.retext')
+            for (let i = 0; i < reouchs.length; i++) {
+                for (let j = 0; j < retexts.length; j++) {
+                    reouchs[i].addEventListener('click', function (evt) {
+                        retexts[i].classList.remove('hide')
+                        reouchs[i].addEventListener('click', function (event) {
+
+                            if (retexts[j].value != "") {
+                                let mends = event.target.parentNode
+                                console.log(mends)
+                                let a = mends.querySelector('span')
+                                console.log(a)
+                                a.innerHTML = retexts[j].value;
+                                retexts[j].value = "";
+
+
+
+
+
+                                // mends.innerText = retexts[j].value
+                                let deletes = document.querySelectorAll('#deletes')
+                                for (let i = 0; i < deletes.length; i++) {
+                                    deletes[i].addEventListener('click', function (event) {
+                                        event.target.parentNode.remove();
+
+                                    })
+
+                                }
+
+                            }
+                        })
+
+
+                    })
+                }
+            }
+            //실패 
+            //innerText로 넣어서
+            //삭제,수정버튼이 다 사라지고 text만 수정됨
+
+            // let reouchs = document.querySelectorAll('.reouch')
+            // let mend = document.querySelectorAll('.mend')
+            // let retexts = document.querySelectorAll('.retext')
+            // for (let i = 0; i < reouchs.length; i++) {
+            //     for (let j = 0; j < retexts.length; j++) {
+            //     reouchs[i].addEventListener('click', function (evt) {
+            //             retexts[i].classList.remove('hide')
+            //             reouchs[i].addEventListener('click', function (event) {
+
+            //                 if (retexts[j].value != "") {
+            //                     let mends = event.target.parentNode
+            //                     mends.innerText = retexts[j].value
+
+            //                     console.log("1",mends)
+            //                     console.log("2",event.target)
+            //                     console.log(3,mends2)
+            //                     console.log(4,retexts[j].value)
+
+            //                     let deletes = document.querySelectorAll('#deletes')
+            //                     for (let i = 0; i < deletes.length; i++) {
+            //                         deletes[i].addEventListener('click', function (event) {
+            //                             event.target.parentNode.remove();
+
+            //                         })
+
+            //                     }
+
+            //                 }
+            //             })
+
+
+            //         })
+            //     }
+            // }
+
+            //실패
+            //수정이 한번밖에 안됨 
+            //innerHTML으로 코드를 넣어서 이벤트가 사라짐
+
+            // let reouchs = document.querySelectorAll('.reouch')
+            // let mend = document.querySelectorAll('.mend')
+            // let retexts = document.querySelectorAll('.retext')
+            // for (let i = 0; i < reouchs.length; i++) {
+            //     for (let j = 0; j < retexts.length; j++) {
+            //     reouchs[i].addEventListener('click', function (evt) {
+            //             retexts[i].classList.remove('hide')
+            //             reouchs[i].addEventListener('click', function (event) {
+
+            //                 if (retexts[j].value != "") {
+            //                     console.log(event.target.parentNode)
+            //                     let mends = event.target.parentNode
+            //                     mends.innerHTML = `
+            //                     <div>
+            //                         <li class='mend'style='text-align:left; margin: 20px; position:relative;'>
+            //                             ${retexts[j].value}
+            //                             </li>
+            //                             <input type='button' id='deletes' value='삭제'>
+            //                             <input type='button' class='reouch' value='수정'>
+            //                             <input type='text' class= 'hide retext'>
+
+            //                             </div>
+            //                             `
+
+            //                     let deletes = document.querySelectorAll('#deletes')
+            //                     for (let i = 0; i < deletes.length; i++) {
+            //                         deletes[i].addEventListener('click', function (event) {
+            //                             event.target.parentNode.remove();
+
+            //                         })
+
+            //                     }
+
+            //                 }
+            //             })
+
+
+            //         })
+            //     }
+            // }
+
+
+
+
+            let deletes = document.querySelectorAll('#deletes')
+            for (let i = 0; i < deletes.length; i++) {
+                deletes[i].addEventListener('click', function (event) {
+                    event.target.parentNode.remove();
+
+                })
+
+            }
+            // let reouchs = document.querySelectorAll('.reouch')
+            // for (let i = 0; i < reouchs.length; i++) {
+            //     reouchs[i].addEventListener('click', function (event) {
+            //         let retexts = document.querySelectorAll('.retext')
+            //         retexts.classList.remove('hide')
+            //         reouchs[i].addEventListener('click', function (event) {
+            //             console.log(retexts.value)
+            //             console.log("asdasd",event.target.parentNode)
+            //             let mend = document.querySelector('#mend')
+            //             mend.innerHTML = retexts.value
+            //             if (mend.innerHTML = retexts.value) {
+            //                 retexts.classList.add('hide')
+            //             }
+            //         })
+            //     })
+            // }
+        })
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

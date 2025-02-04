@@ -1,0 +1,148 @@
+body {
+    border: 1px solid red;
+    margin: 0;
+}
+
+.first {
+    /* border: 1px solid green; */
+
+    /* margin-top: 50px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 20px; */
+
+    /*위 코딩과 동일한 코딩*/
+    /*top right bottom left  순서*/
+    margin: 50px 40px 30px 20px;
+
+    /*3개 일때 : top right+left(같을때) bottom 순 */
+    margin: 50px 30px 20px;
+
+    /*2개 일때 : top+bottom right+left(같을때)  순 */
+    margin: 50px 30px;
+
+    /*1개 일때 : 네 방향 모두 동일하게*/
+    margin: 50px;
+
+    border-top-width: 3px;     /*두께*/
+    border-top-style: solid;   /*속성*/
+    border-top-color: red;   /*색상*/
+    /*width color style 순으로 */
+    border-right: 2px dotted green;
+    border-bottom: 5px dashed blue;
+    border-left: 5px solid black;
+    
+    border: 1px solid red;
+
+    padding-top: 50px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+
+    padding: 50px;
+
+    /*width, height는 기본적으로 컨텐츠의 너비와 높이*/
+    width: 50%;
+    height: 300px;
+
+    background: green;
+
+}
+
+.second {
+    /* border: 1px solid green; */
+
+    /* margin-top: 50px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 20px; */
+
+    /*위 코딩과 동일한 코딩*/
+    /*top right bottom left  순서*/
+    margin: 50px 40px 30px 20px;
+
+    /*3개 일때 : top right+left(같을때) bottom 순 */
+    margin: 50px 30px 20px;
+
+    /*2개 일때 : top+bottom right+left(같을때)  순 */
+    margin: 50px 30px;
+
+    /*1개 일때 : 네 방향 모두 동일하게*/
+    margin: 50px;
+
+    border-top-width: 3px;     /*두께*/
+    border-top-style: solid;   /*속성*/
+    border-top-color: red;   /*색상*/
+    /*width color style 순으로 */
+    border-right: 2px dotted green;
+    border-bottom: 5px dashed blue;
+    border-left: 5px solid black;
+    
+    border: 1px solid red;
+
+    padding-top: 50px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+
+    padding: 50px;
+
+    /*width, height는 기본적으로 컨텐츠의 너비와 높이*/
+    width: 50%;
+    height: 300px;
+
+    background: green;
+
+    /*width와 height를 border까지 확장*/
+    box-sizing: border-box;
+
+
+}
+
+.profile img {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+
+    /* border-radius: 20px; */
+    border-radius: 50%;
+
+}
+.chat {
+    border: 1px solid black;
+    background-color: yellow;
+    width: 60px;
+    text-align: center;
+    border-radius: 0 10px 10px 10px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.third {
+    border: 1px solid red;
+    width: 70%;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+#img {
+    border: 1px solid red;
+}
+
+.div {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 0;
+
+    /* font-size: 0; */
+}
+
+#div1, #div2, #div3 {
+    border: 1px solid red;
+}
+#div2, #div3 {
+    margin: 20px;
+}
+#div1 {
+    margin-top: 20px;
+}
