@@ -31,6 +31,6 @@ public class Car {
 	//get + 필드명 대신에 is + 필드명도 가능하다
 	//그런데 오류가 발생하거나 인식 못하는 (남이 만든)클래스가
 	//있을 수도 있어서 그냥 
-	private boolean isStop() {
-	}
+//	private boolean isStop() {
+//	}
 }
