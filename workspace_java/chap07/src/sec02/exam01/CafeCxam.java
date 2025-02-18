@@ -4,13 +4,15 @@ public class CafeCxam {
 
 	public static void main(String[] args) {
 
-		String mane;
 		
-		Welfare welfare = new Welfare();
 		Barista barista = new Barista();
 		Cashier cashier = new Cashier();
+		Welfare w = new Welfare();
+		w.salary(barista,100);
+		w.salary(cashier,123);
 		
-		
+		barista.printMoney();
+		cashier.printMoney();
 	}
 
 }
