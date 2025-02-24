@@ -103,6 +103,20 @@ public class StringExam {
 		// target의 class가 존재하는지 한단
 		String cl = "red bigy px";
 		String target = "big";
+	
+		//아래 코드처럼 하면 메모리가 낭비된다
+		String a1 = "a";
+		a1 += "b";
+		
+		//메모리를 효율적으로 사용한다
+		//스레드에 안전하다
+		StringBuffer sb = new StringBuffer("abc");
+		sb.append("defg");
+		String d = sb.toString();
+		
+	
 	}
+	
+	
 
 }
