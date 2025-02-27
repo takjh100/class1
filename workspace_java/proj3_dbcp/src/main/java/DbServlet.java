@@ -85,16 +85,22 @@ public class DbServlet extends HttpServlet {
 				
 			}
 			
+			// View
+//			System.out.println(e.getEmpno());
+//			System.out.println(list.get(0).getEmpno());
+			
+			
+			
 			for(int i=0; i<list.size();i++) {
 				EmpDTO e = list.get(i);
 				response.getWriter().print(e.getEmpno()+ " ");
 				response.getWriter().print(e.getEname()+ " ");
 				response.getWriter().println(e.getHiredate());
 			}
-			// View
-//			System.out.println(e.getEmpno());
-//			System.out.println(list.get(0).getEmpno());
 			
+			
+			//커넥션풀로 반환
+			con.close();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
