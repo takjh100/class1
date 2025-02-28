@@ -67,6 +67,15 @@ for(int i=0; i<9; i++){
 %>
 <div><%= text %> </div>
 
+<hr>
+<!-- 액션태그 -->
+<%-- <jsp:include page="header.jsp"/> --%>
+<jsp:include page="header.jsp">
+     <jsp:param value="tak" name="id"/>
+</jsp:include>
+
+
+
 
 </body>
 </html>
