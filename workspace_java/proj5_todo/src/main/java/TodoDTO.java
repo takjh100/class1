@@ -47,4 +47,7 @@ public class TodoDTO {
 		return "TodoDTO [todo_id=" + todo_id + ", todo=" + todo + ", create_date=" + create_date + ", modify_date="
 				+ modify_date + ", done=" + done + "]";
 	}
+	
+	
+	
 }
