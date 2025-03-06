@@ -21,11 +21,21 @@
 
 <c:forEach var="dto" items="${resultList}">
 	<tr>
-		<td>${dto.todo_id }</td>
+	<form method="post" action="todo">
+		<td><input type="checkbox" name="done" value="Y"></td>
+		<td>
+		<input type="hidden" value="${dto.todo_id }" name="todo_id">
+		${dto.todo_id }
+		</td>
 		<td>${dto.todo }</td>
 		<td>${dto.create_date }</td>
 		<td>${dto.modify_date }</td>
 		<td>${dto.done }</td>
+		<td>
+			<input type="hidden" name="command" value="update">
+			<input type="submit" value="수정">
+		</td>
+	</form>
 	</tr>
 </c:forEach>
 

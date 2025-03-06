@@ -9,6 +9,7 @@ public class TodoDTO {
 	String done;
 	
 	
+
 	public int getTodo_id() {
 		return todo_id;
 	}
@@ -40,4 +41,10 @@ public class TodoDTO {
 		this.done = done;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "TodoDTO [todo_id=" + todo_id + ", todo=" + todo + ", create_date=" + create_date + ", modify_date="
+				+ modify_date + ", done=" + done + "]";
+	}
 }
