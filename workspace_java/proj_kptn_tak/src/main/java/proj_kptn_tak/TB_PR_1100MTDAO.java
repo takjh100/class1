@@ -49,51 +49,9 @@ public class TB_PR_1100MTDAO {
     }
 
     // 데이터 조회 (Select)
-    public TB_PR_1100MTDTO select(String prodCd) {
-        System.out.println("TB_PR_1100MTDAO select 실행");
-        TB_PR_1100MTDTO dto = null;
-
-        try {
-            // [DB 접속] 시작
-            Context ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
-            Connection con = ds.getConnection();
-
-            // [SQL 준비]
-            String query = "SELECT * FROM TB_PR_1100MT WHERE PROD_CD = ?";
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, prodCd);
-
-            // [SQL 실행] 및 [결과 확보]
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                dto = new TB_PR_1100MTDTO();
-                dto.setPROD_CD(rs.getString("PROD_CD"));
-                dto.setMT_MNG_CD(rs.getString("MT_MNG_CD"));
-                dto.setLIUN_NM(rs.getString("LIUN_NM"));
-                dto.setITEM_NM(rs.getString("ITEM_NM"));
-                dto.setITEM_CD(rs.getString("ITEM_CD"));
-                dto.setPROD_STRT_TIME(rs.getString("PROD_STRT_TIME"));
-                dto.setPROD_END_TIME(rs.getString("PROD_END_TIME"));
-                dto.setINDC_QNTT(rs.getInt("INDC_QNTT"));
-                dto.setPROD_QNTT(rs.getInt("PROD_QNTT"));
-                dto.setWORK_NM(rs.getString("WORK_NM"));
-                dto.setEQPM_OPRT_STTS_VAL(rs.getString("EQPM_OPRT_STTS_VAL"));
-                dto.setPROD_END_YN(rs.getString("PROD_END_YN"));
-            }
-
-            con.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return dto;
-    }
-
-    // 전체 데이터 조회 (Select All)
-    public List<TB_PR_1100MTDTO> selectAll() {
-        System.out.println("TB_PR_1100MTDAO selectAll 실행");
-        List<TB_PR_1100MTDTO> list = new ArrayList<>();
+    List selectTBPRList(){
+		System.out.println("selectTBPRList 실행");
+		List list = new ArrayList();
 
         try {
             // [DB 접속] 시작
@@ -107,8 +65,9 @@ public class TB_PR_1100MTDAO {
 
             // [SQL 실행] 및 [결과 확보]
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                TB_PR_1100MTDTO dto = new TB_PR_1100MTDTO();
+            while(rs.next()) {
+            	TB_PR_1100MTDTO dto = new TB_PR_1100MTDTO();
+                dto = new TB_PR_1100MTDTO();
                 dto.setPROD_CD(rs.getString("PROD_CD"));
                 dto.setMT_MNG_CD(rs.getString("MT_MNG_CD"));
                 dto.setLIUN_NM(rs.getString("LIUN_NM"));
@@ -121,6 +80,7 @@ public class TB_PR_1100MTDAO {
                 dto.setWORK_NM(rs.getString("WORK_NM"));
                 dto.setEQPM_OPRT_STTS_VAL(rs.getString("EQPM_OPRT_STTS_VAL"));
                 dto.setPROD_END_YN(rs.getString("PROD_END_YN"));
+                
                 list.add(dto);
             }
 
@@ -132,6 +92,7 @@ public class TB_PR_1100MTDAO {
         return list;
     }
 
+   
     // 데이터 수정 (Update)
     public int update(TB_PR_1100MTDTO dto) {
         System.out.println("TB_PR_1100MTDAO update 실행");
@@ -173,30 +134,5 @@ public class TB_PR_1100MTDAO {
         return result;
     }
 
-    // 데이터 삭제 (Delete)
-    public int delete(String prodCd) {
-        System.out.println("TB_PR_1100MTDAO delete 실행");
-        int result = -1;
-
-        try {
-            // [DB 접속] 시작
-            Context ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
-            Connection con = ds.getConnection();
-
-            // [SQL 준비]
-            String query = "DELETE FROM TB_PR_1100MT WHERE PROD_CD = ?";
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, prodCd);
-
-            // [SQL 실행] 및 [결과 확보]
-            result = ps.executeUpdate();
-
-            con.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return result;
-    }
+   
 }
