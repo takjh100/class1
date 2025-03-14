@@ -22,20 +22,16 @@ public class TB_PR_1100MTDAO {
 
             // [SQL 준비]
             String query = "INSERT INTO TB_PR_1100MT (PROD_CD, MT_MNG_CD, LIUN_NM, ITEM_NM, ITEM_CD, PROD_STRT_TIME, PROD_END_TIME, INDC_QNTT, PROD_QNTT, WORK_NM, EQPM_OPRT_STTS_VAL, PROD_END_YN) "
-                         + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                         + "?, ?, ?, ?, ?, to_char(sysdate, 'yyyy/mm/dd hh:mm:ss'), null, ?, ?, ?,'가동중', 'N' ";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, dto.getPROD_CD());
             ps.setString(2, dto.getMT_MNG_CD());
             ps.setString(3, dto.getLIUN_NM());
             ps.setString(4, dto.getITEM_NM());
             ps.setString(5, dto.getITEM_CD());
-            ps.setString(6, dto.getPROD_STRT_TIME());
-            ps.setString(7, dto.getPROD_END_TIME());
-            ps.setInt(8, dto.getINDC_QNTT());
-            ps.setInt(9, dto.getPROD_QNTT());
-            ps.setString(10, dto.getWORK_NM());
-            ps.setString(11, dto.getEQPM_OPRT_STTS_VAL());
-            ps.setString(12, dto.getPROD_END_YN());
+            ps.setInt(7, dto.getINDC_QNTT());
+            ps.setInt(8, dto.getPROD_QNTT());
+            ps.setString(9, dto.getWORK_NM());
 
             // [SQL 실행] 및 [결과 확보]
             result = ps.executeUpdate();  // int에는 영향받은 줄의 수
@@ -67,7 +63,6 @@ public class TB_PR_1100MTDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
             	TB_PR_1100MTDTO dto = new TB_PR_1100MTDTO();
-                dto = new TB_PR_1100MTDTO();
                 dto.setPROD_CD(rs.getString("PROD_CD"));
                 dto.setMT_MNG_CD(rs.getString("MT_MNG_CD"));
                 dto.setLIUN_NM(rs.getString("LIUN_NM"));
