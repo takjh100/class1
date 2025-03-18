@@ -7,7 +7,7 @@ public class TB_PR_1110MTDTO {
 	int TRG_PROD_CNT;				//목표생산수량
 	String PROD_STRT_DT;			//생산시작일자
 	String PROD_END_DT;				//생산완료일자
-	String MT_MNG_CD;				//품목코드
+	String ITEM_CD;				//품목코드
 	
 	
 	public String getPROD_PLN_CD() {
@@ -40,12 +40,13 @@ public class TB_PR_1110MTDTO {
 	public void setPROD_END_DT(String pROD_END_DT) {
 		PROD_END_DT = pROD_END_DT;
 	}
-	public String getMT_MNG_CD() {
-		return MT_MNG_CD;
+	public String getITEM_CD() {
+		return ITEM_CD;
 	}
-	public void setMT_MNG_CD(String mT_MNG_CD) {
-		MT_MNG_CD = mT_MNG_CD;
+	public void setITEM_CD(String iTEM_CD) {
+		ITEM_CD = iTEM_CD;
 	}
+	
 	
 	
 }

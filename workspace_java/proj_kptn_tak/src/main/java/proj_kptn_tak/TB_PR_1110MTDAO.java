@@ -21,7 +21,7 @@ public class TB_PR_1110MTDAO {
 			Connection con = ds.getConnection();
 
 			// [SQL 준비]
-			String query = "INSERT INTO TB_PR_1110MT (PROD_PLN_CD, ITEM_NM, TRG_PROD_CNT, PROD_STRT_DT, PROD_END_DT, MT_MNG_CD) "
+			String query = "INSERT INTO TB_PR_1110MT (PROD_PLN_CD, ITEM_NM, TRG_PROD_CNT, PROD_STRT_DT, PROD_END_DT, ITEM_CD) "
 					+ "VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, dto.getPROD_PLN_CD());
@@ -29,7 +29,7 @@ public class TB_PR_1110MTDAO {
 			ps.setInt(3, dto.getTRG_PROD_CNT());
 			ps.setString(4, dto.getPROD_STRT_DT());
 			ps.setString(5, dto.getPROD_END_DT());
-			ps.setString(6, dto.getMT_MNG_CD());
+			ps.setString(6, dto.getITEM_CD());
 
 			// [SQL 실행] 및 [결과 확보]
 			result = ps.executeUpdate(); // int에는 영향받은 줄의 수
@@ -67,7 +67,7 @@ public class TB_PR_1110MTDAO {
 				dto.setTRG_PROD_CNT(rs.getInt("TRG_PROD_CNT"));
 				dto.setPROD_STRT_DT(rs.getString("PROD_STRT_DT"));
 				dto.setPROD_END_DT(rs.getString("PROD_END_DT"));
-				dto.setMT_MNG_CD(rs.getString("MT_MNG_CD"));
+//				dto.setMT_MNG_CD(rs.getString("MT_MNG_CD"));
 
 				list.add(dto);
 			}
@@ -93,14 +93,14 @@ public class TB_PR_1110MTDAO {
 
 			// [SQL 준비]
 			String query = "UPDATE TB_PR_1110MT SET "
-					+ "ITEM_NM = ?, TRG_PROD_CNT = ?, PROD_STRT_DT = ?, PROD_END_DT = ?, MT_MNG_CD = ? "
+					+ "ITEM_NM = ?, TRG_PROD_CNT = ?, PROD_STRT_DT = ?, PROD_END_DT = ?, ITEM_CD = ? "
 					+ "WHERE PROD_PLN_CD = ?";
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, dto.getITEM_NM());
 			ps.setInt(2, dto.getTRG_PROD_CNT());
 			ps.setString(3, dto.getPROD_STRT_DT());
 			ps.setString(4, dto.getPROD_END_DT());
-			ps.setString(5, dto.getMT_MNG_CD());
+			ps.setString(5, dto.getITEM_CD());
 			ps.setString(6, dto.getPROD_PLN_CD());
 
 			// [SQL 실행] 및 [결과 확보]

@@ -40,5 +40,10 @@ let itemNm = document.querySelector('.itemNm');
         }
         console.log("Updated itemNm : ", itemNm.value);  // 변경된 itemCd 값 출력
     });
+    
+    document.querySelector('.end').addEventListener('click', function () {
+        window.open('a','_self').close();
+        opener.parent.location.reload();
+    });
 
 }

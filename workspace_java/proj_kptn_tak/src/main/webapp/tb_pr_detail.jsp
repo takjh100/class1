@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +102,6 @@
 										<th class="cs8">설비상태</th>
 									</tr>
 								</table>
-								<form method="post" action="tb_pr_mt">
 									<table class="pm_table">
 										<tr>
 											<td class="cs1">A-1호기</td>
@@ -113,7 +114,16 @@
 											<td class="cs7">김기동</td>
 											<td class="cs8">가동중</td>
 										</tr>
-
+										<!-- <tr>
+											<td class="cs1">${LIUN_NM}</td>
+											<td class="cs2">${PROD_CD}</td>
+											<td class="cs3">${PROD_CD}</td>
+											<td class="cs4">${PROD_CD}</td>
+											<td class="cs5">${PROD_STRT_TIME}</td>
+											<td class="cs6">${PROD_END_TIME}</td>
+											<td class="cs7">${WORK_NM}</td>
+											<td class="cs8">${EQPM_OPRT_STTS_VAL}</td>
+										</tr> -->
 
 									</table>
 							</div>
@@ -220,23 +230,26 @@
 											<tr class="tableTop">
 												<th class="schedule1">품번코드</th>
 												<th class="schedule2">품명</th>
-												<th class="schedule3">생산기한</th>
-												<th class="schedule4">목표생산수량</th>
+												<th class="schedule3">목표시작기한</th>
+												<th class="schedule4">목표종료기한</th>
+												<th class="schedule5">목표생산수량</th>
 											</tr>
 										</table>
 										<table class="pr_table">
 											<tr>
 												<td class="schedule1">SSJ-02</td>
 												<td class="schedule2">싹싹지우개</td>
-												<td class="schedule3">2025.02.01~2025.02.25</td>
-												<td class="schedule4">1500ea</td>
+												<td class="schedule3">2025.02.01</td>
+												<td class="schedule4">2025.02.25</td>
+												<td class="schedule5">1500ea</td>
 											</tr>
-											<tr>
-												<td class="schedule1">FTJ-05</td>
-												<td class="schedule2">처음처럼지우개</td>
-												<td class="schedule3">2025.01.18~2025.02.17</td>
-												<td class="schedule4">1000ea</td>
-											</tr>
+											<!-- <tr>
+												<td class="schedule1">${MT_MNG_CD}</td>
+												<td class="schedule2">${ITEM_NM}</td>
+												<td class="schedule3">${PROD_STRT_DT}</td>
+												<td class="schedule4">${PROD_END_DT}</td>
+												<td class="schedule5">${TRG_PROD_CNT}</td>
+											</tr>  -->
 										</table>
 									</div>
 								</div>

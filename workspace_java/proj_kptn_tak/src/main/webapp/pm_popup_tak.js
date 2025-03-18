@@ -32,7 +32,7 @@ function init() {
         console.log("Updated itemCd : ", itemCd.value);  // 변경된 itemCd 값 출력
     });
     
-    
+    //epdpspepwpe
     let itemCd = document.querySelector('.itemCd');
     console.log("itemCd : ", itemCd);
 
@@ -51,5 +51,10 @@ function init() {
         }
         console.log("Updated itemNm : ", itemNm.value);  // 변경된 itemCd 값 출력
     });
+    
 
 }
+    document.querySelector('.end').addEventListener('click', function () {
+        window.open('a','_self').close();
+        opener.parent.location.reload();
+    });

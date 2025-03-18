@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,18 +20,18 @@
 		<dlv class="pm_correction">
 		<div class="boxTit">생산 관리</div>
 		<div class="pr_ssmanu">
-			<div class="ssTitle">생산 일정 관리</div>
+			<div class="ssTitle" style="margin: 15px 0 0;">생산 일정 관리</div>
 			<form method="post" action="tb_pr_mt">
 				<div class="pr_correction_con">
 					<div style="width: 100px;">품명:</div>
-					<select class="itemNm" type="1110" name="ITEM_NM">
+					<select class="itemNm" name="ITEM_NM">
 						<option value="싹싹지우개">싹싹지우개</option>
 						<option value="하츄핑지우개">하츄핑지우개</option>
 					</select>
 				</div>
 				<div class="pr_correction_con">
 					<div style="width: 100px;">품번 코드:</div>
-					<select class="itemCd" type="1110" name="ITEM_CD">
+					<select class="itemCd" name="ITEM_CD">
 						<option value="SS-01">SS-01</option>
 						<option value="HH-01">HH-01</option>
 					</select>
@@ -44,10 +47,16 @@
 						<input type="date" name="PROD_END_TIME" style="height: 20px; width: 60%;">&nbsp;&nbsp;까지&nbsp;&nbsp;
 					</div>
 				</div>
-				<div class="pr_correction_but" style="margin: 20px 0 0;">
-					<div class="add">추가</div>
-					<div class="retouch">수정</div>
-					<div class="delete">삭제</div>
+				<div class="pm_correction_but">
+					<select class="pm_correction_but_con" name="command">
+						<option value="insert">시작</option>
+						<option value="update">수정</option>
+						<option value="complete">완료</option>
+					</select>
+					<input type="hidden" name="type" value="${type}">
+					<div class="end" style="margin: 0;">
+						<input class="pm_correction_but_con" type="submit" value="등록">
+					</div>
 				</div>
 			</form>
 		</div>
