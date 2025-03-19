@@ -1,3 +1,7 @@
+.hide {
+    display: none;
+}
+
 .menuPage-con {
 	background-color: darkgrey;
 }
@@ -204,7 +208,7 @@
 .pm_correction_but_con {
 	height: 23px;
 	width: 50px;
-	margin: 10px;
+	margin: 20px;
 	background-color: #2f373a;
 	color: white;
 	border: 1px solid black;
@@ -222,7 +226,7 @@
 }
 
 .pr_ssmanu div {
-	margin: 15px 20px 5px;
+	margin: 5px 20px 5px;
 }
 
 .pr_correction {

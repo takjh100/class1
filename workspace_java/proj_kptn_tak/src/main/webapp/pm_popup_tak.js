@@ -52,9 +52,34 @@ function init() {
         console.log("Updated itemNm : ", itemNm.value);  // 변경된 itemCd 값 출력
     });
     
+    let pmBut = document.querySelector('.pm_correction_but_con')
+    pmBut.addEventListener('click', function () {
+
+        if (pmBut.value == 'insert') {
+            let ttssText1 = document.querySelector('.ttssText1');
+            let ttssText2 = document.querySelector('.ttssText2');
+            ttssText1.classList.remove('hide');
+            ttssText2.classList.add('hide');
+        }else if (pmBut.value == 'update'){
+            let ttssText1 = document.querySelector('.ttssText1');
+            let ttssText2 = document.querySelector('.ttssText2');
+            ttssText1.classList.remove('hide');
+            ttssText2.classList.add('hide');
+        }else if (pmBut.value == 'complete'){
+            let ttssText1 = document.querySelector('.ttssText1');
+            let ttssText2 = document.querySelector('.ttssText2');
+            ttssText1.classList.add('hide');
+            ttssText2.classList.remove('hide');
+        }
+    });
+    
+    document.querySelector('.end').addEventListener('click', function () {
+    	settimeout(function(){
+	        window.open('a','_self').close();
+	        opener.parent.location.reload();
+    	}, 300)
+    });
+    
 
 }
-    document.querySelector('.end').addEventListener('click', function () {
-        window.open('a','_self').close();
-        opener.parent.location.reload();
-    });
+    

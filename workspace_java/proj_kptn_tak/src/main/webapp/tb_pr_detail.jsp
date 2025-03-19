@@ -114,7 +114,7 @@
 											<td class="cs7">김기동</td>
 											<td class="cs8">가동중</td>
 										</tr>
-										<!-- <tr>
+										<tr>
 											<td class="cs1">${LIUN_NM}</td>
 											<td class="cs2">${PROD_CD}</td>
 											<td class="cs3">${PROD_CD}</td>
@@ -123,7 +123,7 @@
 											<td class="cs6">${PROD_END_TIME}</td>
 											<td class="cs7">${WORK_NM}</td>
 											<td class="cs8">${EQPM_OPRT_STTS_VAL}</td>
-										</tr> -->
+										</tr>
 
 									</table>
 							</div>
@@ -243,13 +243,13 @@
 												<td class="schedule4">2025.02.25</td>
 												<td class="schedule5">1500ea</td>
 											</tr>
-											<!-- <tr>
+											<tr>
 												<td class="schedule1">${MT_MNG_CD}</td>
 												<td class="schedule2">${ITEM_NM}</td>
 												<td class="schedule3">${PROD_STRT_DT}</td>
 												<td class="schedule4">${PROD_END_DT}</td>
 												<td class="schedule5">${TRG_PROD_CNT}</td>
-											</tr>  -->
+											</tr>
 										</table>
 									</div>
 								</div>

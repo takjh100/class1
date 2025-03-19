@@ -23,28 +23,40 @@
 			<div class="ssTitle" style="margin: 15px 0 0;">생산 일정 관리</div>
 			<form method="post" action="tb_pr_mt">
 				<div class="pr_correction_con">
-					<div style="width: 100px;">품명:</div>
-					<select class="itemNm" name="ITEM_NM">
-						<option value="싹싹지우개">싹싹지우개</option>
-						<option value="하츄핑지우개">하츄핑지우개</option>
+				<div style="width: 100px;">생산일정코드:</div>
+					<select name="PROD_PLN_CD">
+						<c:forEach var="dto" items="${resultList }">
+							<option value="${dto.prod_pln_cd }">${dto.prod_pln_cd }</option>
+						</c:forEach>
 					</select>
 				</div>
 				<div class="pr_correction_con">
-					<div style="width: 100px;">품번 코드:</div>
+					<div style="width: 100px;">품명:</div>
+					<select class="itemNm" name="ITEM_NM">
+						<c:forEach var="dto" items="${resultList }">
+							<option value="${dto.item_nm }">${dto.item_nm }</option>
+						</c:forEach>
+					</select>
+				</div>
+				<div class="pr_correction_con">
+					<div style="width: 100px;">품목 코드:</div>
 					<select class="itemCd" name="ITEM_CD">
-						<option value="SS-01">SS-01</option>
-						<option value="HH-01">HH-01</option>
+						<c:forEach var="dto" items="${workList }">
+							<option value="${dto.item_cd }">${dto.item_cd }</option>
+						</c:forEach>
 					</select>
 				</div>
 				<div class="pr_correction_con">
 					<div style="width: 100px;">목표 수량:</div>
-					<input type="text" style="height: 18px;" name="INDC_QNTT" value="">
+					<input type="text" style="height: 18px;" name="trgProdCnt" value="">
 				</div>
 				<div class="pr_correction_con">
 					<div style="width: 150px;">기한설정:</div>
 					<div class="pr_date">
-						<input type="date" name="PROD_STRT_TIME" style="height: 20px; width: 60%;">&nbsp;&nbsp;부터&nbsp;&nbsp;
-						<input type="date" name="PROD_END_TIME" style="height: 20px; width: 60%;">&nbsp;&nbsp;까지&nbsp;&nbsp;
+						<input type="date" name="PROD_STRT_TIME" value=""
+							style="height: 20px; width: 60%;">&nbsp;&nbsp;부터&nbsp;&nbsp;
+						<input type="date" name="PROD_END_TIME" value=""
+							style="height: 20px; width: 60%;">&nbsp;&nbsp;까지&nbsp;&nbsp;
 					</div>
 				</div>
 				<div class="pm_correction_but">
@@ -52,8 +64,7 @@
 						<option value="insert">시작</option>
 						<option value="update">수정</option>
 						<option value="complete">완료</option>
-					</select>
-					<input type="hidden" name="type" value="${type}">
+					</select> <input type="hidden" name="type" value="${type}">
 					<div class="end" style="margin: 0;">
 						<input class="pm_correction_but_con" type="submit" value="등록">
 					</div>

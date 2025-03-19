@@ -2,51 +2,60 @@ package proj_kptn_tak;
 
 public class TB_PR_1110MTDTO {
 
-	String PROD_PLN_CD;   			//생산일정코드
-	String ITEM_NM;					//품목명
-	int TRG_PROD_CNT;				//목표생산수량
-	String PROD_STRT_DT;			//생산시작일자
-	String PROD_END_DT;				//생산완료일자
-	String ITEM_CD;				//품목코드
+	String prod_pln_cd;   			//생산일정코드
+	String item_nm;					//품목명
+	int    trg_prod_cnt;				//목표생산수량
+	String prod_strt_dt;			//생산시작일자
+	String prod_end_dt;				//생산완료일자
+	String item_cd;				//품목코드
 	
 	
-	public String getPROD_PLN_CD() {
-		return PROD_PLN_CD;
+	public String getProd_pln_cd() {
+		return prod_pln_cd;
 	}
-	public void setPROD_PLN_CD(String pROD_PLN_CD) {
-		PROD_PLN_CD = pROD_PLN_CD;
+	public void setProd_pln_cd(String prod_pln_cd) {
+		this.prod_pln_cd = prod_pln_cd;
 	}
-	public String getITEM_NM() {
-		return ITEM_NM;
+	public String getItem_nm() {
+		return item_nm;
 	}
-	public void setITEM_NM(String iTEM_NM) {
-		ITEM_NM = iTEM_NM;
+	public void setItem_nm(String item_nm) {
+		this.item_nm = item_nm;
 	}
-	public int getTRG_PROD_CNT() {
-		return TRG_PROD_CNT;
+	public int getTrg_prod_cnt() {
+		return trg_prod_cnt;
 	}
-	public void setTRG_PROD_CNT(int tRG_PROD_CNT) {
-		TRG_PROD_CNT = tRG_PROD_CNT;
+	public void setTrg_prod_cnt(int trg_prod_cnt) {
+		this.trg_prod_cnt = trg_prod_cnt;
 	}
-	public String getPROD_STRT_DT() {
-		return PROD_STRT_DT;
+	public String getProd_strt_dt() {
+		return prod_strt_dt;
 	}
-	public void setPROD_STRT_DT(String pROD_STRT_DT) {
-		PROD_STRT_DT = pROD_STRT_DT;
+	public void setProd_strt_dt(String prod_strt_dt) {
+		this.prod_strt_dt = prod_strt_dt;
 	}
-	public String getPROD_END_DT() {
-		return PROD_END_DT;
+	public String getProd_end_dt() {
+		return prod_end_dt;
 	}
-	public void setPROD_END_DT(String pROD_END_DT) {
-		PROD_END_DT = pROD_END_DT;
+	public void setProd_end_dt(String prod_end_dt) {
+		this.prod_end_dt = prod_end_dt;
 	}
-	public String getITEM_CD() {
-		return ITEM_CD;
+	public String getItem_cd() {
+		return item_cd;
 	}
-	public void setITEM_CD(String iTEM_CD) {
-		ITEM_CD = iTEM_CD;
+	public void setItem_cd(String item_cd) {
+		this.item_cd = item_cd;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "TB_PR_1110MTDTO [prod_pln_cd=" + prod_pln_cd + ", item_nm=" + item_nm + ", trg_prod_cnt=" + trg_prod_cnt
+				+ ", prod_strt_dt=" + prod_strt_dt + ", prod_end_dt=" + prod_end_dt + ", item_cd=" + item_cd + "]";
 	}
 	
 	
 	
+	
+
 }

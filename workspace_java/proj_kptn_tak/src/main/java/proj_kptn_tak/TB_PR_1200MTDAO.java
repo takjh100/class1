@@ -24,12 +24,12 @@ public class TB_PR_1200MTDAO {
             String query = "INSERT INTO TB_PR_1200MT (LIUN_NM, ITEM_NM, UNIT_NO, DLY_PRDC_QNTT, DLY_DFC_RT, INDC_QNTT) "
                          + "VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, dto.getLIUN_NM());
-            ps.setString(2, dto.getITEM_NM());
-            ps.setString(3, dto.getUNIT_NO());
-            ps.setInt(4, dto.getDLY_PRDC_QNTT());
-            ps.setInt(5, dto.getDLY_DFC_RT());
-            ps.setInt(6, dto.getINDC_QNTT());
+            ps.setString(1, dto.getLiun_nm());
+            ps.setString(2, dto.getItem_nm());
+            ps.setString(3, dto.getUnit_no());
+            ps.setInt(4, dto.getDly_prdc_qntt());
+            ps.setInt(5, dto.getDly_dfc_rt());
+            ps.setInt(6, dto.getIndc_qntt());
 
             // [SQL 실행] 및 [결과 확보]
             result = ps.executeUpdate();  // 영향받은 줄의 수
@@ -63,12 +63,12 @@ public class TB_PR_1200MTDAO {
             while (rs.next()) {
             	TB_PR_1200MTDTO dto = new TB_PR_1200MTDTO();
                 dto = new TB_PR_1200MTDTO();
-                dto.setLIUN_NM(rs.getString("LIUN_NM"));
-                dto.setITEM_NM(rs.getString("ITEM_NM"));
-                dto.setUNIT_NO(rs.getString("UNIT_NO"));
-                dto.setDLY_PRDC_QNTT(rs.getInt("DLY_PRDC_QNTT"));
-                dto.setDLY_DFC_RT(rs.getInt("DLY_DFC_RT"));
-                dto.setINDC_QNTT(rs.getInt("INDC_QNTT"));
+                dto.setLiun_nm(rs.getString("LIUN_NM"));
+                dto.setItem_nm(rs.getString("ITEM_NM"));
+                dto.setUnit_no(rs.getString("UNIT_NO"));
+                dto.setDly_prdc_qntt(rs.getInt("DLY_PRDC_QNTT"));
+                dto.setDly_dfc_rt(rs.getInt("DLY_DFC_RT"));
+                dto.setIndc_qntt(rs.getInt("INDC_QNTT"));
             
                 list.add(dto);
             }
@@ -99,12 +99,12 @@ public class TB_PR_1200MTDAO {
                          + "LIUN_NM = ?, ITEM_NM = ?, DLY_PRDC_QNTT = ?, DLY_DFC_RT = ?, INDC_QNTT = ? "
                          + "WHERE UNIT_NO = ?";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, dto.getLIUN_NM());
-            ps.setString(2, dto.getITEM_NM());
-            ps.setInt(3, dto.getDLY_PRDC_QNTT());
-            ps.setInt(4, dto.getDLY_DFC_RT());
-            ps.setInt(5, dto.getINDC_QNTT());
-            ps.setString(6, dto.getUNIT_NO());
+            ps.setString(1, dto.getLiun_nm());
+            ps.setString(2, dto.getItem_nm());
+            ps.setInt(3, dto.getDly_prdc_qntt());
+            ps.setInt(4, dto.getDly_dfc_rt());
+            ps.setInt(5, dto.getIndc_qntt());
+            ps.setString(6, dto.getUnit_no());
 
             // [SQL 실행] 및 [결과 확보]
             result = ps.executeUpdate();

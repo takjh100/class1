@@ -2,42 +2,52 @@ package proj_kptn_tak;
 
 public class test_TB_PR_1000MT_DTO {
  
-	private String PROD_CD;
-	private String LIUN_CD;
-	private String LIUN_NM;
-	private int INDC_QNTT;
+	private String prod_cd;
+	private String liun_cd;
+	private String liun_nm;
+	private String item_cd;
+	private int   indc_qntt;
+	public String getProd_cd() {
+		return prod_cd;
+	}
+	public void setProd_cd(String prod_cd) {
+		this.prod_cd = prod_cd;
+	}
+	public String getLiun_cd() {
+		return liun_cd;
+	}
+	public void setLlun_cd(String liun_cd) {
+		this.liun_cd = liun_cd;
+	}
+	public String getLiun_nm() {
+		return liun_nm;
+	}
+	public void setLiun_nm(String liun_nm) {
+		this.liun_nm = liun_nm;
+	}
+	public String getItem_cd() {
+		return item_cd;
+	}
+	public void setItem_cd(String item_cd) {
+		this.item_cd = item_cd;
+	}
+	public int getIndc_qntt() {
+		return indc_qntt;
+	}
+	public void setIndc_qntt(int indc_qntt) {
+		this.indc_qntt = indc_qntt;
+	}
 	
-	
-	public String getPROD_CD() {
-		return PROD_CD;
-	}
-	public void setPROD_CD(String pROD_CD) {
-		PROD_CD = pROD_CD;
-	}
-	public String getLIUN_CD() {
-		return LIUN_CD;
-	}
-	public void setLIUN_CD(String lIUN_CD) {
-		LIUN_CD = lIUN_CD;
-	}
-	public String getLIUN_NM() {
-		return LIUN_NM;
-	}
-	public void setLIUN_NM(String lIUN_NM) {
-		LIUN_NM = lIUN_NM;
-	}
-	public int getINDC_QNTT() {
-		return INDC_QNTT;
-	}
-	public void setINDC_QNTT(int iNDC_QNTT) {
-		INDC_QNTT = iNDC_QNTT;
-	}
 	
 	@Override
 	public String toString() {
-		return "test_TB_PR_1000MT_DTO [PROD_CD=" + PROD_CD + ", LIUN_CD=" + LIUN_CD + ", LIUN_NM=" + LIUN_NM
-				+ ", INDC_QNTT=" + INDC_QNTT + "]";
+		return "test_TB_PR_1000MT_DTO [prod_cd=" + prod_cd + ", liun_cd=" + liun_cd + ", liun_nm=" + liun_nm
+				+ ", item_cd=" + item_cd + ", indc_qntt=" + indc_qntt + "]";
 	}
+	
+	
+	
+	
 	
 	
 }
