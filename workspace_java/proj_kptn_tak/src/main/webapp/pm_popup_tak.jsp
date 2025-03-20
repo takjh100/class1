@@ -34,19 +34,39 @@
 								</c:forEach>
 							</select>
 						</div>
-						
+
 					</div>
 					<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
 						<div style="width: 80px;">생산 코드 :</div>
 						<div>
-							<select name="PROD_CD">
+							<select id="select" name="PROD_CD" onchange="changeI()">
 								<c:forEach var="dto" items="${workList }">
-									<option value="${dto.prod_cd }">${dto.prod_cd }</option>
+									<option value="${dto.prod_cd }" 
+											indc_qntt1="${dto.indc_qntt }"
+											>
+											${dto.prod_cd }
+											</option>
 								</c:forEach>
 							</select>
 						</div>
 					</div>
 				</div>
+				
+				<script>
+				function changeI() {
+					
+					var select = document.getElementById('select');
+					var select_option = select.options[select.selectedIndex];
+					
+					
+					var indc_qntt = select_option.getAttribute("indc_qntt1");
+					console.log("indc_qntt : ", indc_qntt);
+					document.getElementById('indc_qntt').value = indc_qntt;
+				}
+				</script>
+				
+				<input type="hidden" id="indc_qntt" name="indcQntt" value="${dto.indc_qntt }">
+				
 				<div class="pm_correction_con">
 					<div style="width: 100px;">품목코드:</div>
 					<select class="itemCd" name="ITEM_CD">
@@ -77,11 +97,11 @@
 						</c:forEach>
 					</select>
 				</div>
-				<input type="hidden" name="INDC_QNTT" value="INDC_QNTT">
+
 				<div class="ttssText1">
 					<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
 						<div class="sstext" style="width: 100px;">생산량 :</div>
-						<input name="PROD_QNTT" value="">
+						<input name="prodQntt" value="">
 					</div>
 				</div>
 				<div class="ttssText2 hide">
@@ -98,6 +118,8 @@
 					</select> <input type="hidden" name="type" value="${type}">
 					<div class="end" style="margin: 0;">
 						<input class="pm_correction_but_con" type="submit" value="등록">
+						
+						<!--<button type="submit" name="command", value="update">등록</button> -->
 					</div>
 				</div>
 			</form>

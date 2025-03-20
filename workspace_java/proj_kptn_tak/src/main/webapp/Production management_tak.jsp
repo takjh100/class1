@@ -113,16 +113,24 @@
 											<td class="cs7">김기동</td>
 											<td class="cs8">가동중</td>
 										</tr>
+										
+										
+										
+										<c:forEach var ="dto" items="${Plist }">
+										
 										<tr>
-											<td class="cs1">${liun_nm }</td>
-											<td class="cs2">${prod_cd }</td>
-											<td class="cs3">${item_cd }</td>
-											<td class="cs4">${item_nm }</td>
-											<td class="cs5">${prod_strt_time}</td>
-											<td class="cs6">${prod_end_time}</td>
-											<td class="cs7">${work_nm}</td>
-											<td class="cs8">${eqpm_oprt_stts_val}</td>
+										
+											<td class="cs1">${dto.liun_nm }</td>
+											<td class="cs2">${dto.prod_cd }</td>
+											<td class="cs3">${dto.item_cd }</td>
+											<td class="cs4">${dto.item_nm }</td>
+											<td class="cs5">${dto.prod_strt_time}</td>
+											<td class="cs6">${dto.prod_end_time}</td>
+											<td class="cs7">${dto.work_nm}</td>
+											<td class="cs8">${dto.eqpm_oprt_stts_val}</td>
 										</tr>
+										
+										</c:forEach>
 
 									</table>
 								</div>

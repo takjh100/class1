@@ -73,12 +73,16 @@ function init() {
         }
     });
     
+    
+    
     document.querySelector('.end').addEventListener('click', function () {
     	settimeout(function(){
 	        window.open('a','_self').close();
 	        opener.parent.location.reload();
     	}, 300)
     });
+    
+    
     
 
 }

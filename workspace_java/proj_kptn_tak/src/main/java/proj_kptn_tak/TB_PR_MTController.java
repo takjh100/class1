@@ -68,6 +68,14 @@ public class TB_PR_MTController extends HttpServlet {
 			TB_MD_1000MTDAO dao4 = new TB_MD_1000MTDAO();
 			List LineList = dao4.selectTestLineList();
 
+			for(int i=0; i<workList.size(); i++) {
+				test_TB_PR_1000MT_DTO dto0 = (test_TB_PR_1000MT_DTO) workList.get(i);
+				
+				System.out.println("workList : " + dto0.toString());
+				System.out.println();
+			}
+			
+			
 			request.setAttribute("resultList", resultList);
 			request.setAttribute("type", "1100");
 
@@ -89,6 +97,9 @@ public class TB_PR_MTController extends HttpServlet {
 			// test_TB_PR_1000MT_DAO 조회 작업지시서
 			test_TB_PR_1000MT_DAO dao1 = new test_TB_PR_1000MT_DAO();
 			List workList = dao1.selectTestWorkList();
+			
+			
+			
 
 			// test_TB_MB_1000MT_DAO 조회 회원정보
 			test_TB_MB_1000MT_DAO dao2 = new test_TB_MB_1000MT_DAO();
@@ -134,6 +145,9 @@ public class TB_PR_MTController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 
+		//페이지조회 추후 확인
+//		List Plist =  new ArrayList();
+		
 		String command = request.getParameter("command");
 		String type = request.getParameter("type");
 		System.out.println("type : " + type);
@@ -164,16 +178,17 @@ public class TB_PR_MTController extends HttpServlet {
 				String prodcd = request.getParameter("PROD_CD");
 				String mtMngCd = request.getParameter("MT_MNG_CD");
 				String liunNm = request.getParameter("LIUN_NM");
+				String liunCd = request.getParameter("LIUN_CD");
 				String itemNm = request.getParameter("ITEM_NM");
 				String itemCd = request.getParameter("ITEM_CD");
 //				String prodStrtTime = request.getParameter("PROD_STRT_TIME");
 //				String prodEndTime = request.getParameter("prodEndTime");
-				int indcQntt = Integer.parseInt(request.getParameter("INDC_QNTT")); // 지시수량 넘어오게끔 추후
-				int prodQntt = Integer.parseInt(request.getParameter("PROD_QNTT"));
+				int indcQntt = Integer.parseInt(request.getParameter("indcQntt")); // 지시수량 넘어오게끔 추후
+				int prodQntt = Integer.parseInt(request.getParameter("prodQntt"));
 				String workNm = request.getParameter("WORK_NM");
 //				String eqpmOprtSttsVal = request.getParameter("eqpmOprtSttsVal");
 //				String prodEndYn = request.getParameter("prodEndYn");
-				String dfcRt = request.getParameter("DFC_RT");
+				
 
 //				
 
@@ -181,6 +196,7 @@ public class TB_PR_MTController extends HttpServlet {
 				dto.setProd_cd(prodcd);
 				dto.setMt_mng_cd(mtMngCd);
 				dto.setLiun_nm(liunNm);
+				dto.setLiun_nm(liunCd);
 				dto.setItem_nm(itemNm);
 				dto.setItem_cd(itemCd);
 //				dto.setProd_strt_time(prodStrtTime);
@@ -190,11 +206,19 @@ public class TB_PR_MTController extends HttpServlet {
 				dto.setWork_nm(workNm);
 //				dto.setEqpm_oprt_stts_val(eqpmOprtSttsVal);
 //				dto.setProd_end_yn(prodEndYn);
-				dto.setWork_nm(dfcRt);
+				
 
 				TB_PR_1100MTDAO dao = new TB_PR_1100MTDAO();
 				int result = dao.insert(dto);
 				System.out.println("Insert result: " + result);
+				
+				
+				//페이지조회 추후확인
+//				Plist = dao.selectTBPRList();
+//				request.setAttribute("Plist", Plist);
+//				
+//				String url = "/WEB-INF/views/list.jsp";
+//				request.getRequestDispatcher(url).forward(request, response);
 			}
 
 		} else if ("update".equals(command)) {
