@@ -85,7 +85,7 @@ public class TB_PR_1100MTDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("list: "+list);
+//        System.out.println("TB_PR_1100MTDAO list: "+list);
         return list;
     }
 

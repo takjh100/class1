@@ -29,14 +29,15 @@
 						<div style="margin-right: 60px;">라인 :</div>
 						<div>
 							<select name="LIUN_NM">
-								<c:forEach var="dto" items="${workList }">
-									<option value="${dto.liun_nm }">${dto.liun_nm }</option>
+								<c:forEach var="dto" items="${LineList }">
+									<option value="${dto.mt_mng_nm }">${dto.mt_mng_nm }</option>
 								</c:forEach>
 							</select>
 						</div>
+						
 					</div>
 					<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
-						<div style="width: 80px;">생산 번호 :</div>
+						<div style="width: 80px;">생산 코드 :</div>
 						<div>
 							<select name="PROD_CD">
 								<c:forEach var="dto" items="${workList }">
@@ -49,8 +50,8 @@
 				<div class="pm_correction_con">
 					<div style="width: 100px;">품목코드:</div>
 					<select class="itemCd" name="ITEM_CD">
-						<c:forEach var="dto" items="${workList }">
-							<option value="${dto.item_cd }">${dto.item_cd }</option>
+						<c:forEach var="dto" items="${StandardList }">
+							<option value="${dto.mt_mng_cd }">${dto.mt_mng_cd }</option>
 						</c:forEach>
 					</select>
 					<!-- <div class="itemCd" type="text" style="width: 50px;">SS-01</div> -->
@@ -71,8 +72,8 @@
 				<div class="pm_correction_con">
 					<div style="width: 100px;">품명:</div>
 					<select class="itemNm" name="ITEM_NM">
-						<c:forEach var="dto" items="${resultList }">
-							<option value="${dto.item_nm }">${dto.item_nm }</option>
+						<c:forEach var="dto" items="${StandardList }">
+							<option value="${dto.mt_mng_nm }">${dto.mt_mng_nm }</option>
 						</c:forEach>
 					</select>
 				</div>

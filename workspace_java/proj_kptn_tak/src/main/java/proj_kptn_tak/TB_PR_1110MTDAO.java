@@ -22,14 +22,13 @@ public class TB_PR_1110MTDAO {
 
 			// [SQL 준비]
 			String query = "INSERT INTO TB_PR_1110MT (PROD_PLN_CD, ITEM_NM, TRG_PROD_CNT, Prod_strt_dt, PROD_END_DT, ITEM_CD) "
-					+ "VALUES (?, ?, ?, ?, ?, ?)";
+					+ "VALUES ('PR_'||to_char(sysdate,'yymm')||'_'||LPAD(SQ_PR_1110MT.nextval,4,0), ?, ?, ?, ?, ?)";
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(1, dto.getProd_pln_cd());
-			ps.setString(2, dto.getItem_nm());
-			ps.setInt(3, dto.getTrg_prod_cnt());
-			ps.setString(4, dto.getProd_strt_dt());
-			ps.setString(5, dto.getProd_end_dt());
-			ps.setString(6, dto.getItem_cd());
+			ps.setString(1, dto.getItem_nm());
+			ps.setInt(2, dto.getTrg_prod_cnt());
+			ps.setString(3, dto.getProd_strt_dt());
+			ps.setString(4, dto.getProd_end_dt());
+			ps.setString(5, dto.getItem_cd());
 
 			// [SQL 실행] 및 [결과 확보]
 			result = ps.executeUpdate(); // int에는 영향받은 줄의 수
@@ -78,6 +77,7 @@ public class TB_PR_1110MTDAO {
 			e.printStackTrace();
 		}
 
+//		System.out.println("TB_PR_1110MTDAO list: "+list);
 		return list;
 	}
 
@@ -116,7 +116,6 @@ public class TB_PR_1110MTDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return result;
 	}
 }

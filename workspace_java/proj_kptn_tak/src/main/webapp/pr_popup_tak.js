@@ -14,9 +14,9 @@ let itemNm = document.querySelector('.itemNm');
 
         // itemCd 값을 업데이트
         if (itemNms == "싹싹지우개") {
-            itemCd.value = "SS-01";  // itemCd의 값을 'SS-01'로 변경
+            itemCd.value = "P0006";  // itemCd의 값을 'SS-01'로 변경
         } else if (itemNms == "하츄핑지우개") {
-            itemCd.value = "HH-01";  // itemCd의 값을 'HH-01'로 변경
+            itemCd.value = "P0033";  // itemCd의 값을 'HH-01'로 변경
         }
         console.log("Updated itemCd : ", itemCd.value);  // 변경된 itemCd 값 출력
     });
@@ -33,9 +33,9 @@ let itemNm = document.querySelector('.itemNm');
         console.log("bbbbb", itemCd.value);  // 기존 itemCd 값 출력
 
         // itemCd 값을 업데이트
-        if (itemCds == "SS-01") {
+        if (itemCds == "P0006") {
             itemNm.value = "싹싹지우개";  // itemCd의 값을 'SS-01'로 변경
-        } else if (itemCds == "HH-01") {
+        } else if (itemCds == "P0033") {
             itemNm.value = "하츄핑지우개";  // itemCd의 값을 'HH-01'로 변경
         }
         console.log("Updated itemNm : ", itemNm.value);  // 변경된 itemCd 값 출력

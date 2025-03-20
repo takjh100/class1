@@ -31,12 +31,18 @@ public class TB_PR_MTController extends HttpServlet {
 			test_TB_MB_1000MT_DAO dao2 = new test_TB_MB_1000MT_DAO();
 			List wemberList = dao2.selectTestMemberList();
 
+			// test_TB_MD_1000MTDAO 조회 회원정보
+			TB_MD_1000MTDAO dao3 = new TB_MD_1000MTDAO();
+			List StandardList = dao3.selectTestStandardList();
+
 			request.setAttribute("resultList", resultList);
 			request.setAttribute("type", "1110");
 
 			request.setAttribute("workList", workList);
 
 			request.setAttribute("wemberList", wemberList);
+
+			request.setAttribute("StandardList", StandardList);
 
 			String url = "/pr_popup_tak.jsp";
 //			String url = "/WEB-INF/views/pr_popup_tak.jsp";
@@ -54,6 +60,14 @@ public class TB_PR_MTController extends HttpServlet {
 			test_TB_MB_1000MT_DAO dao2 = new test_TB_MB_1000MT_DAO();
 			List wemberList = dao2.selectTestMemberList();
 
+			// test_TB_MD_1000MTDAO 조회 회원정보
+			TB_MD_1000MTDAO dao3 = new TB_MD_1000MTDAO();
+			List StandardList = dao3.selectTestStandardList();
+
+			// test_TB_MD_1000MTDAO 조회 라인코드,라인명
+			TB_MD_1000MTDAO dao4 = new TB_MD_1000MTDAO();
+			List LineList = dao4.selectTestLineList();
+
 			request.setAttribute("resultList", resultList);
 			request.setAttribute("type", "1100");
 
@@ -61,7 +75,46 @@ public class TB_PR_MTController extends HttpServlet {
 
 			request.setAttribute("wemberList", wemberList);
 
+			request.setAttribute("StandardList", StandardList);
+			
+			request.setAttribute("LineList", LineList);
+
 			String url = "/pm_popup_tak.jsp";
+			request.getRequestDispatcher(url).forward(request, response);
+		} else {
+			// TB_PR_1110MTDTO 조회 생산일정
+			TB_PR_1110MTDAO dao = new TB_PR_1110MTDAO();
+			List resultList = dao.selectTBPRList();
+
+			// test_TB_PR_1000MT_DAO 조회 작업지시서
+			test_TB_PR_1000MT_DAO dao1 = new test_TB_PR_1000MT_DAO();
+			List workList = dao1.selectTestWorkList();
+
+			// test_TB_MB_1000MT_DAO 조회 회원정보
+			test_TB_MB_1000MT_DAO dao2 = new test_TB_MB_1000MT_DAO();
+			List wemberList = dao2.selectTestMemberList();
+
+			// test_TB_MD_1000MTDAO 조회 기준정보 품명,품목코드
+			TB_MD_1000MTDAO dao3 = new TB_MD_1000MTDAO();
+			List StandardList = dao3.selectTestStandardList();
+
+			// test_TB_MD_1000MTDAO 조회 라인코드,라인명
+			TB_MD_1000MTDAO dao4 = new TB_MD_1000MTDAO();
+			List LineList = dao4.selectTestLineList();
+
+			request.setAttribute("resultList", resultList);
+			request.setAttribute("type", "1110");
+
+			request.setAttribute("workList", workList);
+
+			request.setAttribute("wemberList", wemberList);
+
+			request.setAttribute("StandardList", StandardList);
+
+			request.setAttribute("LineList", LineList);
+
+			String url = "/tb_pr_detail.jsp";
+//						String url = "/WEB-INF/views/pr_popup_tak.jsp";
 			request.getRequestDispatcher(url).forward(request, response);
 		}
 
@@ -93,7 +146,7 @@ public class TB_PR_MTController extends HttpServlet {
 				int trgProdCnt = Integer.parseInt(request.getParameter("trgProdCnt"));
 				String prodStrtDt = request.getParameter("prodStrtDt");
 				String prodEndDt = request.getParameter("prodEndDt");
-				String itemCd = request.getParameter("ITEM_CD");
+				String itemCd = request.getParameter("itemCd");
 
 				TB_PR_1110MTDTO dto = new TB_PR_1110MTDTO();
 				dto.setProd_pln_cd(prodPlnCd);
@@ -115,7 +168,7 @@ public class TB_PR_MTController extends HttpServlet {
 				String itemCd = request.getParameter("ITEM_CD");
 //				String prodStrtTime = request.getParameter("PROD_STRT_TIME");
 //				String prodEndTime = request.getParameter("prodEndTime");
-				int indcQntt = Integer.parseInt(request.getParameter("INDC_QNTT")); //지시수량 넘어오게끔 추후
+				int indcQntt = Integer.parseInt(request.getParameter("INDC_QNTT")); // 지시수량 넘어오게끔 추후
 				int prodQntt = Integer.parseInt(request.getParameter("PROD_QNTT"));
 				String workNm = request.getParameter("WORK_NM");
 //				String eqpmOprtSttsVal = request.getParameter("eqpmOprtSttsVal");
@@ -161,10 +214,10 @@ public class TB_PR_MTController extends HttpServlet {
 				dto.setProd_strt_dt(prodStrtDt);
 				dto.setProd_end_dt(prodEndDt);
 				dto.setItem_cd(itemCd);
-				
+
 				System.out.println("itemNm :" + itemNm);
 				System.out.println("itemCd :" + itemCd);
-				
+
 				TB_PR_1110MTDAO dao = new TB_PR_1110MTDAO();
 				int result = dao.update(dto);
 				System.out.println("Update result: " + result);
