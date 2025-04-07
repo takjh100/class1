@@ -2,17 +2,17 @@ package kr.or.human.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import kr.or.human.dto.EmpDTO;
 
 public interface EmpService {
 
-	@Autowired
-	EmpService empService;
+	public List<EmpDTO> getEmpList();
 	
+	public EmpDTO getEmpOne();
 	
-	@Override
-	public List<EmpDTO> getEmpList(){
-		
-		return null;
-	}
+	public EmpDTO getEmpno(int empno);
+	
+	public EmpDTO getEmpno2(EmpDTO empDTO);
+	
+	public int modifyEmp(EmpDTO empDTO);
 }
