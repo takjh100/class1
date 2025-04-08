@@ -1,0 +1,10 @@
+D:\workspace\workspace_cs\WindowsFormsCalc\bin\Debug\WindowsFormsCalc.exe.config
+D:\workspace\workspace_cs\WindowsFormsCalc\bin\Debug\WindowsFormsCalc.exe
+D:\workspace\workspace_cs\WindowsFormsCalc\bin\Debug\WindowsFormsCalc.pdb
+D:\workspace\workspace_cs\WindowsFormsCalc\obj\Debug\WindowsFormsCalc.csproj.AssemblyReference.cache
+D:\workspace\workspace_cs\WindowsFormsCalc\obj\Debug\WindowsFormsCalc.Form1.resources
+D:\workspace\workspace_cs\WindowsFormsCalc\obj\Debug\WindowsFormsCalc.Properties.Resources.resources
+D:\workspace\workspace_cs\WindowsFormsCalc\obj\Debug\WindowsFormsCalc.csproj.GenerateResource.cache
+D:\workspace\workspace_cs\WindowsFormsCalc\obj\Debug\WindowsFormsCalc.csproj.CoreCompileInputs.cache
+D:\workspace\workspace_cs\WindowsFormsCalc\obj\Debug\WindowsFormsCalc.exe
+D:\workspace\workspace_cs\WindowsFormsCalc\obj\Debug\WindowsFormsCalc.pdb
