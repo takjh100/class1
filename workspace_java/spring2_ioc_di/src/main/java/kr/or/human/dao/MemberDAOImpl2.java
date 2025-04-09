@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Primary
+@Primary 
 public class MemberDAOImpl2 implements MemberDAO {
 	MemberDAOImpl2(){
 		System.out.println("MemberDAOImpl2 생성자 실행");

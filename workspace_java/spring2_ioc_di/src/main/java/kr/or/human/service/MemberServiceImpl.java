@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import kr.or.human.dao.MemberDAO;
@@ -14,20 +16,17 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("MemberServiceImpl 생성자 실행");
 	}
 	
-	// IoC
-	// inversion of Control
-	// 제어의 역전
-	// 타입에 맞는 클래스를 찾아서 대신 생성 해줌
-	// 정확히 동일한 클래스 또는 자동 형변환 되는 클래스
-	
-	// DI
-	// Dependency Injection
-	// 의존성 주입
-	// IoC로 생성한 클래스를 변수에 넣어준다
-	
+	// @Autowired의 대상 bean의 후보가 두개 이상이라면
+	// 우선순위 1.@Qualifier(Bean id)에 해당하는 객체 찾기
+	//       2.@Primary 객체 찾기
+	//       3. 둘다 없으면 변수명과 Bean id가 같은 것 찾기
 	@Autowired
-//	@Qualifier("memberDAOImpl")
+//	@Qualifier("memberDAOImpl") //@Qualifier : 특정한 (@Repository) Bean id 를 가지고오는 어노테이션
 	MemberDAO memberDAO;
+	
+	// @Autowired, @Resource, @Injest 비슷비슷하게 IoC, DI를 해줌
+	
+	
 	
 	@Override
 	public List getList() {
