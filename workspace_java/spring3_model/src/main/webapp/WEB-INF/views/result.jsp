@@ -11,6 +11,6 @@
  	id1 : ${id1 }<br>
  	id2 : ${id2 }<br>
  	dto.id : ${dto.id}<br>
- 	memberDTO : ${memberDTO.id}<br>
+ 	memberDTO : ${memberDTO}<br>
 </body>
 </html>

@@ -3,12 +3,10 @@
   "WorkspaceRootPath": "D:\\workspace\\workspace_cs\\WindowsFormsCalc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F1992EF-1BFD-451E-820B-C62F1BF6B189}|WindowsFormsCalc.csproj|d:\\workspace\\workspace_cs\\windowsformscalc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F1992EF-1BFD-451E-820B-C62F1BF6B189}|WindowsFormsCalc.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F1992EF-1BFD-451E-820B-C62F1BF6B189}|WindowsFormsCalc.csproj|c:\\users\\admin\\desktop\\\uC2DC\uD5D8 \uC81C\uCD9C.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F1992EF-1BFD-451E-820B-C62F1BF6B189}|WindowsFormsCalc.csproj|d:\\workspace\\workspace_cs\\windowsformscalc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9F1992EF-1BFD-451E-820B-C62F1BF6B189}|WindowsFormsCalc.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9F1992EF-1BFD-451E-820B-C62F1BF6B189}|WindowsFormsCalc.csproj|c:\\users\\admin\\desktop\\\uC2DC\uD5D8 \uC81C\uCD9C.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,16 +16,14 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\workspace\\workspace_cs\\WindowsFormsCalc\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\workspace\\workspace_cs\\WindowsFormsCalc\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
+              "DocumentIndex": 1,
+              "Title": "\uC2DC\uD5D8 \uC81C\uCD9C.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\\uC2DC\uD5D8 \uC81C\uCD9C.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\\uC2DC\uD5D8 \uC81C\uCD9C.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAAwMIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-08T02:19:33.993Z",
@@ -35,12 +31,10 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "D:\\workspace\\workspace_cs\\WindowsFormsCalc\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\workspace\\workspace_cs\\WindowsFormsCalc\\Form1.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "Form1.cs [\uB514\uC790\uC778]",
+              "DocumentIndex": 0,
+              "Title": "\uC2DC\uD5D8 \uC81C\uCD9C.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\\uC2DC\uD5D8 \uC81C\uCD9C.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\\uC2DC\uD5D8 \uC81C\uCD9C.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-08T02:46:41.679Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
