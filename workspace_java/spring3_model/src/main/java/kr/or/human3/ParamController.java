@@ -120,10 +120,16 @@ public class ParamController {
 		return "result";
 	}
 
-	//샌드 리다이렉트로 들어오는 방법 redirect:
+	//샌드 리다이렉트로 들어오는 방법 redirect: 주소가 /login.do 으로 변경됨
 	@RequestMapping("/login5")
 	public String login5() {
 		return "redirect:login.do";
+	}
+
+	//포워드 로 들어오는 방법 forward: 주소가 /login5_1으로 유지됨
+	@RequestMapping("/login5_1")
+	public String login5_1() {
+		return "forward:login.do";
 	}
 
 	@RequestMapping("/login6")
