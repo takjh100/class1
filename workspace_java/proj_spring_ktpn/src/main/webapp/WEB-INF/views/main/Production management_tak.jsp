@@ -61,7 +61,7 @@
 								</table>
 								<table class="pm_table">
 
-									<c:forEach var="dto" items="${resultList2 }">
+									<c:forEach var="dto" items="${pr_1100mt }">
 										<form method="post" action="tb_pr_mt">
 										<tr>
 

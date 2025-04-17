@@ -20,6 +20,18 @@
 <select id="PR_1100MT" resultType="TAK_PR_1100MTDTO" parameterType="TAK_PR_1100MTDTO">
 	select * from TB_PR_1100MT
 </select>
+<!-- 생산 테이블 A라인 -->
+<select id="PR_1100MT_A" resultType="TAK_PR_1100MTDTO" parameterType="TAK_PR_1100MTDTO">
+	select * from TB_PR_1100MT WHERE liun_nm LIKE 'A%'
+</select>
+<!-- 생산 테이블 B라인 -->
+<select id="PR_1100MT_B" resultType="TAK_PR_1100MTDTO" parameterType="TAK_PR_1100MTDTO">
+	select * from TB_PR_1100MT WHERE liun_nm LIKE 'B%'
+</select>
+<!-- 생산 테이블 C라인 -->
+<select id="PR_1100MT_C" resultType="TAK_PR_1100MTDTO" parameterType="TAK_PR_1100MTDTO">
+	select * from TB_PR_1100MT WHERE liun_nm LIKE 'C%'
+</select>
 <!-- 생산일정 테이블 -->
 <select id="PR_1110MT" resultType="TAK_PR_1110MTDTO" parameterType="TAK_PR_1110MTDTO">
 	select * from TB_PR_1110MT

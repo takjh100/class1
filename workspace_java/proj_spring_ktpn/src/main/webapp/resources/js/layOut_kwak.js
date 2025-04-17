@@ -62,7 +62,7 @@ function init(){
                 window.location.href="/ktpn/"
             } else if (e.target.textContent=='생산관리'){
                 // 생산관리 메인 
-                window.location.href="#"
+                window.location.href="tb_pr_mt"
             } else if (e.target.textContent=='생산리포팅'){
                 // 생산리포팅 메인 
                 window.location.href="#"
