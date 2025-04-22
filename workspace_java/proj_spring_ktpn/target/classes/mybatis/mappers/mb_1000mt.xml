@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.TB_MB_1000MT">
+
+<!-- 회원정보 테이블 기원씨 업로드후 xml파일삭제 -->
+<select id="selectMb" resultType="DTO_mb_1000mt" parameterType="DTO_mb_1000mt">
+	select * from TB_MB_1000MT
+</select>
+
+</mapper>

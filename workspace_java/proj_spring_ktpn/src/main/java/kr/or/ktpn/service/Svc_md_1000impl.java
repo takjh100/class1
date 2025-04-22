@@ -23,4 +23,17 @@ public class Svc_md_1000impl implements Svc_md_1000mt {
 	        return list;
 	    }
 	    
+	//생산관리관련 데이터    
+	    @Override
+	    public List<DTO_md_1000mt> selectDAO_P() {
+	        // DAO 메소드에 dto를 전달합니다.
+	        List<DTO_md_1000mt> list = mdDAO.selectDTO_P();
+	        return list;
+	    }
+	    @Override
+	    public List<DTO_md_1000mt> selectDAO_L() {
+	    	// DAO 메소드에 dto를 전달합니다.
+	    	List<DTO_md_1000mt> list = mdDAO.selectDTO_L();
+	    	return list;
+	    }
 }

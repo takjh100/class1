@@ -11,13 +11,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <!-- 여기에 대시보드 css 파일옮기기 -->
-<link rel="stylesheet" href="resources/css/layOut_tak.css">
+<link rel="stylesheet" href="resources/css/layOut_kwak.css">
 <link rel="stylesheet" href="resources/css/Production management_tak.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-<script src="resources/js/layOut_tak.js"></script>
+<script src="resources/js/layOut_kwak.js"></script>
 <script src="resources/js/Production management_tak.js"></script>
 <style>
 /******************
@@ -47,7 +47,7 @@
 							</div>
 
 							<div class="ssTable" id="ssLine0">
-								<table>
+								<table class="sticky">
 									<tr class="tableTop">
 										<th class="cs1">설비</th>
 										<th class="cs2">생산코드</th>
@@ -79,7 +79,7 @@
 								</table>
 							</div>
 							<div class="ssTable hide" id="ssLine1">
-								<table>
+								<table class="sticky">
 									<tr class="tableTop">
 										<th class="cs1">설비</th>
 										<th class="cs2">생산코드</th>
@@ -92,7 +92,7 @@
 									</tr>
 								</table>
 								<table class="pm_table">
-									<c:forEach var="dto" items="${ALineList }">
+									<c:forEach var="dto" items="${pr_1100mt_a }">
 										<form method="post" action="tb_pr_mt">
 										<tr>
 
@@ -110,7 +110,7 @@
 								</table>
 							</div>
 							<div class="ssTable hide" id="ssLine2">
-								<table>
+								<table class="sticky">
 									<tr class="tableTop">
 										<th class="cs1">설비</th>
 										<th class="cs2">생산코드</th>
@@ -123,7 +123,7 @@
 									</tr>
 								</table>
 								<table class="pm_table">
-									<c:forEach var="dto" items="${BLineList }">
+									<c:forEach var="dto" items="${pr_1100mt_b }">
 										<form method="post" action="tb_pr_mt">
 										<tr>
 
@@ -141,7 +141,7 @@
 								</table>
 							</div>
 							<div class="ssTable hide" id="ssLine3">
-								<table>
+								<table class="sticky">
 									<tr class="tableTop">
 										<th class="cs1">설비</th>
 										<th class="cs2">제품코드</th>
@@ -154,7 +154,7 @@
 									</tr>
 								</table>
 								<table class="pm_table">
-									<c:forEach var="dto" items="${CLineList }">
+									<c:forEach var="dto" items="${pr_1100mt_c }">
 										<form method="post" action="tb_pr_mt">
 										<tr>
 
@@ -188,7 +188,7 @@
 									</div>
 									<hr>
 									<div class="schedule_con">
-										<table>
+										<table class="sticky">
 											<tr class="tableTop">
 												<th class="schedule1">생산일정코드</th>
 												<th class="schedule2">품번코드</th>
@@ -200,7 +200,7 @@
 										</table>
 										<table class="pr_table">
 
-											<c:forEach var="dto" items="${resultList1 }">
+											<c:forEach var="dto" items="${pr_1110mt }">
 												<form method="post" action="tb_pr_mt">
 													<tr>
 														<td class="schedule1">${dto.prod_pln_cd}</td>

@@ -21,8 +21,8 @@ public class TB_PR_1110MTDAO {
 			Connection con = ds.getConnection();
 
 			// [SQL 준비]
-			String query = "INSERT INTO TB_PR_1110MT (PROD_PLN_CD, ITEM_NM, TRG_PROD_CNT, PROD_STRT_DT, PROD_END_DT, ITEM_CD) "
-					+ "VALUES ('PR_'||to_char(sysdate,'yymm')||'_'||LPAD(SQ_PR_1110MT.nextval,4,0), ?, ?, ?, ?, ?)";
+			String query = "INSERT INTO TB_PR_1110MT (PROD_PLN_CD, ITEM_NM, TRG_PROD_CNT, PROD_STRT_DT, PROD_END_DT, ITEM_CD,PROD_END_COB) "
+					+ "VALUES ('PR_'||to_char(sysdate,'yymm')||'_'||LPAD(SQ_PR_1110MT.nextval,4,0), ?, ?, ?, ?, ?,'N')";
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, dto.getItem_nm());
 			ps.setInt(2, dto.getTrg_prod_cnt());

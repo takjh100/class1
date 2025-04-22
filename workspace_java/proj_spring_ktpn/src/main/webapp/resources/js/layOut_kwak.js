@@ -65,7 +65,7 @@ function init(){
                 window.location.href="tb_pr_mt"
             } else if (e.target.textContent=='생산리포팅'){
                 // 생산리포팅 메인 
-                window.location.href="#"
+                window.location.href="tb_pr_mt2"
             } else if (e.target.textContent=='자재관리'){
                 // 자재관리 메인 
                 window.location.href="#"

@@ -1,5 +1,5 @@
 .hide {
-    display: none; 
+	display: none;
 }
 
 .menuPage-con {
@@ -27,6 +27,13 @@
 .tableTop {
 	background-color: #2f373a;
 	color: white;
+	position: sticky;
+	top: 50px;
+}
+
+.sticky {
+	position: sticky;
+	top: 0px;
 }
 
 .ssLine td {
@@ -141,8 +148,9 @@
 	color: white;
 	border: 1px solid #2f373a;
 	width: 380px;
-	height: 340px;
+	height: 342px;
 }
+
 .ssretouch_box2 {
 	background-color: #2f373a;
 	color: white;
@@ -226,7 +234,7 @@
 	background-color: white;
 	color: black;
 	width: 100%;
-	height: 346px;
+	height: 344px;
 	/* text-align: left; */
 	display: flex;
 	flex-direction: column;
@@ -418,7 +426,6 @@
 	.ssTitle {
 		font-size: 15px;
 	}
-	
 	.schedule {
 		margin: 0 3%;
 	}

@@ -18,6 +18,7 @@
     </where>
 </select>
 
+
 <!-- 추가(insert) SQL 구문 -->
     <insert id="insertMd" parameterType="kr.or.ktpn.dto.DTO_md_1000mt">
         INSERT INTO tb_md_1000mt (MT_MNG_CD, MT_MNG_NM, MT_MNG_DESC, IMG_PATH_ADR, TP_CLS_VAL)
