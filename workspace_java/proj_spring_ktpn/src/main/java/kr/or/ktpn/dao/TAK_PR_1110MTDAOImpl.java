@@ -12,6 +12,8 @@ import kr.or.ktpn.dto.TAK_PR_1110MTDTO;
 @Repository
 public class TAK_PR_1110MTDAOImpl implements TAK_PR_1110MTDAO {
 
+	private final String namespace = "ProductionScheduleMapper";
+	
 	@Autowired
 	SqlSession sqlSession;
 	
@@ -47,6 +49,14 @@ public class TAK_PR_1110MTDAOImpl implements TAK_PR_1110MTDAO {
 		
 		return updateCount;
 	}
+//	일정조회
+	@Override
+    public List<TAK_PR_1110MTDTO> findByDateRange(TAK_PR_1110MTDTO dto) {
+        return sqlSession.selectList("mapper.TAK_PR_1100MTDTO.findByDateRange", dto);
+    }
+	
+	
+	
 
 
 }

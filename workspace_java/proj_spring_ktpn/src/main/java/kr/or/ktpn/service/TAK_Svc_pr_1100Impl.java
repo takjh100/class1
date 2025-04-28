@@ -65,6 +65,15 @@ public class TAK_Svc_pr_1100Impl implements TAK_Svc_pr_1100mt {
 		return PR_1100MTSVC_update;
 	}
 	
+	//생산관리관련 데이터
+//	 작업중
+	 @Override
+	 public List selectDAO_Y() {
+		 
+		 List PR_1000MTSVC = tb_pr_1100MTDAO.selectDTO_Y();
+		 System.out.println("PR_1000MTSVC : "+PR_1000MTSVC);
+		 return PR_1000MTSVC;
+	 }
 	
 	
 }

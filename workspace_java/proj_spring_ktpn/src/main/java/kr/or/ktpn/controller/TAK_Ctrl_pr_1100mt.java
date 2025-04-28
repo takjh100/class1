@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.ktpn.dto.DTO_md_1000mt;
@@ -60,14 +62,16 @@ public class TAK_Ctrl_pr_1100mt {
 		List<TAK_PR_1100MTDTO> selectList = svc_pr_1100mt.selectDAO();
 		List<DTO_md_1000mt> list_P = svcMd.selectDAO_P();
 		List<DTO_md_1000mt> list_L = svcMd.selectDAO_L();
-		List<DTO_pr_1000mt> pr_1000mt = svc_pr_1000mt.selectDAO();
+		List<DTO_pr_1000mt> pm_1000mt_N = svc_pr_1000mt.selectDAO_N();
+		List<TAK_PR_1100MTDTO> pm_1100mt_Y = svc_pr_1100mt.selectDAO_Y();
 		List<KW_DTO_MB_1000MT> mb_1000mt = svc_mb_1000mt.getMemberlist();
 
 
 		model.addAttribute("pm_1100mt", selectList);
 		model.addAttribute("md_1000mt_P", list_P);
 		model.addAttribute("md_1000mt_L", list_L);
-		model.addAttribute("pr_1000mt", pr_1000mt);
+		model.addAttribute("pm_1000mt_N", pm_1000mt_N);
+		model.addAttribute("pm_1100mt_Y", pm_1100mt_Y);
 		model.addAttribute("mb_1000mt", mb_1000mt);
 		return "popup/pm_popup_tak";
 	}
@@ -163,5 +167,34 @@ public class TAK_Ctrl_pr_1100mt {
 		model.addAttribute("md_1000mt_P", list_P);
 		return "popup/pr_popup_tak";
 	}
+	
+//  일정조회
+	@RequestMapping(value = "search", method = RequestMethod.GET)
+	public String searchSchedule(@RequestParam("startDate") String startDate,
+	                             @RequestParam("endDate") String endDate,
+	                             Model model) {
 
+	    // 날짜 범위 설정
+	    TAK_PR_1110MTDTO dto = new TAK_PR_1110MTDTO();
+	    dto.setSearchStartDate(startDate);
+	    dto.setSearchEndDate(endDate);
+	    
+	    //기존 생산 셀렉
+	    List<TAK_PR_1100MTDTO> selectList = svc_pr_1100mt.selectDAO();
+		List<TAK_PR_1100MTDTO> selectList_a = svc_pr_1100mt.selectDAO_A();
+		List<TAK_PR_1100MTDTO> selectList_b = svc_pr_1100mt.selectDAO_B();
+		List<TAK_PR_1100MTDTO> selectList_c = svc_pr_1100mt.selectDAO_C();
+
+		model.addAttribute("pr_1100mt", selectList);
+		model.addAttribute("pr_1100mt_a", selectList_a);
+		model.addAttribute("pr_1100mt_b", selectList_b);
+		model.addAttribute("pr_1100mt_c", selectList_c);
+	    
+
+	    // 날짜 범위로 일정 조회
+	    List<TAK_PR_1110MTDTO> result = svc_pr_1110mt.searchByDateRange(dto);
+	    model.addAttribute("pr_1110mt", result);
+
+	    return "Production management_tak.tiles";
+	}
 }

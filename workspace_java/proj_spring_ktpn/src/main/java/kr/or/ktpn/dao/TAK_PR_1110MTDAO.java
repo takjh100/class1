@@ -15,4 +15,14 @@ public interface TAK_PR_1110MTDAO {
 //	pr_popup 수정,완료
 	public int updateDTO(TAK_PR_1110MTDTO dto);
 	public int completeDTO(TAK_PR_1110MTDTO dto);
+	
+	//일정 조회
+	
+	
+	public List<TAK_PR_1110MTDTO> findByDateRange(TAK_PR_1110MTDTO dto);
+	
+	
+	
+	
+	
 }

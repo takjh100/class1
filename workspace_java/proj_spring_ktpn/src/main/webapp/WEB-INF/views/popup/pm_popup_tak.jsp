@@ -21,138 +21,216 @@
 <body>
 	<!-- 생산라인수정창 -->
 	<div class="ssretouch_box1">
-		<dlv class="pm_correction">
-		<div class="boxTit">생산 관리</div>
-		<div class="pm_ssmanu">
-		<div>
-<!-- 							<form method="post" action="tb_pr_mt"> -->
-			<div>
-				<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
-					<div style="margin-right: 60px;">라인 :</div>
+		<div class="pm_correction">
+			<div class="boxTit">생산 관리</div>
+			<div class="pm_ssmanu">
+				<div>
+					<!-- 							<form method="post" action="tb_pr_mt"> -->
 					<div>
-						<select id="select1" name="liunNm" onchange="change1()">
-							<option value="선택">선택</option>
-							<c:forEach var="dto" items="${md_1000mt_L }">
-								<option mt_mng_cd="${dto.MT_MNG_CD }" value="${dto.MT_MNG_NM }" >${dto.MT_MNG_NM }</option>
+						<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
+							<div style="margin-right: 60px;">라인 :</div>
+							<div>
+								<select id="select1" name="liunNm" onchange="change1()">
+									<option value="선택">선택</option>
+									<c:forEach var="dto" items="${md_1000mt_L }">
+										<option mt_mng_cd="${dto.MT_MNG_CD }"
+											value="${dto.MT_MNG_NM }">${dto.MT_MNG_NM }</option>
+									</c:forEach>
+								</select>
+							</div>
+
+						</div>
+
+
+
+						<input type="hidden" id="mtMngCd" name="mtMngCd" value="">
+
+						<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
+							<div style="width: 80px;">생산 코드 :</div>
+							<div>
+								<!-- 같이 받을 데이터 변수에 넣어서 출력 -->
+								<select id="select2" name="prodcd" onchange="change2()">
+									<option value="선택">선택</option>
+									<c:forEach var="dto" items="${pm_1000mt_N }">
+										<option value="${dto.prod_cd }" indc_qntt1="${dto.indc_qntt }">
+											${dto.prod_cd }</option>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<input type="hidden" id="indc_qntt" name="indcQntt"
+						value="${dto.indc_qntt }">
+
+					<div class="pm_correction_con">
+						<div style="width: 100px;">품목코드:</div>
+						<select class="itemCd" id="MT_MNG_CD" name="itemCd">
+							<c:forEach var="dto" items="${md_1000mt_P }">
+								<option value="${dto.MT_MNG_CD }">${dto.MT_MNG_CD }</option>
+							</c:forEach>
+						</select>
+						<!-- <div class="itemCd" type="text" style="width: 50px;">SS-01</div> -->
+					</div>
+					<div class="pm_correction_con">
+						<div class="timeSet" style="width: 100px;">생산시작시간:</div>
+						<input id="newDate" type="text" style="color: gray;"
+							name="PROD_STRT_TIME" value="현재 시간">
+					</div>
+					<div class="pm_correction_con">
+						<div style="width: 100px;">생산자:</div>
+						<select name=workNm id="mbr_nm">
+							<c:forEach var="dto" items="${mb_1000mt }">
+								<option value="${dto.mbr_nm }">${dto.mbr_nm }</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="pm_correction_con">
+						<div style="width: 100px;">품명:</div>
+						<select class="itemNm" name="itemNm" id="MT_MNG_NM">
+							<c:forEach var="dto" items="${md_1000mt_P }">
+								<option value="${dto.MT_MNG_NM }">${dto.MT_MNG_NM }</option>
 							</c:forEach>
 						</select>
 					</div>
 
-				</div>
+					<div class="ttssText1">
+						<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
+							<div class="sstext" style="width: 100px;">생산수량 :</div>
+							<input name="prodQntt" id="prodQntt" value="">
+						</div>
+					</div>
+					<div class="ttssText2 hide">
+						<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
+							<div class="sstext" style="width: 100px;">불량수량 :</div>
+							<input name="dfcRt" id="dfcRt" value="">
+						</div>
+					</div>
+					<div class="pm_correction_but">
+						<select class="pm_correction_but_con" id="crud" name="command">
+							<option value="insert">시작</option>
+							<option value="update">수정</option>
+							<option value="complete">완료</option>
+						</select> <input type="hidden" name="type" value="${type}">
+						<div style="margin: 0;">
+							<input class="pm_correction_but_con end" id="modify" type="button"
+								value="등록">
 
-				<script>
-					//데이터 가져올때 연관된 데이터 한번에 가져오는 코드 라인명에 맞는 라인코드
-					function change1() {
-
-						var select = document.getElementById('select1');
-						var select_option = select.options[select.selectedIndex];
-
-						var mt_mng_cd = select_option.getAttribute("MT_MNG_CD");
-						console.log("MT_MNG_CD : ", mt_mng_cd);
-						document.getElementById('mtMngCd').value = mt_mng_cd;
-					}
-				</script>
-
-				<input type="hidden" id="mtMngCd" name="mtMngCd"
-					value="">
-
-				<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
-					<div style="width: 80px;">생산 코드 :</div>
-					<div>
-						<!-- 같이 받을 데이터 변수에 넣어서 출력 -->
-						<select id="select2" name="prodcd" onchange="change2()">
-							<option value="선택">선택</option>
-							<c:forEach var="dto" items="${pr_1000mt }">
-								<option value="${dto.prod_cd }" indc_qntt1="${dto.indc_qntt }">
-									${dto.prod_cd }</option>
-							</c:forEach>
-						</select>
+							<!--<button type="submit" name="command", value="update">등록</button> -->
+						</div>
 					</div>
 				</div>
+				<!-- 							</form> -->
 			</div>
-
-			<script>
-				//데이터 가져올때 연관된 데이터 한번에 가져오는 코드
-
-				function change2() {
-
-					var select = document.getElementById('select2');
-					var select_option = select.options[select.selectedIndex];
-
-					var indc_qntt = select_option.getAttribute("indc_qntt1");
-					console.log("indc_qntt : ", indc_qntt);
-					document.getElementById('indc_qntt').value = indc_qntt;
-				}
-			</script>
-
-			<input type="hidden" id="indc_qntt" name="indcQntt"
-				value="${dto.indc_qntt }">
-
-			<div class="pm_correction_con">
-				<div style="width: 100px;">품목코드:</div>
-				<select class="itemCd" id="MT_MNG_CD" name="itemCd">
-					<c:forEach var="dto" items="${md_1000mt_P }">
-						<option value="${dto.MT_MNG_CD }">${dto.MT_MNG_CD }</option>
-					</c:forEach>
-				</select>
-				<!-- <div class="itemCd" type="text" style="width: 50px;">SS-01</div> -->
-			</div>
-			<div class="pm_correction_con">
-				<div class="timeSet" style="width: 100px;">생산시작시간:</div>
-				<input id="newDate" type="text" style="color: gray;"
-					name="PROD_STRT_TIME" value="현재 시간">
-			</div>
-			<div class="pm_correction_con">
-				<div style="width: 100px;">생산자:</div>
-				<select name=workNm id="mbr_nm">
-					<c:forEach var="dto" items="${mb_1000mt }">
-						<option value="${dto.mbr_nm }">${dto.mbr_nm }</option>
-					</c:forEach>
-				</select>
-			</div>
-			<div class="pm_correction_con">
-				<div style="width: 100px;">품명:</div>
-				<select class="itemNm" name="itemNm" id="MT_MNG_NM">
-					<c:forEach var="dto" items="${md_1000mt_P }">
-						<option value="${dto.MT_MNG_NM }">${dto.MT_MNG_NM }</option>
-					</c:forEach>
-				</select>
-			</div>
-
-			<div class="ttssText1">
-				<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
-					<div class="sstext" style="width: 100px;">생산수량 :</div>
-					<input name="prodQntt" id="prodQntt" value="">
-				</div>
-			</div>
-			<div class="ttssText2 hide">
-				<div class="pm_correction_con" style="margin: 10px 20px 5px 0;">
-					<div class="sstext" style="width: 100px;">불량수량 :</div>
-					<input name="dfcRt" id="dfcRt" value="">
-				</div>
-			</div>
-			<div class="pm_correction_but">
-				<select class="pm_correction_but_con" id="crud" name="command">
-					<option value="insert">시작</option>
-					<option value="update">수정</option>
-					<option value="complete">완료</option>
-				</select> <input type="hidden" name="type" value="${type}">
-				<div class="end" style="margin: 0;">
-					<input class="pm_correction_but_con" id="modify" type="button"
-						value="등록">
-
-					<!--<button type="submit" name="command", value="update">등록</button> -->
-				</div>
-			</div>
-			</div>
-<!-- 							</form> -->
+			</dlv>
 		</div>
-		</dlv>
-	</div>
+		<script>
+//데이터 가져올때 연관된 데이터 한번에 가져오는 코드 라인명에 맞는 라인코드
+function change1() {
 
+	var select = document.getElementById('select1');
+	var select_option = select.options[select.selectedIndex];
+
+	var mt_mng_cd = select_option.getAttribute("MT_MNG_CD");
+	console.log("MT_MNG_CD : ", mt_mng_cd);
+	document.getElementById('mtMngCd').value = mt_mng_cd;
+}
+
+function change2() {
+	const select = document.getElementById('select2');
+	const selectedOption = select.options[select.selectedIndex];
+
+	if (!selectedOption || selectedOption.value === "선택") return;
+
+	// 연관 속성 값 가져오기
+	const mtMngCd = selectedOption.getAttribute("mtMngCd");
+	const liunNm = selectedOption.getAttribute("liunNm");
+	const itemNm = selectedOption.getAttribute("itemNm");
+	const itemCd = selectedOption.getAttribute("itemCd");
+	const mbrNm = selectedOption.getAttribute("mbrNm");
+	const prodQntt = selectedOption.getAttribute("prodQntt");
+	const indc_qntt = selectedOption.getAttribute("indc_qntt1");
+
+	console.log("선택된 생산코드 속성:", {
+		mtMngCd,
+		liunNm,
+		itemNm,
+		itemCd,
+		mbrNm,
+		prodQntt,
+		indc_qntt
+	});
+
+	// 값 자동 세팅
+	if (mtMngCd) document.getElementById("mtMngCd").value = mtMngCd;
+	if (liunNm) document.getElementById("select1").value = liunNm;
+	if (itemNm) document.getElementById("MT_MNG_NM").value = itemNm;
+	if (itemCd) document.getElementById("MT_MNG_CD").value = itemCd;
+	if (mbrNm) document.getElementById("mbr_nm").value = mbrNm;
+	if (prodQntt) document.getElementById("prodQntt").value = prodQntt;
+	if (indc_qntt) document.getElementById("indc_qntt").value = indc_qntt;
+}
+</script>
 </body>
 
 <script>
+let pmBut = document.querySelector('.pm_correction_but_con')
+pmBut.addEventListener('change', function (evt) {
+
+    if (pmBut.value == 'insert') {
+      //작업전 생산코드 표출
+        var select_N = document.querySelector('#select2');
+        select_N.innerHTML=`
+		<option value="선택">선택</option>
+						<c:forEach var="dto" items="${pm_1000mt_N }">
+							<option value="${dto.prod_cd }" indc_qntt1="${dto.indc_qntt }">
+								${dto.prod_cd }</option>
+						</c:forEach>
+	`;
+        
+    }else if (pmBut.value == 'update'){
+
+      //작업전중생산코드 표출
+        var select_Y = document.querySelector('#select2');
+        select_Y.innerHTML=`
+		<option value="선택">선택</option>
+						<c:forEach var="dto" items="${pm_1100mt_Y }">
+							<option value="${dto.prod_cd }" indc_qntt1="${dto.indc_qntt }"
+								mtMngCd="${dto.mt_mng_cd }"
+								liunNm="${dto.liun_nm}"
+								itemNm="${dto.item_nm}"
+								itemCd="${dto.item_cd}"
+								mbrNm="${dto.work_nm}"
+								prodQntt="${dto.prod_qntt}">
+								${dto.prod_cd }</option>
+						</c:forEach>
+	`;
+	
+	
+	
+    }else if (pmBut.value == 'complete'){
+		
+//작업전중생산코드 표출
+        var select_Y = document.querySelector('#select2');
+        select_Y.innerHTML=`
+		<option value="선택">선택</option>
+						<c:forEach var="dto" items="${pm_1100mt_Y }">
+							<option value="${dto.prod_cd }" indc_qntt1="${dto.indc_qntt }"
+									mtMngCd="${dto.mt_mng_cd }"	
+									liunNm="${dto.liun_nm}"
+									itemNm="${dto.item_nm}"
+									itemCd="${dto.item_cd}"
+									mbrNm="${dto.work_nm}"
+									prodQntt="${dto.prod_qntt}">
+								${dto.prod_cd }</option>
+						</c:forEach>
+	`;
+	
+    }
+})
+
+
+//등록 클릭시 해당 데이터 보냄
 	document.querySelector("#modify").addEventListener("click",
 			function(event) {
 				event.preventDefault();
@@ -244,6 +322,7 @@ console.log("crud : "+ crud )
 					}
 				}
 			})
+			
 </script>
 
 </html>

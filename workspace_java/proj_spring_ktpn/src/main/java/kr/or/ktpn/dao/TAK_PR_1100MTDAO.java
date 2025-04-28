@@ -16,4 +16,8 @@ public interface TAK_PR_1100MTDAO {
 //	pm_popup 수정,완료
 	public int updateDTO(TAK_PR_1100MTDTO dto);
 	public int completeDTO(TAK_PR_1100MTDTO dto);
+	
+	//생산관리관련 데이터
+//	작업중
+	public List<TAK_PR_1100MTDTO> selectDTO_Y();
 }

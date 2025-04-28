@@ -9,6 +9,7 @@ import kr.or.ktpn.dto.DTO_md_1000mt;
 import kr.or.ktpn.dto.DTO_pr_1000mt;
 import kr.or.ktpn.dto.DTO_pr_insert;
 import kr.or.ktpn.dto.DTO_rt_1000mt;
+import kr.or.ktpn.dto.TAK_PR_1100MTDTO;
 
 public interface DAO_pr_1000mt {
 
@@ -23,7 +24,6 @@ public interface DAO_pr_1000mt {
 	public int updateRt(DTO_rt_1000mt dto) ;
 	public int delMd(DTO_md_1000mt dto);
 	
-	//생산관리관련 데이터
-	
-	public List<DTO_pr_1000mt> selectDTO();
+//	생산관리 데이터 작업전
+	public List<DTO_pr_1000mt> selectDTO_N();
 }

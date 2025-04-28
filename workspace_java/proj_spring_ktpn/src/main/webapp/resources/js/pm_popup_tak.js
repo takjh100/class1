@@ -25,7 +25,7 @@ function init() {
 
         // itemCd 값을 업데이트
         if (itemNms == "싹싹지우개") {
-            itemCd.value = "P0006";  // itemCd의 값을 'SS-01'로 변경
+            itemCd.value = "P0036";  // itemCd의 값을 'SS-01'로 변경
         } else if (itemNms == "하츄핑지우개") {
             itemCd.value = "P0033";  // itemCd의 값을 'HH-01'로 변경
         }
@@ -44,7 +44,7 @@ function init() {
         console.log("bbbbb", itemCd.value);  // 기존 itemCd 값 출력
 
         // itemCd 값을 업데이트
-        if (itemCds == "P0006") {
+        if (itemCds == "P0036") {
             itemNm.value = "싹싹지우개";  // itemCd의 값을 'SS-01'로 변경
         } else if (itemCds == "P0033") {
             itemNm.value = "하츄핑지우개";  // itemCd의 값을 'HH-01'로 변경
@@ -62,6 +62,7 @@ function init() {
             timeSet.innerHTML="생산시작시간";
             ttssText1.classList.remove('hide');
             ttssText2.classList.add('hide');
+            
         }else if (pmBut.value == 'update'){
             let ttssText1 = document.querySelector('.ttssText1');
             let ttssText2 = document.querySelector('.ttssText2');
@@ -69,6 +70,7 @@ function init() {
             timeSet.innerHTML="생산수정시간";
             ttssText1.classList.remove('hide');
             ttssText2.classList.add('hide');
+            
         }else if (pmBut.value == 'complete'){
             let ttssText1 = document.querySelector('.ttssText1');
             let ttssText2 = document.querySelector('.ttssText2');
@@ -76,17 +78,23 @@ function init() {
             timeSet.innerHTML="생산종료시간";
             ttssText1.classList.add('hide');
             ttssText2.classList.remove('hide');
+            
         }
     })
     
     
     
-    //document.querySelector('.end').addEventListener('click', function () {
-    	//settimeout(function(){
-	      //  window.open('a','_self').close();
-	       // opener.parent.location.reload();
-  //  	}, 300)
-  //  });
+   document.querySelector('.end').addEventListener('click', function () {
+    setTimeout(function(){
+        // 부모 창 새로고침
+        if (window.opener && !window.opener.closed) {
+            window.opener.location.reload();
+        }
+
+        // 팝업 닫기
+        window.close();
+    }, 300);
+});
     
     
     

@@ -70,5 +70,16 @@ public class TAK_PR_1100MTDAOImpl implements TAK_PR_1100MTDAO {
 		
 		return updateCount;
 	}
+	
+	//생산관리관련 데이터
+//	작업중
+	@Override
+	public List<TAK_PR_1100MTDTO> selectDTO_Y() {
+		
+		List<TAK_PR_1100MTDTO> PR_1100MTDAO = sqlSession.selectList("mapper.TAK_PR_1100MTDTO.PR_1100MT_Y");
+		System.out.println("PR_1100MTDAO : " + PR_1100MTDAO);
+		
+		return PR_1100MTDAO;
+	}
 
 }

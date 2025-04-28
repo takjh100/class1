@@ -50,13 +50,14 @@ public class Svc_pr_1000impl implements Svc_pr_1000mt {
 		 return countUpdate;
 	 }
 	 
-	    
-	//생산관리관련 데이터
+//	 작업전
 	 @Override
-		public List selectDAO() {
+		public List selectDAO_N() {
 
-			List PR_1000MTSVC = mdDAO.selectDTO();
+			List PR_1000MTSVC = mdDAO.selectDTO_N();
 			System.out.println("PR_1000MTSVC : "+PR_1000MTSVC);
 			return PR_1000MTSVC;
 		}
+	    
+	
 }

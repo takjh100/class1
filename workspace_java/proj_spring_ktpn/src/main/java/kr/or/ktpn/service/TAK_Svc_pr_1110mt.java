@@ -14,4 +14,6 @@ public interface TAK_Svc_pr_1110mt {
 //	pr_popup 수정,완료
 	public int updateDAO(TAK_PR_1110MTDTO dto);
 	public int completeDAO(TAK_PR_1110MTDTO dto);
+	
+	public List<TAK_PR_1110MTDTO> searchByDateRange(TAK_PR_1110MTDTO dto);
 }

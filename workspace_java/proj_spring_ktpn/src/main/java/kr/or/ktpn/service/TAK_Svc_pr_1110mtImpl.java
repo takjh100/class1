@@ -44,4 +44,10 @@ public class TAK_Svc_pr_1110mtImpl implements TAK_Svc_pr_1110mt {
 		System.out.println("PR_1100MTSVC_update : "+PR_1100MTSVC_update);
 		return PR_1100MTSVC_update;
 	}
+	
+	@Override
+    public List<TAK_PR_1110MTDTO> searchByDateRange(TAK_PR_1110MTDTO dto) {
+        return tb_pr_1110MTDAO.findByDateRange(dto);
+    }
 }
+

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.or.ktpn.dto.DTO_pr_1000mt;
 import kr.or.ktpn.dto.DTO_pr_insert;
+import kr.or.ktpn.dto.TAK_PR_1100MTDTO;
 
 public interface Svc_pr_1000mt {
 	
@@ -17,8 +18,7 @@ public interface Svc_pr_1000mt {
 	public List<Map<String,Object>> selectMbList();
 	public int insertPr(@RequestParam DTO_pr_insert dto);
 	
-	
-	//생산관리관련 데이터
-	public List<DTO_pr_1000mt> selectDAO();
-}
+//	작업전
+	public List<DTO_pr_1000mt> selectDAO_N();
+}	
  

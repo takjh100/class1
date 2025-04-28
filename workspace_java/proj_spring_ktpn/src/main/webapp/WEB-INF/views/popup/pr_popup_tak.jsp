@@ -32,26 +32,6 @@
 					<span>자동생성</span>
 				</div>
 
-				<script>
-				function change1() {
-
-			let select2 = document.querySelector('#select2');
-		    select2.innerHTML=`
-			<div style="width: 100px;">목표 수량:</div>
-			<input id="trgProdCnt" type="text" style="height: 18px;" name="trgProdCnt" value="">
-		`
-			
-			var select = document.getElementById('select1');
-			var select_option = select.options[select.selectedIndex];
-
-			var trg_prod_cnt = select_option
-			.getAttribute("trg_prod_cnt");
-			console.log("trg_prod_cnt : ", trg_prod_cnt);
-			document.getElementById('trgProdCnt').value = trg_prod_cnt;
-		}
-				</script>
-
-
 				<div class="pr_correction_con">
 					<div style="width: 100px;">품명:</div>
 					<select class="itemNm" name="itemNm" id="itemNm">
@@ -70,7 +50,8 @@
 				</div>
 				<div class="pr_correction_con " id="select2">
 					<div style="width: 100px;">목표 수량:</div>
-					<input type="text" style="height: 18px;" id="trgProdCnt"  name="trgProdCnt" value="">
+					<input type="text" style="height: 18px;" id="trgProdCnt"
+						name="trgProdCnt" value="">
 				</div>
 				<div class="pr_correction_con">
 					<div style="width: 150px;">기한설정:</div>
@@ -96,6 +77,34 @@
 		</div>
 	</div>
 	</div>
+			<script>
+//데이터 가져올때 연관된 데이터 한번에 가져오는 코드 라인명에 맞는 라인코드
+
+function change1() {
+	const select = document.getElementById('select1');
+	const selectedOption = select.options[select.selectedIndex];
+
+
+	// 연관 속성 값 가져오기
+	const trgProdCnt = selectedOption.getAttribute("trgProdCnt");
+	const itemNm = selectedOption.getAttribute("itemNm");
+	const itemCd = selectedOption.getAttribute("itemCd");
+	const prodStrtDt = selectedOption.getAttribute("prodStrtDt");
+	const prodEndDt = selectedOption.getAttribute("prodEndDt");
+
+	console.log("선택된 생산코드 속성:", {
+		itemNm,
+		itemCd,
+	});
+
+	// 값 자동 세팅
+	if (trgProdCnt) document.getElementById("trgProdCnt").value = trgProdCnt;
+	if (itemNm) document.getElementById("itemNm").value = itemNm;
+	if (itemCd) document.getElementById("itemCd").value = itemCd;
+	if (prodStrtDt) document.getElementById("prodStrtDt").value = prodStrtDt;
+	if (prodEndDt) document.getElementById("prodEndDt").value = prodEndDt;
+}
+</script>
 </body>
 <script>
 
@@ -109,6 +118,7 @@ pmBut.addEventListener('change', function (evt) {
         	<div style="width: 100px;">생산일정코드:</div>
 			<span>자동생성</span>
         `;
+      
         
     }else if (pmBut.value == 'update'){
         console.log("수정");
@@ -117,10 +127,17 @@ pmBut.addEventListener('change', function (evt) {
         	<div style="width: 100px;">생산일정코드:</div>
         	<select class="prodPlnCd" name="prodPlnCd" id="select1" onchange="change1()">
 			<c:forEach var="dto" items="${pr_1110mt }">
-				<option value="${dto.prod_pln_cd }" trg_prod_cnt="${dto.trg_prod_cnt }">${dto.prod_pln_cd }</option>
+				<option value="${dto.prod_pln_cd }" 
+						trgProdCnt="${dto.trg_prod_cnt }"
+						itemNm="${dto.item_nm}"
+						itemCd="${dto.item_cd}"
+						prodStrtDt="${dto.prod_strt_dt}"
+						prodEndDt="${dto.prod_end_dt}"
+						>${dto.prod_pln_cd }</option>
 			</c:forEach>
 		</select>
 `;
+
         
     }else if (pmBut.value == 'complete'){
 		
@@ -130,13 +147,17 @@ pmBut.addEventListener('change', function (evt) {
         	<div style="width: 100px;">생산일정코드:</div>
         	<select class="prodPlnCd" name="prodPlnCd" id="select1" onchange="change1()">
 			<c:forEach var="dto" items="${pr_1110mt }">
-				<option value="${dto.prod_pln_cd }" trg_prod_cnt="${dto.trg_prod_cnt }">${dto.prod_pln_cd }</option>
+				<option value="${dto.prod_pln_cd }" 
+					trgProdCnt="${dto.trg_prod_cnt }"
+						itemNm="${dto.item_nm}"
+						itemCd="${dto.item_cd}"
+						prodStrtDt="${dto.prod_strt_dt}"
+						prodEndDt="${dto.prod_end_dt}"
+						>${dto.prod_pln_cd }</option>
 			</c:forEach>
 		</select>
 `;
 
-
-		
 	
     }
 })

@@ -148,7 +148,7 @@
 	color: white;
 	border: 1px solid #2f373a;
 	width: 380px;
-	height: 342px;
+	height: 362px;
 }
 
 .ssretouch_box2 {
@@ -156,7 +156,7 @@
 	color: white;
 	border: 1px solid #2f373a;
 	width: 380px;
-	height: 380px;
+	height: 386px;
 }
 
 .schedule_con {
@@ -179,7 +179,7 @@
 	background-color: white;
 	color: black;
 	width: 100%;
-	height: 306px;
+	height: 326px;
 	/* text-align: left; */
 	display: flex;
 	flex-direction: column;
@@ -215,7 +215,7 @@
 .pm_correction_but {
 	/* border: 1px solid red; */
 	height: 23px;
-	width: 350px;
+	width: 312px;
 	display: flex;
 	justify-content: center;
 }
@@ -234,7 +234,7 @@
 	background-color: white;
 	color: black;
 	width: 100%;
-	height: 344px;
+	height: 350px;
 	/* text-align: left; */
 	display: flex;
 	flex-direction: column;
