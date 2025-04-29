@@ -374,71 +374,7 @@ function init() {
  
 
 
-    //품목별 금일 총 생산량 셀렉별 표시변환
-    let pr_bay = document.querySelector('.pr_bay')
-    console.log("pr_bay : ", pr_bay)
-    pr_bay.addEventListener('click', function (evt) {
-        let pr_bays = evt.target.value
-        console.log("pr_bays : ", pr_bays)
-        let ssTotal1 = document.querySelector('#ssTotal1')
-        console.log("bbbbb", ssTotal1)
-
-        if (pr_bays == "1") {
-            ssTotal1.innerHTML = "24ea";
-        } else if (pr_bays == "2") {
-            ssTotal1.innerHTML = "19ea";
-        } else if (pr_bays == "3") {
-            ssTotal1.innerHTML = "21ea";
-        } else if (pr_bays == "4") {
-            ssTotal1.innerHTML = "23ea";
-        } else if (pr_bays == "5") {
-            ssTotal1.innerHTML = "27ea";
-        }
-    })
-
-    //품목별 주간별 총 생산량 셀렉별 표시변환
-    let pm_week = document.querySelector('.pm_week')
-    console.log("pm_week : ", pm_week)
-    pm_week.addEventListener('click', function (evt) {
-        let pm_weeks = evt.target.value
-        console.log("pm_weeks : ", pm_weeks)
-        let ssTotal2 = document.querySelector('#ssTotal2')
-        console.log("bbbbb", ssTotal2)
-
-        if (pm_weeks == "1") {
-            ssTotal2.innerHTML = "213ea";
-        } else if (pm_weeks == "2") {
-            ssTotal2.innerHTML = "227ea";
-        } else if (pm_weeks == "3") {
-            ssTotal2.innerHTML = "208ea";
-        } else if (pm_weeks == "4") {
-            ssTotal2.innerHTML = "198ea";
-        } else if (pm_weeks == "5") {
-            ssTotal2.innerHTML = "231ea";
-        }
-    })
-
-    //품목별 월별 총 생산량 셀렉별 표시변환
-    let pm_month = document.querySelector('.pm_month')
-    console.log("pm_month : ", pm_month)
-    pm_month.addEventListener('click', function (evt) {
-        let pm_months = evt.target.value
-        console.log("pm_months : ", pm_months)
-        let ssTotal3 = document.querySelector('#ssTotal3')
-        console.log("bbbbb", ssTotal3)
-
-        if (pm_months == "1") {
-            ssTotal3.innerHTML = "935ea";
-        } else if (pm_months == "2") {
-            ssTotal3.innerHTML = "892ea";
-        } else if (pm_months == "3") {
-            ssTotal3.innerHTML = "914ea";
-        } else if (pm_months == "4") {
-            ssTotal3.innerHTML = "951ea";
-        } else if (pm_months == "5") {
-            ssTotal3.innerHTML = "962ea";
-        }
-    })
+   
 
     // <!-- 일별 A라인 -->
 
@@ -549,42 +485,7 @@ function init() {
         })
 
 
-        let myChart_pi = echarts.init(document.getElementById('main_pi'))
-
-        option = {
-            title: {
-                text: '월 통계 자료',
-                subtext: '',
-                left: 'center'
-            },
-            tooltip: {
-                trigger: 'item'
-            },
-            legend: {
-                orient: 'vertical',
-                left: 'left'
-            },
-            series: [
-                {
-                    name: 'KTPN',
-                    type: 'pie',
-                    radius: '50%',
-                    data: [
-                        { value: 1048, name: '월 목표량' },
-                        { value: 735, name: '월 생산량' },
-                        { value: 735, name: '월 불량률' },
-                    ],
-                    emphasis: {
-                        itemStyle: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        myChart_pi.setOption(option)
+        
 
 
     
